@@ -1,23 +1,16 @@
 {
-  description = "A very basic flake";
+  description = "OS setup";
 
   inputs = {
-    unstable-nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
   };
 
-  outputs = { nixpkgs, unstable-nixpkgs, ... } @ inputs:
-  let
-    pkgs = nixpkgs.legacyPackages.x86_64-linux;
-    unstable-pkgs = unstable-nixpkgs.legacyPackages.x86_64-linux;
-  in
+  outputs = { nixpkgs, ... } @ inputs:
   {
-    packages.x86_64-linux.default = pkgs.zsh;
-
-    devShells.x86_64-linux.default = pkgs.mkShell {
-      buildInputs = [
-        pkgs.neovim
-        pkgs.vim
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; }; # same as inputs = inputs
+      modules = [
+        ./configuration.nix
       ];
     };
   };
