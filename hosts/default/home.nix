@@ -19,8 +19,6 @@
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
-  myPrograms.neovim.enable = true;
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -57,6 +55,7 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
 
+    # TODO: migrate to flakes
     ".config/nvim" = {
       source = inputs.init-lua;
       target = ".config/nvim";
