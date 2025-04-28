@@ -15,11 +15,18 @@
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    myModules = {
+        neovim = import ./modules/neovim.nix;
+    };
   in
   {
     nixosConfigurations = {
       default = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; }; # same as inputs = inputs
+        inherit system;
+        specialArgs = {
+          inherit inputs; # same as inputs = inputs
+          inherit myModules;
+	};
         modules = [
           ./hosts/default/configuration.nix
         ];

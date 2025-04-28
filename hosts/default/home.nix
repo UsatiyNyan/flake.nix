@@ -1,6 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, myModules, ... }:
 
 {
+  imports = [
+    myModules.neovim
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "us4tiyny4n";
@@ -14,6 +17,8 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
+
+  myPrograms.neovim.enable = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -68,7 +73,7 @@
   #  /etc/profiles/per-user/root/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.
