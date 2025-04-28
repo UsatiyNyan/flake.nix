@@ -3,6 +3,7 @@
 {
   imports = [
     myModules.ide.neovim
+    myModules.de.hyprland
   ];
 
   # Home Manager needs a bit of information about you and the paths it should

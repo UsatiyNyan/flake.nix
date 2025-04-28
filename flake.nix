@@ -14,6 +14,12 @@
       url = "github:UsatiyNyan/init.lua";
       flake = false;
     };
+
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+        url = "github:hyprwm/hyprland-plugins";
+        inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs = { nixpkgs, home-manager, ... } @ inputs:
@@ -23,6 +29,9 @@
     myModules = {
         ide = {
           neovim = import ./modules/ide/neovim.nix;
+        };
+        de = {
+          hyprland = import ./modules/de/hyprland.nix;
         };
     };
   in
