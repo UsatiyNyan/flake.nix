@@ -21,7 +21,9 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     myModules = {
-        neovim = import ./modules/neovim.nix;
+        ide = {
+          neovim = import ./modules/ide/neovim.nix;
+        };
     };
   in
   {
@@ -31,7 +33,7 @@
         specialArgs = {
           inherit inputs; # same as inputs = inputs
           inherit myModules;
-	};
+	    };
         modules = [
           ./hosts/default/configuration.nix
         ];

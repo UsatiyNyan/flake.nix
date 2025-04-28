@@ -2,8 +2,9 @@
 
 {
   imports = [
-    myModules.neovim
+    myModules.ide.neovim
   ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "us4tiyny4n";
