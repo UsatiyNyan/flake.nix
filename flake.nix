@@ -12,13 +12,24 @@
   };
 
   outputs = { nixpkgs, home-manager, ... } @ inputs:
+  let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in
   {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; }; # same as inputs = inputs
-      modules = [
-        ./configuration.nix
-	home-manager.nixosModules.home-manager
-      ];
+    nixosConfigurations = {
+      default = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; }; # same as inputs = inputs
+        modules = [
+          ./hosts/default/configuration.nix
+        ];
+      };
+      # raspberrypi = nixpkgs.lib.nixosSystem {
+      #   specialArgs = { inherit inputs; };
+      #   modules = [
+      #     ./hosts/raspberrypi/configuration.nix
+      #   ];
+      # };
     };
   };
 }
