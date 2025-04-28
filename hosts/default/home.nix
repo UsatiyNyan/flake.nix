@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, myModules, ... }:
+{ lib, config, pkgs, inputs, myModules, ... }:
 
 {
   imports = [
@@ -22,7 +22,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -41,6 +41,7 @@
     # '')
   ];
 
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -54,6 +55,13 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+
+    ".config/nvim" = {
+      source = inputs.init-lua;
+      target = ".config/nvim";
+      recursive = true;
+      force = true;
+    };
   };
 
   # Home Manager can also manage your environment variables through
@@ -74,6 +82,7 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    XDG_CONFIG_HOME = "$HOME/.config";
   };
 
   # Let Home Manager install and manage itself.

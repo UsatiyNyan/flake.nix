@@ -119,6 +119,7 @@
   environment.systemPackages = with pkgs; [
     wget
     git
+    vim
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

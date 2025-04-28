@@ -20,6 +20,22 @@
         "type": "github"
       }
     },
+    "init-lua": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745870546,
+        "narHash": "sha256-1/S+YOk1YB1Wjk+f+CxqSFWX8lr1FMkr01iSOOY5WJg=",
+        "owner": "UsatiyNyan",
+        "repo": "init.lua",
+        "rev": "69e86d412457df2439c9caa61b1bf38dfaa74682",
+        "type": "github"
+      },
+      "original": {
+        "owner": "UsatiyNyan",
+        "repo": "init.lua",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1745526057,
@@ -39,6 +55,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "init-lua": "init-lua",
         "nixpkgs": "nixpkgs"
       }
     }

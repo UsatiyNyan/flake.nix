@@ -9,6 +9,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    init-lua = {
+      url = "github:UsatiyNyan/init.lua";
+      flake = false;
+    };
   };
 
   outputs = { nixpkgs, home-manager, ... } @ inputs:

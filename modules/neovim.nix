@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, inputs, ... }:
 
 {
   options.myPrograms.neovim.enable = lib.mkEnableOption "Enable neovim module";
@@ -7,8 +7,7 @@
     programs.neovim = {
       enable = true;
 
-      viAlias = true;
-      vimAlias = true;
+      # TODO: setup plugins from here?
     };
   };
 }
