@@ -26,6 +26,8 @@
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    user = "us4tiyny4n";
+    myConfiguration = ./configuration;
     myModules = {
         ide = {
           neovim = import ./modules/ide/neovim.nix;
@@ -38,10 +40,9 @@
   {
     nixosConfigurations = {
       default = nixpkgs.lib.nixosSystem {
-        inherit system;
+        inherit system; # same as system = system
         specialArgs = {
-          inherit inputs; # same as inputs = inputs
-          inherit myModules;
+          inherit inputs user myConfiguration myModules;
 	    };
         modules = [
           ./hosts/default/configuration.nix

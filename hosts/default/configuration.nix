@@ -2,13 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, myModules, ... }:
+{ config, pkgs, inputs, user, myConfiguration, myModules, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.home-manager
+      myConfiguration
     ];
 
   # Bootloader.
@@ -93,26 +94,14 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.us4tiyny4n = {
-    isNormalUser = true;
-    description = "Kira";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
-  };
-
   home-manager = {
     extraSpecialArgs = {
-      inherit inputs; 
-      inherit myModules;
+      inherit inputs myModules;
     };
     useGlobalPkgs = true;
     useUserPackages = true;
     users = {
-      "us4tiyny4n" = import ./home.nix;
+      "${user}" = import ./home.nix;
     };
   };
 
