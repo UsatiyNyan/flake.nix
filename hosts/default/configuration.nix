@@ -74,7 +74,8 @@
   hardware.bluetooth.enable = true;
 
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
+  hardware.pulseaudio.enable = false;
+  # services.pulseaudio.enable = false; in unstable
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
