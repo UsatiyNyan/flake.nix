@@ -40,13 +40,13 @@
   in
   {
     nixosConfigurations = {
-      default = nixpkgs.lib.nixosSystem {
+      ${hostName} = nixpkgs.lib.nixosSystem {
         inherit system; # same as system = system
         specialArgs = {
           inherit inputs user hostName myConfiguration myModules;
 	    };
         modules = [
-          ./hosts/default/configuration.nix
+          ./hosts/${hostName}/configuration.nix
         ];
       };
       # raspberrypi = nixpkgs.lib.nixosSystem {
