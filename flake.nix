@@ -30,11 +30,14 @@
 
     myConfiguration = ./configuration;
     myModules = {
+        dot = {
+          home = ./modules/dot/home.nix;
+        };
         ide = {
-          neovim = import ./modules/ide/neovim.nix;
+          neovim = ./modules/ide/neovim.nix;
         };
         de = {
-          hyprland = import ./modules/de/hyprland.nix;
+          hyprland = ./modules/de/hyprland.nix;
         };
     };
 
@@ -54,10 +57,15 @@
   {
     nixosConfigurations = nixpkgs.lib.foldl' 
       (accConfigs: aHost:
-      accConfigs // {
-        "${aHost.hostName}" = makeSystem {
-          hostName = aHost.hostName;
-        };
-      }) {} hosts;
+       accConfigs // { "${aHost.hostName}" = makeSystem { hostName = aHost.hostName; }; })
+      {} hosts;
+
+    homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      extraSpecialArgs = {
+        inherit inputs user myModules;
+      };
+      modules = [ myModules.dot.home ];
+    };
   };
 }

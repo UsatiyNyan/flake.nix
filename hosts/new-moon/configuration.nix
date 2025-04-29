@@ -73,17 +73,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  home-manager = {
-    extraSpecialArgs = {
-      inherit inputs myModules;
-    };
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users = {
-      "${user}" = import ./home.nix;
-    };
-  };
-
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -93,6 +82,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    home-manager
     wget
     git
     vim
@@ -118,5 +108,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }
