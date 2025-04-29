@@ -5,5 +5,6 @@
     ./boot.nix
     ./nix.nix
     ./networking.nix
+    ./timezone.nix
   ];
 }
