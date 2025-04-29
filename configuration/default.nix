@@ -4,5 +4,6 @@
     ./home-manager.nix
     ./boot.nix
     ./nix.nix
+    ./networking.nix
   ];
 }

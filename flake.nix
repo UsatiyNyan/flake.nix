@@ -27,6 +27,7 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     user = "us4tiyny4n";
+    hostName = "new-moon";
     myConfiguration = ./configuration;
     myModules = {
         ide = {
@@ -42,7 +43,7 @@
       default = nixpkgs.lib.nixosSystem {
         inherit system; # same as system = system
         specialArgs = {
-          inherit inputs user myConfiguration myModules;
+          inherit inputs user hostName myConfiguration myModules;
 	    };
         modules = [
           ./hosts/default/configuration.nix
