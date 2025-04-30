@@ -9,5 +9,6 @@
     ./locale.nix
     ./cups.nix
     ./bluetooth.nix
+    ./sound.nix
   ];
 }
