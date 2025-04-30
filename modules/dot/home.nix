@@ -1,9 +1,9 @@
-{ lib, config, pkgs, inputs, user, myModules, ... }:
+{ lib, config, pkgs, inputs, user, my, ... }:
 
 {
-  imports = [
-    myModules.ide.neovim
-    myModules.desktop.hyprland
+  imports = with my.modules; [
+    ide.neovim
+    desktop.hyprland
   ];
 
   home = {

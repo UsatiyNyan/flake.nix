@@ -25,11 +25,13 @@
   outputs = { nixpkgs, home-manager, ... } @ inputs:
   let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
     user = "us4tiyny4n";
 
-    myConfiguration = ./configuration;
-    myModules = import ./modules;
+    my = {
+      configuration = ./configuration;
+      optionalConfiguration = import ./optional-configuration;
+      modules = import ./modules;
+    };
 
     hosts = [
       { hostName = "new-moon"; description = "laptop"; }
@@ -38,9 +40,7 @@
 
     makeSystem = { hostName }: nixpkgs.lib.nixosSystem {
       inherit system; # same as system = system
-      specialArgs = {
-        inherit inputs user hostName myConfiguration myModules;
-	  };
+      specialArgs = { inherit inputs user hostName my; };
       modules = [ ./hosts/${hostName}/configuration.nix ];
     };
   in
@@ -51,11 +51,9 @@
       {} hosts;
 
     homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      extraSpecialArgs = {
-        inherit inputs user myModules;
-      };
-      modules = [ myModules.dot.home ];
+      pkgs = nixpkgs.legacyPackages.${system};
+      extraSpecialArgs = { inherit inputs user my; };
+      modules = [ my.modules.dot.home ];
     };
   };
 }

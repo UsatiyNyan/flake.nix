@@ -2,13 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, user, myConfiguration, myModules, ... }:
+{ config, pkgs, inputs, user, my, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      myConfiguration
+      my.configuration
+
+      my.optionalConfiguration.sddm
+      my.optionalConfiguration.x11
+      my.optionalConfiguration.plazma6
+      my.optionalConfiguration.hyprland
     ];
 
   # List packages installed in system profile. To search, run:
@@ -22,31 +27,6 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver = {
-      enable = true;
-      # Configure keymap in X11
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-  };
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-
-    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;
