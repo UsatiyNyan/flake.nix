@@ -8,5 +8,6 @@
     ./timezone.nix
     ./locale.nix
     ./cups.nix
+    ./bluetooth.nix
   ];
 }
