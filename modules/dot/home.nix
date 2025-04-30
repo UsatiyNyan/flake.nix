@@ -6,6 +6,7 @@ in
   imports = with my.modules; [
     dot.zsh
     dot.alacritty
+    dot.tmux
     ide.neovim
     desktop.hyprland
   ];

@@ -1,4 +1,4 @@
-{ config, inputs, ... }:
+{ config, inputs, user, ... }:
 
 {
   home.file.".config/oh-my-zsh/themes/ultima.zsh-theme".source = inputs.omz-ultima-theme + /ultima.zsh-theme;
@@ -19,6 +19,11 @@
       zstyle ':completion:*' matcher-list 'm:{a-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
       eval "$(zoxide init zsh)"
+
+      # Start Tmux automatically if not already running. No Tmux in TTY
+      if [ -z "$TMUX" ] && [ -n "$DISPLAY" ]; then
+        tmux attach-session -t ${user} || tmux new-session -s ${user}
+      fi
     '';
 
     oh-my-zsh = {
