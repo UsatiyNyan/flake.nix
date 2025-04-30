@@ -21,6 +21,11 @@
       flake = false;
     };
 
+    alacritty-rose-pine = {
+      url = "github:rose-pine/alacritty";
+      flake = false;
+    };
+
     init-lua = {
       url = "github:UsatiyNyan/init.lua";
       flake = false;

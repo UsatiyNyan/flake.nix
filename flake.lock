@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "alacritty-rose-pine": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1689254175,
+        "narHash": "sha256-LU8H4e5bzCevaabDgVmbWoiVq7iJ4C1VfQrWGpRwLq0=",
+        "owner": "rose-pine",
+        "repo": "alacritty",
+        "rev": "3c3e36eb5225b0eb6f1aa989f9d9e783a5b47a83",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rose-pine",
+        "repo": "alacritty",
+        "type": "github"
+      }
+    },
     "aquamarine": {
       "inputs": {
         "hyprutils": [
@@ -486,6 +502,7 @@
     },
     "root": {
       "inputs": {
+        "alacritty-rose-pine": "alacritty-rose-pine",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
