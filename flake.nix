@@ -10,15 +10,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    init-lua = {
-      url = "github:UsatiyNyan/init.lua";
-      flake = false;
-    };
-
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
         url = "github:hyprwm/hyprland-plugins";
         inputs.hyprland.follows = "hyprland";
+    };
+
+    omz-ultima-theme = {
+      url = "github:egorlem/ultima.zsh-theme";
+      flake = false;
+    };
+
+    init-lua = {
+      url = "github:UsatiyNyan/init.lua";
+      flake = false;
     };
   };
 

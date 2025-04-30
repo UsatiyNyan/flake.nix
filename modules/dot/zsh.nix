@@ -1,0 +1,29 @@
+{ config, inputs, ... }:
+
+{
+  home.file.".config/oh-my-zsh/themes/ultima.zsh-theme".source = inputs.omz-ultima-theme + /ultima.zsh-theme;
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    history = {
+      size = 10000;
+      path = "${config.xdg.dataHome}/zsh/history";
+    };
+
+    initExtra = ''
+      # Match results that include your partial input anywhere within the completion candidates.
+      zstyle ':completion:*' matcher-list 'm:{a-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+    '';
+
+    oh-my-zsh = {
+      enable = true;
+      theme = "ultima"; # downloaded in home.nix :3
+      custom = "${config.xdg.configHome}/oh-my-zsh";
+      plugins = [ "git" ];
+    };
+  };
+}

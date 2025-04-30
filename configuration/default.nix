@@ -1,6 +1,7 @@
 {
   imports = [
     ./user.nix
+    ./zsh.nix
     ./home-manager.nix
     ./boot.nix
     ./nix.nix

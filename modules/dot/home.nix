@@ -1,7 +1,10 @@
 { lib, config, pkgs, inputs, user, my, ... }:
-
+let
+  xdgBinPath = "$HOME/.local/bin";
+in
 {
   imports = with my.modules; [
+    dot.zsh
     ide.neovim
     desktop.hyprland
   ];
@@ -45,7 +48,6 @@
     # '')
   ];
 
-
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -85,9 +87,10 @@
   #
   #  /etc/profiles/per-user/root/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
+  home.sessionPath = [ xdgBinPath ];
+  home.sessionVariables = rec {
     EDITOR = "nvim";
-    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_BIN_HOME = xdgBinPath;
   };
 
   programs = {
