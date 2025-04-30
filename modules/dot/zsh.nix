@@ -17,6 +17,8 @@
     initExtra = ''
       # Match results that include your partial input anywhere within the completion candidates.
       zstyle ':completion:*' matcher-list 'm:{a-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+
+      eval "$(zoxide init zsh)"
     '';
 
     oh-my-zsh = {
