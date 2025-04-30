@@ -1,4 +1,4 @@
-{ lib, config, pkgs, inputs, user, my, ... }:
+{ lib, config, pkgs, user, my, ... }:
 let
   xdgBinPath = "$HOME/.local/bin";
 in
@@ -61,14 +61,6 @@ in
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-
-    # TODO: migrate to flakes
-    ".config/nvim" = {
-      source = inputs.init-lua;
-      target = ".config/nvim";
-      recursive = true;
-      force = true;
-    };
   };
 
   # Home Manager can also manage your environment variables through
@@ -88,8 +80,7 @@ in
   #  /etc/profiles/per-user/root/etc/profile.d/hm-session-vars.sh
   #
   home.sessionPath = [ xdgBinPath ];
-  home.sessionVariables = rec {
-    EDITOR = "nvim";
+  home.sessionVariables = {
     XDG_BIN_HOME = xdgBinPath;
   };
 
