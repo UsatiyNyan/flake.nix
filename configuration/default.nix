@@ -7,5 +7,6 @@
     ./networking.nix
     ./timezone.nix
     ./locale.nix
+    ./cups.nix
   ];
 }
