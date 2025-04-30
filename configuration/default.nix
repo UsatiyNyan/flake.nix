@@ -6,5 +6,6 @@
     ./nix.nix
     ./networking.nix
     ./timezone.nix
+    ./locale.nix
   ];
 }
