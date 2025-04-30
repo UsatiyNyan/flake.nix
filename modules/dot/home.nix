@@ -3,7 +3,7 @@
 {
   imports = [
     myModules.ide.neovim
-    myModules.de.hyprland
+    myModules.desktop.hyprland
   ];
 
   home = {

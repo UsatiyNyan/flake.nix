@@ -29,17 +29,7 @@
     user = "us4tiyny4n";
 
     myConfiguration = ./configuration;
-    myModules = {
-        dot = {
-          home = ./modules/dot/home.nix;
-        };
-        ide = {
-          neovim = ./modules/ide/neovim.nix;
-        };
-        de = {
-          hyprland = ./modules/de/hyprland.nix;
-        };
-    };
+    myModules = import ./modules;
 
     hosts = [
       { hostName = "new-moon"; description = "laptop"; }
