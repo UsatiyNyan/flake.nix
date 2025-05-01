@@ -53,17 +53,25 @@
       specialArgs = { inherit inputs user hostName my; };
       modules = [ ./hosts/${hostName}/configuration.nix ];
     };
+
+    makeHomeConfiguration = { hostName }: home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
+      extraSpecialArgs = { inherit inputs user my; };
+      modules = [
+        my.modules.dot.home
+        ./hosts/${hostName}/home.nix
+      ];
+    };
   in
   {
     nixosConfigurations = nixpkgs.lib.foldl' 
-      (accConfigs: aHost:
-       accConfigs // { "${aHost.hostName}" = makeSystem { hostName = aHost.hostName; }; })
+      (accConfigs: { hostName, ... }:
+       accConfigs // { "${hostName}" = makeSystem { inherit hostName; }; })
       {} hosts;
 
-    homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      extraSpecialArgs = { inherit inputs user my; };
-      modules = [ my.modules.dot.home ];
-    };
+    homeConfigurations = nixpkgs.lib.foldl'
+      (accConfigs: { hostName, ... }:
+       accConfigs // { "${user}@${hostName}" = makeHomeConfiguration { inherit hostName; }; })
+      {} hosts;
   };
 }
