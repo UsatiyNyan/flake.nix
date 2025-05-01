@@ -19,6 +19,10 @@
       # split windows in current path
       bind '"' split-window -v -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
+
+      # rotate panes
+      bind r swap-pane -D
+      bind R swap-pane -U
     '';
 
     # https://github.com/NixOS/nixpkgs/blob/nixos-24.11/pkgs/misc/tmux-plugins/default.nix
