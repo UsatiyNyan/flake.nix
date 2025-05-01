@@ -26,21 +26,20 @@ in
     stateVersion = "24.11"; # Please read the comment before changing.
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    # TERMINAL
     wget
     git
     vim
     zoxide
+    btop
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
+    # It is sometimes useful to fine-tune packages, for example, by applying
+    # overrides. You can do that directly here, just don't forget the
+    # parentheses. Maybe you want to install Nerd Fonts with a limited number of
+    # fonts?
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 
     # # You can also create simple shell scripts directly inside your

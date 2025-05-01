@@ -8,7 +8,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      general.import = [ "${config.xdg.configHome}/alacritty/themes/rose-pine/rose-pine-moon.toml" ];
+      general.import = [ "${config.xdg.configHome}/alacritty/themes/rose-pine/rose-pine.toml" ];
 
       window = {
         decorations = "none";
