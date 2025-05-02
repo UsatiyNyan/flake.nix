@@ -1,4 +1,4 @@
 {
   neovim = ./neovim.nix;
-  nixvim = ./nixvim.nix;
+  nixvim = ./nixvim;
 }
