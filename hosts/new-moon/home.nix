@@ -4,6 +4,7 @@
     lang.cpp
     lang.lua
     lang.rust
+    lang.haskell
   ];
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
