@@ -10,7 +10,7 @@ in
         group = "YankHighlight";
         event = "TextYankPost";
         pattern = "*";
-        callback = mkRaw "vim.highlight.on_yank";
+        callback = mkRaw "function() vim.highlight.on_yank() end";
       }
       {
         event = [ "BufRead" "BufNewFile" ];
