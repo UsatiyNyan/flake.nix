@@ -54,5 +54,45 @@
 
       servers.nixd.enable = true;
     };
+
+    cmp = {
+      enable = true;
+
+      settings = {
+        completion.completeopt = "menu,menuone,noinsert";
+        snippet.expland = ''function(args) require('luasnip').lsp_expand(args.body) end'';
+
+        sources = [
+          { name = "nvim_lsp"; }
+          { name = "luasnip"; }
+          { name = "path"; trailing_slash = true; }
+          { name = "emoji"; }
+        ];
+
+        mapping = {
+          "<C-n>" = ''
+            function()
+              local cmp = require("cmp")
+              if cmp.visible() then
+                cmp.select_next_item()
+              else
+                cmp.complete()
+              end
+            end
+          '';
+          "<C-p>" = "cmp.mapping.select_prev_item()";
+          "<C-b>" = "cmp.mapping.scroll_docs(-4)";
+          "<C-f>" = "cmp.mapping.scroll_docs(4)";
+          "<C-y>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })";
+        };
+      };
+    };
+    cmp-nvim-lsp.enable = true;
+    luasnip.enable = true;
+    cmp_luasnip.enable = true;
+    cmp-path.enable = true;
+    cmp-emoji.enable = true;
+
+    comment.enable = true;
   };
 }
