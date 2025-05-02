@@ -7,7 +7,7 @@ in
     dot.zsh
     dot.alacritty
     dot.tmux
-    ide.neovim
+    ide.nixvim
     desktop.hyprland
   ];
 
