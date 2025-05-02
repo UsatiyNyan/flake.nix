@@ -1,5 +1,8 @@
 { lib, config, pkgs, user, my, ... }:
 {
+  imports = with my.modules; [
+    lang.cpp
+  ];
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
