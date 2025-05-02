@@ -6,6 +6,7 @@ in
     ./colors.nix
     ./fonts.nix
     ./navigation.nix
+    ./code.nix
   ];
 
   programs.nixvim = {
