@@ -3,6 +3,7 @@
   imports = with my.modules; [
     lang.cpp
     lang.lua
+    lang.rust
   ];
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
