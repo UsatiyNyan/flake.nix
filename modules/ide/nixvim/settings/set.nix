@@ -1,5 +1,8 @@
-{ config, user, ... }:
 {
+  config,
+  user,
+  ...
+}: {
   programs.nixvim = {
     opts = {
       guicursor = "";

@@ -1,22 +1,31 @@
-{ pkgs, config, ... }:
-let
+{
+  pkgs,
+  config,
+  ...
+}: let
   helpers = config.lib.nixvim;
   mkRaw = helpers.mkRaw;
   mkFun = x: mkRaw ("function () " + x + " end");
   mkCmd = x: "<cmd>" + x + "<CR>";
-in
-{
+in {
   programs.nixvim = {
     plugins = {
       treesitter = {
         enable = true;
         settings = {
           ensure_installed = [
-            "bash" "nix"
-            "c" "cpp" "glsl"
-            "lua" "python"
-            "javascript" "html"
-            "haskell" "ocaml" "rust"
+            "bash"
+            "nix"
+            "c"
+            "cpp"
+            "glsl"
+            "lua"
+            "python"
+            "javascript"
+            "html"
+            "haskell"
+            "ocaml"
+            "rust"
           ];
           sync_install = false;
           highlight.enable = true;
@@ -52,8 +61,6 @@ in
           nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
           nmap('<leader>dp', vim.lsp.buf.signature_help, '[D]ocument [P]arameters')
         '';
-
-        servers.nixd.enable = true;
       };
 
       cmp = {
@@ -64,10 +71,13 @@ in
           snippet.expland = ''function(args) require('luasnip').lsp_expand(args.body) end'';
 
           sources = [
-            { name = "nvim_lsp"; }
-            { name = "luasnip"; }
-            { name = "path"; trailing_slash = true; }
-            { name = "emoji"; }
+            {name = "nvim_lsp";}
+            {name = "luasnip";}
+            {
+              name = "path";
+              trailing_slash = true;
+            }
+            {name = "emoji";}
           ];
 
           mapping = {
@@ -115,14 +125,28 @@ in
 
     keymaps = [
       # dap
-      { mode = "n"; key = "<leader>db"; action = mkCmd "DapToggleBreakpoint"; options.desc = "DAP: Add breakpoint at line"; }
-      { mode = "n"; key = "<leader>dr"; action = mkCmd "DapContinue"; options.desc = "DAP: Start or continue the debugger"; }
-      { mode = "n"; key = "<leader>dus"; action = mkFun ''
+      {
+        mode = "n";
+        key = "<leader>db";
+        action = mkCmd "DapToggleBreakpoint";
+        options.desc = "DAP: Add breakpoint at line";
+      }
+      {
+        mode = "n";
+        key = "<leader>dr";
+        action = mkCmd "DapContinue";
+        options.desc = "DAP: Start or continue the debugger";
+      }
+      {
+        mode = "n";
+        key = "<leader>dus";
+        action = mkFun ''
           local widgets = require("dap.ui.widgets")
           local sidebar = widgets.sidebar(widgets.scopes)
           sidebar.open()
         '';
-        options.desc = "DAP: Open debugging sidebar"; }
+        options.desc = "DAP: Open debugging sidebar";
+      }
     ];
   };
 }

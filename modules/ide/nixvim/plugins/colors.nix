@@ -12,7 +12,7 @@
         enable = true;
         settings.style = "deep";
       };
-      
+
       oxocarbon.enable = true;
     };
 

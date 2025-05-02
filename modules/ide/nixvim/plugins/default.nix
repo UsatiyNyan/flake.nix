@@ -1,7 +1,6 @@
 let
   mkCmd = x: "<cmd>" + x + "<CR>";
-in
-{
+in {
   imports = [
     ./colors.nix
     ./fonts.nix
@@ -16,8 +15,18 @@ in
     };
 
     keymaps = [
-      { mode = "n"; key = "<leader>u"; action = mkCmd "UndotreeToggle"; options.desc = "Undotree"; }
-      { mode = "n"; key = "<leader>gg"; action = mkCmd "Git"; options.desc = "Git status"; }
+      {
+        mode = "n";
+        key = "<leader>u";
+        action = mkCmd "UndotreeToggle";
+        options.desc = "Undotree";
+      }
+      {
+        mode = "n";
+        key = "<leader>gg";
+        action = mkCmd "Git";
+        options.desc = "Git status";
+      }
     ];
   };
 }

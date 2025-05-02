@@ -1,6 +1,10 @@
-{ pkgs, my, ... }:
 {
+  pkgs,
+  my,
+  ...
+}: {
   imports = with my.modules; [
+    lang.nix
     lang.cpp
     lang.lua
     lang.rust

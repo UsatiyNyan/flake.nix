@@ -1,8 +1,13 @@
-{ lib, config, pkgs, user, my, ... }:
-let
-  xdgBinPath = "$HOME/.local/bin";
-in
 {
+  lib,
+  config,
+  pkgs,
+  user,
+  my,
+  ...
+}: let
+  xdgBinPath = "$HOME/.local/bin";
+in {
   imports = with my.modules; [
     dot.zsh
     dot.alacritty
@@ -41,7 +46,7 @@ in
     # overrides. You can do that directly here, just don't forget the
     # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # fonts?
-    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];})
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -82,7 +87,7 @@ in
   #
   #  /etc/profiles/per-user/root/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionPath = [ xdgBinPath ];
+  home.sessionPath = [xdgBinPath];
   home.sessionVariables = {
     XDG_BIN_HOME = xdgBinPath;
   };

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     clang
     clang-tools
@@ -14,14 +13,13 @@
       onAttach.function = ''
         nmap('<leader>sh', '<cmd>ClangdSwitchSourceHeader<CR>', 'Clangd: Switch [S]ource [H]eader')
       '';
-      cmd = [ "clangd" "--compile-commands-dir=./build" ];
+      cmd = ["clangd" "--compile-commands-dir=./build"];
     };
     neocmake = {
       enable = true;
-      filetypes = [ "cmake" ];
-      cmd = [ "neocmakelsp" "--stdio" ];
+      filetypes = ["cmake"];
+      cmd = ["neocmakelsp" "--stdio"];
     };
     glsl_analyzer.enable = true;
   };
 }
-

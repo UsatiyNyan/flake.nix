@@ -17,8 +17,8 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
-        url = "github:hyprwm/hyprland-plugins";
-        inputs.hyprland.follows = "hyprland";
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
     };
 
     omz-ultima-theme = {
@@ -37,8 +37,11 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... } @ inputs:
-  let
+  outputs = {
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
     system = "x86_64-linux";
     user = "us4tiyny4n";
 
@@ -49,34 +52,42 @@
     };
 
     hosts = [
-      { hostName = "new-moon"; description = "laptop"; }
+      {
+        hostName = "new-moon";
+        description = "laptop";
+      }
       # { hostName = "waxing-crescent"; description = "raspberry-pi"; }
     ];
 
-    makeSystem = { hostName }: nixpkgs.lib.nixosSystem {
-      inherit system; # same as system = system
-      specialArgs = { inherit inputs user hostName my; };
-      modules = [ ./hosts/${hostName}/configuration.nix ];
-    };
+    makeSystem = {hostName}:
+      nixpkgs.lib.nixosSystem {
+        inherit system; # same as system = system
+        specialArgs = {inherit inputs user hostName my;};
+        modules = [./hosts/${hostName}/configuration.nix];
+      };
 
-    makeHomeConfiguration = { hostName }: home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      extraSpecialArgs = { inherit inputs user my; };
-      modules = [
-        my.modules.dot.home
-        ./hosts/${hostName}/home.nix
-      ];
-    };
-  in
-  {
-    nixosConfigurations = nixpkgs.lib.foldl' 
-      (accConfigs: { hostName, ... }:
-       accConfigs // { "${hostName}" = makeSystem { inherit hostName; }; })
-      {} hosts;
+    makeHomeConfiguration = {hostName}:
+      home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        extraSpecialArgs = {inherit inputs user my;};
+        modules = [
+          my.modules.dot.home
+          ./hosts/${hostName}/home.nix
+        ];
+      };
+  in {
+    nixosConfigurations =
+      nixpkgs.lib.foldl'
+      (accConfigs: {hostName, ...}:
+        accConfigs // {"${hostName}" = makeSystem {inherit hostName;};})
+      {}
+      hosts;
 
-    homeConfigurations = nixpkgs.lib.foldl'
-      (accConfigs: { hostName, ... }:
-       accConfigs // { "${user}@${hostName}" = makeHomeConfiguration { inherit hostName; }; })
-      {} hosts;
+    homeConfigurations =
+      nixpkgs.lib.foldl'
+      (accConfigs: {hostName, ...}:
+        accConfigs // {"${user}@${hostName}" = makeHomeConfiguration {inherit hostName;};})
+      {}
+      hosts;
   };
 }

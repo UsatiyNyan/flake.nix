@@ -1,6 +1,9 @@
-{ config, inputs, user, ... }:
-
 {
+  config,
+  inputs,
+  user,
+  ...
+}: {
   # home.file.".config/oh-my-zsh/themes/ultima.zsh-theme".source = inputs.omz-ultima-theme + /ultima.zsh-theme;
 
   programs.zsh = {
@@ -31,7 +34,7 @@
       # theme = "ultima";
       theme = "half-life";
       custom = "${config.xdg.configHome}/oh-my-zsh";
-      plugins = [ "git" ];
+      plugins = ["git"];
     };
   };
 }

@@ -1,5 +1,8 @@
-{ config, inputs, ... }:
 {
+  config,
+  inputs,
+  ...
+}: {
   home = {
     sessionVariables.TERMINAL = "alacritty";
     file.".config/alacritty/themes/rose-pine".source = inputs.alacritty-rose-pine + /dist;
@@ -8,7 +11,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      general.import = [ "${config.xdg.configHome}/alacritty/themes/rose-pine/rose-pine.toml" ];
+      general.import = ["${config.xdg.configHome}/alacritty/themes/rose-pine/rose-pine.toml"];
 
       window = {
         decorations = "none";

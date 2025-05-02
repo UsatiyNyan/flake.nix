@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # TODO: rustup - is not "declarative"
     rust-analyzer
@@ -22,4 +21,3 @@
     ];
   };
 }
-

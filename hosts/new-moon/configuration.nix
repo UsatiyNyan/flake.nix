@@ -1,24 +1,28 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, user, my, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      my.configuration
+  config,
+  pkgs,
+  inputs,
+  user,
+  my,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    my.configuration
 
-      my.optionalConfiguration.sddm
-      my.optionalConfiguration.x11
-      my.optionalConfiguration.plazma6
-      my.optionalConfiguration.hyprland
-    ];
+    my.optionalConfiguration.sddm
+    my.optionalConfiguration.x11
+    my.optionalConfiguration.plazma6
+    my.optionalConfiguration.hyprland
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = [ pkgs.home-manager ];
+  environment.systemPackages = [pkgs.home-manager];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -35,9 +39,9 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  
+
   # List services that you want to enable:
-  
+
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 }

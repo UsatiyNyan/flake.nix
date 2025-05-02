@@ -1,6 +1,10 @@
-{ lib, config, pkgs, inputs, ... }:
-
 {
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   home = {
     sessionVariables.EDITOR = "nvim";
 

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.tmux = {
     enable = true;
     baseIndex = 1;
@@ -11,11 +10,11 @@
     extraConfig = ''
       # term colors
       set -as terminal-features ",alacritty*:RGB"
-      
+
       # Shift Alt H/L to switch windows
       bind -n M-H previous-window
       bind -n M-L next-window
-      
+
       # split windows in current path
       bind '"' split-window -v -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"

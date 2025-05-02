@@ -1,4 +1,3 @@
-{ inputs, ... }:
-{
-  imports = [ inputs.home-manager.nixosModules.default ];
+{inputs, ...}: {
+  imports = [inputs.home-manager.nixosModules.default];
 }
