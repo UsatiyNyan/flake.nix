@@ -20,11 +20,5 @@ in
     # Greatest remap ever: AsbjornHaland
     { mode = [ "n" "v" ]; key = "<leader>y"; action = ''"+y''; options.desc = "yank to system clipboard!"; }
     { mode = "n";         key = "<leader>Y"; action = ''"+Y''; options.desc = "Yank to system clipboard!"; }
-
-    # TODO: move to plugin: Tmux
-    # { mode = "n"; key = "<C-h>"; action = "<cmd> TmuxNavigateLeft<CR>";  options.desc = "window left"; }
-    # { mode = "n"; key = "<C-j>"; action = "<cmd> TmuxNavigateDown<CR>";  options.desc = "window down"; }
-    # { mode = "n"; key = "<C-k>"; action = "<cmd> TmuxNavigateUp<CR>";    options.desc = "window up"; }
-    # { mode = "n"; key = "<C-l>"; action = "<cmd> TmuxNavigateRight<CR>"; options.desc = "window right"; }
   ];
 }
