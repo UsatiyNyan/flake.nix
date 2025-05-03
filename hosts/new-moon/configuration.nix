@@ -11,9 +11,10 @@
     ./hardware-configuration.nix
     my.configuration
 
-    my.optionalConfiguration.sddm
-    my.optionalConfiguration.x11
-    my.optionalConfiguration.plasma6
+    # my.optionalConfiguration.sddm
+    # my.optionalConfiguration.x11
+    # my.optionalConfiguration.plasma6
+    my.optionalConfiguration.hyprland
   ];
 
   # List packages installed in system profile. To search, run:
