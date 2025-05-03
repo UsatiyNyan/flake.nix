@@ -2,10 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  config,
   pkgs,
-  inputs,
-  user,
   my,
   ...
 }: {
@@ -14,9 +11,6 @@
     ./hardware-configuration.nix
     my.configuration
 
-    my.optionalConfiguration.sddm
-    my.optionalConfiguration.x11
-    my.optionalConfiguration.plazma6
     my.optionalConfiguration.hyprland
   ];
 
