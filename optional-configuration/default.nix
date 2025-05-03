@@ -3,6 +3,6 @@
 
   x11 = ./x11.nix;
 
-  plazma6 = ./plazma6.nix;
+  plasma6 = ./plasma6.nix;
   hyprland = ./hyprland.nix;
 }

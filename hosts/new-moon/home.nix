@@ -9,8 +9,6 @@
     lang.lua
     lang.rust
     lang.haskell
-
-    desktop.hyprland
   ];
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

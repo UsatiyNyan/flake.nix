@@ -1,3 +1,3 @@
 {
-  hyprland = ./hyprland.nix;
+  hyprland = ./hyprland;
 }
