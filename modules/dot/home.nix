@@ -95,12 +95,5 @@ in {
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
-
-    git = {
-      enable = true;
-      extraConfig = {
-        core.editor = "nvim";
-      };
-    };
   };
 }
