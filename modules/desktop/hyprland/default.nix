@@ -1,7 +1,12 @@
-{
+{pkgs, ...}:{
   imports = [
     ./binds.nix
     ./bar.nix
+  ];
+
+  home.packages = with pkgs; [
+    mako # notification daemon
+    wl-clipboard
   ];
 
   wayland.windowManager.hyprland = {
