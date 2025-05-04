@@ -24,5 +24,6 @@
     telegram-desktop
     brave
     google-chrome # unfree
+    pavucontrol
   ];
 }
