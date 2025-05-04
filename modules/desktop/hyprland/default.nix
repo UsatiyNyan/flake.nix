@@ -1,6 +1,7 @@
 {
   imports = [
     ./binds.nix
+    ./bar.nix
   ];
 
   wayland.windowManager.hyprland = {
