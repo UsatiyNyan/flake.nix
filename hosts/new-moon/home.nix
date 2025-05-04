@@ -16,6 +16,9 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
+    # TERMINAL
+    tldr
+
     # DESKTOP
     obsidian
     telegram-desktop
