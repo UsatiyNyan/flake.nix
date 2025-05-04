@@ -10,7 +10,10 @@
     settings = {
       "$mainMod" = "SUPER";
       "$terminal" = "alacritty";
+
+      "input:touchpad" = {
+        natural_scroll = "true";
+      };
     };
   };
 }
-
