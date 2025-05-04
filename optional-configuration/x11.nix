@@ -10,6 +10,10 @@
     };
 
     # Enable touchpad support (enabled default in most desktopManager).
-    # libinput.enable = true;
+    libinput = {
+      enable = true;
+      touchpad.naturalScrolling = true;
+      mouse.naturalScrolling = false;
+    };
   };
 }
