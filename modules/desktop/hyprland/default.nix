@@ -1,7 +1,8 @@
-{pkgs, ...}:{
+{pkgs, ...}: {
   imports = [
     ./binds.nix
     ./bar.nix
+    ./portal.nix
   ];
 
   home.packages = with pkgs; [
