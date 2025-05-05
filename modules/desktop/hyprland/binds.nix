@@ -12,6 +12,7 @@
       "$mainMod, F, exec, $fileManager"
 
       "$mainMod, Q, killactive"
+      "$mainMod, escape, exec, loginctl lock-session"
     ];
   };
 }

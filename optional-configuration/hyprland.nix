@@ -15,4 +15,6 @@
     NIXOS_OZONE_WL = "1"; # hint electron apps
     WLR_NO_HARDWARE_CURSORS = "1"; # cursor blinking fix
   };
+
+  security.pam.services.hyprlock = {};
 }
