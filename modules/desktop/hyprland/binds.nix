@@ -1,4 +1,9 @@
+{pkgs, ...}:
 {
+  home.packages = with pkgs; [
+    wev # to know which events are which keys
+  ];
+
   wayland.windowManager.hyprland.settings = {
     input = {
       kb_layout = "us,ru";
@@ -13,6 +18,11 @@
 
       "$mainMod, Q, killactive"
       "$mainMod, escape, exec, loginctl lock-session"
+    ];
+
+    bindel = [
+      ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+      ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
     ];
   };
 }
