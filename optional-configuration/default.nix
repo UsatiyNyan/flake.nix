@@ -5,4 +5,6 @@
 
   plasma6 = ./plasma6.nix;
   hyprland = ./hyprland.nix;
+
+  thunar = ./thunar.nix;
 }

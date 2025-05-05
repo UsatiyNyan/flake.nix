@@ -18,6 +18,7 @@
       "$mainMod" = "SUPER";
       "$terminal" = "alacritty";
       "$appLauncher" = "rofi -show drun -show-icons";
+      "$fileManager" = "thunar"; # configured from optional-configuration
 
       "input:touchpad" = {
         natural_scroll = "true";

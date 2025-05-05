@@ -9,6 +9,7 @@
     bind = [
       "$mainMod, T, exec, $terminal"
       "$mainMod, slash, exec, $appLauncher"
+      "$mainMod, F, exec, $fileManager"
 
       "$mainMod, Q, killactive"
     ];
