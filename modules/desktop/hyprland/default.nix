@@ -4,6 +4,7 @@
     ./bar.nix
     ./portal.nix
     ./lock.nix
+    ./cursor.nix
   ];
 
   home.packages = with pkgs; [
