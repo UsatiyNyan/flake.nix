@@ -13,11 +13,12 @@
 
     bind = [
       "$mainMod, T, exec, $terminal"
-      "$mainMod, slash, exec, $appLauncher"
+      "$mainMod, SLASH, exec, $appLauncher"
       "$mainMod, F, exec, $fileManager"
 
       "$mainMod, Q, killactive"
-      "$mainMod, escape, exec, loginctl lock-session"
+      "$mainMod SHIFT, ESCAPE, exit"
+      "$mainMod, ESCAPE, exec, loginctl lock-session"
     ];
 
     bindel = [
