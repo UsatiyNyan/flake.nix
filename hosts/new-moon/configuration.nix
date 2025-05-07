@@ -11,9 +11,7 @@
     ./hardware-configuration.nix
     my.configuration
 
-    # my.optionalConfiguration.sddm
-    # my.optionalConfiguration.x11
-    # my.optionalConfiguration.plasma6
+    my.optionalConfiguration.ly
     my.optionalConfiguration.hyprland
     my.optionalConfiguration.dolphin
   ];
@@ -29,6 +27,8 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
+
+  services.displayManager.defaultSession = "hyprland";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
