@@ -4,7 +4,7 @@
     baseIndex = 1;
     mouse = true;
     keyMode = "vi";
-    terminal = "xterm-256color";
+    terminal = "tmux-256color";
     prefix = "C-space";
     sensibleOnTop = true;
     extraConfig = ''
