@@ -7,4 +7,5 @@
   hyprland = ./hyprland.nix;
 
   thunar = ./thunar.nix;
+  dolphin = ./dolphin.nix;
 }

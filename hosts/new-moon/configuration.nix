@@ -15,7 +15,7 @@
     # my.optionalConfiguration.x11
     # my.optionalConfiguration.plasma6
     my.optionalConfiguration.hyprland
-    my.optionalConfiguration.thunar
+    my.optionalConfiguration.dolphin
   ];
 
   # List packages installed in system profile. To search, run:
