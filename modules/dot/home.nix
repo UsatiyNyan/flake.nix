@@ -38,6 +38,7 @@ in {
       btop
       ripgrep
       fzf
+      tldr
 
       # TUI
       bluetuith
