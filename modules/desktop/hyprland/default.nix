@@ -10,6 +10,7 @@
   home.packages = with pkgs; [
     mako # notification daemon
     wl-clipboard
+    cliphist
     rofi-wayland # applauncher
     brightnessctl
   ];
@@ -30,6 +31,11 @@
       "$terminal" = "alacritty";
       "$appLauncher" = "rofi -show drun -show-icons";
       "$fileManager" = "thunar"; # configured from optional-configuration
+
+      exec-once = [
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
+      ];
     };
   };
 }
