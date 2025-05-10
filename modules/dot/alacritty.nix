@@ -20,26 +20,28 @@
         dynamic_title = true;
       };
 
-      font = {
-        size = 15.0;
+      font = let
+        aFont = "Iosevka Nerd Font";
+      in {
+        size = 16.0;
 
         normal = {
-          family = "JetBrainsMono Nerd Font";
+          family = aFont;
           style = "Regular";
         };
 
         bold = {
-          family = "JetBrainsMono Nerd Font";
+          family = aFont;
           style = "Bold";
         };
 
         italic = {
-          family = "JetBrainsMono Nerd Font";
+          family = aFont;
           style = "Italic";
         };
 
         bold_italic = {
-          family = "JetBrainsMono Nerd Font";
+          family = aFont;
           style = "Bold Italic";
         };
 
