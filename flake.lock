@@ -756,7 +756,24 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim",
-        "omz-ultima-theme": "omz-ultima-theme"
+        "omz-ultima-theme": "omz-ultima-theme",
+        "sddm-rose-pine": "sddm-rose-pine"
+      }
+    },
+    "sddm-rose-pine": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1683980312,
+        "narHash": "sha256-9F+TOWqc88D9+OqQnXlaghBf1z/89XYforFspqbste0=",
+        "owner": "lwndhrst",
+        "repo": "sddm-rose-pine",
+        "rev": "e8735051bf4a418efaf076f52cb3d7873ccd1509",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lwndhrst",
+        "repo": "sddm-rose-pine",
+        "type": "github"
       }
     },
     "systems": {
