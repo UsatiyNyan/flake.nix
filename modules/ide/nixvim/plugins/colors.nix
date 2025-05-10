@@ -3,7 +3,11 @@
     colorschemes = {
       rose-pine = {
         enable = true;
-        settings.variant = "main";
+        settings = {
+          variant = "main";
+          disable_background = true;
+          disable_float_background = true;
+        };
       };
 
       # catpuccin.enable = true;

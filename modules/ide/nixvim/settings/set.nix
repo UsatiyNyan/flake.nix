@@ -31,7 +31,7 @@
       signcolumn = "yes";
 
       updatetime = 50;
-      colorcolumn = "100";
+      # colorcolumn = "100";
     };
 
     globals = {

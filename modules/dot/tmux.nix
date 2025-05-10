@@ -22,6 +22,13 @@
       # rotate panes
       bind r swap-pane -D
       bind R swap-pane -U
+
+      # enable transparency
+      set -g status-style 'bg=default'
+      set -g window-style 'bg=default'
+      set -g window-active-style 'bg=default'
+      set -g window-status-style 'bg=default'
+      set -g window-status-current-style 'bg=default'
     '';
 
     # https://github.com/NixOS/nixpkgs/blob/nixos-24.11/pkgs/misc/tmux-plugins/default.nix
@@ -30,6 +37,7 @@
         plugin = rose-pine;
         extraConfig = ''
           set -g @rose_pine_variant 'main' # Options are 'main', 'moon' or 'dawn'
+          set -g @rose_pine_bar_bg_disable 'on'
         '';
       }
       yank

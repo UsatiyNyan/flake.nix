@@ -15,7 +15,7 @@
 
       window = {
         decorations = "none";
-        opacity = 1.0;
+        opacity = 0.85;
         startup_mode = "Maximized";
         dynamic_title = true;
       };
