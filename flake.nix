@@ -21,10 +21,10 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    omz-ultima-theme = {
-      url = "github:egorlem/ultima.zsh-theme";
-      flake = false;
-    };
+    # omz-ultima-theme = {
+    #   url = "github:egorlem/ultima.zsh-theme";
+    #   flake = false;
+    # };
 
     alacritty-rose-pine = {
       url = "github:rose-pine/alacritty";

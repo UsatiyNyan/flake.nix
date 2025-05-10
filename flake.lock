@@ -707,22 +707,6 @@
         "type": "github"
       }
     },
-    "omz-ultima-theme": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1745231609,
-        "narHash": "sha256-Q/0T3I7fsqKDCO4jVO+L8z7Zvj/AgB1y1f6gOrIobjU=",
-        "owner": "egorlem",
-        "repo": "ultima.zsh-theme",
-        "rev": "2dabe0b0d926eb36599e250becf9e1f8cfaabf98",
-        "type": "github"
-      },
-      "original": {
-        "owner": "egorlem",
-        "repo": "ultima.zsh-theme",
-        "type": "github"
-      }
-    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -756,7 +740,6 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim",
-        "omz-ultima-theme": "omz-ultima-theme",
         "sddm-rose-pine": "sddm-rose-pine"
       }
     },
