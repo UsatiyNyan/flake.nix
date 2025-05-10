@@ -11,10 +11,10 @@
     ./hardware-configuration.nix
     my.configuration
 
-    my.optionalConfiguration.ly
+    my.optionalConfiguration.sddm
+    my.optionalConfiguration.gnome-keyring
     my.optionalConfiguration.hyprland
     my.optionalConfiguration.dolphin
-    my.optionalConfiguration.gnome-keyring
   ];
 
   # List packages installed in system profile. To search, run:
@@ -29,8 +29,12 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
 
-  services.displayManager.defaultSession = "hyprland";
-  security.pam.services.ly.enableGnomeKeyring = true;
+  services.displayManager = {
+    defaultSession = "hyprland";
+    sddm.wayland.enable = true;
+  };
+
+  security.pam.services.sddm.enableGnomeKeyring = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
