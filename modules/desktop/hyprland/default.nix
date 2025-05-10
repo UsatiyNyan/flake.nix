@@ -5,6 +5,7 @@
     ./portal.nix
     ./lock.nix
     ./cursor.nix
+    ./wallpaper.nix
   ];
 
   home.packages = with pkgs; [
@@ -33,6 +34,7 @@
       "$fileManager" = "thunar"; # configured from optional-configuration
 
       exec-once = [
+        "hyprpaper"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
       ];
