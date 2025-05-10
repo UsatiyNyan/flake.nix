@@ -44,7 +44,12 @@ in {
       bluetuith
 
       # STYLE
-      (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];})
+      (nerdfonts.override {
+        fonts = [
+          "JetBrainsMono"
+          "Iosevka"
+        ];
+      })
 
       # # You can also create simple shell scripts directly inside your
       # # configuration. For example, this adds a command 'my-hello' to your
@@ -90,6 +95,8 @@ in {
       XDG_BIN_HOME = xdgBinPath;
     };
   };
+
+  fonts.fontconfig.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
