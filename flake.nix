@@ -31,6 +31,11 @@
       flake = false;
     };
 
+    sddm-rose-pine = {
+      url = "github:lwndhrst/sddm-rose-pine";
+      flake = false;
+    };
+
     init-lua = {
       url = "github:UsatiyNyan/init.lua";
       flake = false;
