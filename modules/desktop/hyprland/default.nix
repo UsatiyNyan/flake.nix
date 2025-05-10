@@ -40,6 +40,12 @@
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
       ];
+
+      misc = {
+        # sorry Vaxry :( I already use hyprpaper, but default ones blink on startup
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
+      };
     };
   };
 }
