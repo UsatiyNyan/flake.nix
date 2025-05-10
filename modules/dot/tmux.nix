@@ -1,4 +1,27 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  user,
+  ...
+}: {
+  home.packages = [
+    (pkgs.writeScriptBin
+      "my-tmux-attach"
+      ''
+        #!/bin/sh
+        if [ -z "$TMUX" ] && [ -n "$DISPLAY" ]; then
+            tmux attach-session -t ${user} || tmux new-session -s ${user}
+        fi
+      '')
+    (pkgs.writeScriptBin
+      "my-tmux-new"
+      ''
+        #!/bin/sh
+        if [ -z "$TMUX" ] && [ -n "$DISPLAY" ]; then
+            tmux new-session -t ${user}
+        fi
+      '')
+  ];
+
   programs.tmux = {
     enable = true;
     baseIndex = 1;

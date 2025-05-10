@@ -19,7 +19,8 @@
     };
 
     bind = [
-      "$mainMod, T, exec, $terminal"
+      "$mainMod SHIFT, T, exec, $terminal"
+      "$mainMod, T, exec, $terminalTmux"
       "$mainMod, SLASH, exec, $appLauncher"
       "$mainMod, F, exec, $fileManager"
       "$mainMod, C, exec, hyprpicker -a"

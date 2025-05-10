@@ -30,7 +30,8 @@
       xwayland.force_zero_scaling = true;
 
       "$mainMod" = "SUPER";
-      "$terminal" = "alacritty";
+      "$terminal" = "alacritty -e my-tmux-new";
+      "$terminalTmux" = "alacritty -e my-tmux-attach";
       "$appLauncher" = "rofi -show drun -show-icons";
       "$fileManager" = "thunar"; # configured from optional-configuration
 
