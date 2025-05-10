@@ -14,6 +14,7 @@
     cliphist
     rofi-wayland # applauncher
     brightnessctl
+    hyprpicker
   ];
 
   wayland.windowManager.hyprland = {

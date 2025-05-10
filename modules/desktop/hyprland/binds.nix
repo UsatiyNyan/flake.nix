@@ -22,6 +22,7 @@
       "$mainMod, T, exec, $terminal"
       "$mainMod, SLASH, exec, $appLauncher"
       "$mainMod, F, exec, $fileManager"
+      "$mainMod, C, exec, hyprpicker -a"
 
       "$mainMod, Q, killactive"
       "$mainMod SHIFT, ESCAPE, exit"
