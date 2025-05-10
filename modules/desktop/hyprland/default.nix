@@ -15,6 +15,7 @@
     rofi-wayland # applauncher
     brightnessctl
     hyprpicker
+    hyprshot
   ];
 
   wayland.windowManager.hyprland = {

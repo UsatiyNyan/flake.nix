@@ -93,6 +93,7 @@ in {
     sessionPath = [xdgBinPath];
     sessionVariables = {
       XDG_BIN_HOME = xdgBinPath;
+      XDG_PICTURES_DIR = "$HOME/Pictures";
     };
   };
 

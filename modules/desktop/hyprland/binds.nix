@@ -24,6 +24,9 @@
       "$mainMod, SLASH, exec, $appLauncher"
       "$mainMod, F, exec, $fileManager"
       "$mainMod, C, exec, hyprpicker -a"
+      ", PRINT, exec, hyprshot -z -m region"
+      "$mainMod, PRINT, exec, hyprshot -m window active"
+      "$mainMod SHIFT, PRINT, exec, hyprshot -m output"
 
       "$mainMod, Q, killactive"
       "$mainMod SHIFT, ESCAPE, exit"
