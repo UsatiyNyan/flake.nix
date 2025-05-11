@@ -18,6 +18,9 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
+    # TERMINAL
+    ncspot
+
     # DESKTOP
     telegram-desktop
     pavucontrol
