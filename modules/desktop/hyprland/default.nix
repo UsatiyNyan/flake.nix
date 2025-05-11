@@ -21,19 +21,17 @@
     enable = true;
 
     settings = {
-      # TODO: auto-layout connected monitors
-      monitor = [
-        ",highres,auto,1"
-        ",highres,auto-right,1"
-      ];
-
-      xwayland.force_zero_scaling = true;
-
       "$mainMod" = "SUPER";
       "$terminal" = "alacritty -e my-tmux-new";
       "$terminalTmux" = "alacritty -e my-tmux-attach";
-      "$appLauncher" = "rofi -show drun -show-icons";
-      "$fileManager" = "thunar"; # configured from optional-configuration
+
+      # TODO: auto-layout connected monitors
+      monitor = [
+        "$monitor0,highres,auto,1"
+        "$monitor1,highres,auto-right,1"
+      ];
+
+      xwayland.force_zero_scaling = true;
 
       exec-once = [
         "waybar"
@@ -47,6 +45,34 @@
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
       };
+
+      animations = {
+        # for now, I'm dizzy
+        enabled = false;
+      };
+
+      general = {
+        border_size = 0;
+        gaps_in = 4;
+        gaps_out = 0;
+      };
+
+      workspace = [
+        "1, monitor:$monitor0, persistent:true, on-created-empty:$terminalTmux, default: true"
+        "2, monitor:$monitor0, persistent:true, on-created-empty:$webBrowser"
+        "3, monitor:$monitor0, persistent:true, on-created-empty:$notesApp"
+        "4, monitor:$monitor0, persistent:true"
+        "5, monitor:$monitor0, persistent:true"
+
+        "6, monitor:$monitor1, persistent:true"
+        "7, monitor:$monitor1, persistent:true"
+        "8, monitor:$monitor1, persistent:true"
+        "9, monitor:$monitor1, persistent:true"
+        "10, monitor:$monitor1, persistent:true"
+      ];
+
+      windowrule = [
+      ];
     };
   };
 }

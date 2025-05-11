@@ -30,4 +30,14 @@
     obsidian
     google-chrome
   ];
+
+  wayland.windowManager.hyprland.settings = {
+    "$monitor0" = "eDP-1";
+    "$monitor1" = "DP-7";
+
+    "$webBrowser" = "google-chrome-stable";
+    "$notesApp" = "obsidian";
+    "$appLauncher" = "rofi -show drun -show-icons";
+    "$fileManager" = "dolphin"; # configured from optional-configuration
+  };
 }
