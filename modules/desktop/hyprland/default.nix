@@ -40,23 +40,6 @@
         "wl-paste --type image --watch cliphist store"
       ];
 
-      misc = {
-        # sorry Vaxry :( I already use hyprpaper, but default ones blink on startup
-        disable_hyprland_logo = true;
-        disable_splash_rendering = true;
-      };
-
-      animations = {
-        # for now, I'm dizzy
-        enabled = false;
-      };
-
-      general = {
-        border_size = 0;
-        gaps_in = 4;
-        gaps_out = 0;
-      };
-
       workspace = [
         "1, monitor:$monitor0, persistent:true, on-created-empty:$terminalTmux, default: true"
         "2, monitor:$monitor0, persistent:true, on-created-empty:$webBrowser"
@@ -73,6 +56,26 @@
 
       windowrule = [
       ];
+
+      misc = {
+        # sorry Vaxry :( I already use hyprpaper, but default ones blink on startup
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
+      };
+
+      general = {
+        border_size = 0;
+        gaps_in = 4;
+        gaps_out = 0;
+      };
+
+      # for now, I'm dizzy
+      animations.enabled = false;
+
+      decoration = {
+        # doesn't look good with waybar
+        shadow.enabled = false;
+      };
     };
   };
 }

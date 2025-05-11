@@ -18,6 +18,10 @@
         opacity = 0.85;
         startup_mode = "Maximized";
         dynamic_title = true;
+        padding = {
+          x = 0;
+          y = 0;
+        };
       };
 
       font = let

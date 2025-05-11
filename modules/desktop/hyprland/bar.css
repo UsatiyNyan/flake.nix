@@ -2,12 +2,13 @@
     border: none;
     border-radius: 0px;
     font-family: "Iosevka Nerd Font";
-    font-size: 18px;
+    font-size: 16pt;
     min-height: 0;
-    color: #C7C5D0;
+    color: #E0DEF4;
+    background: transparent;
 }
 
 window#waybar {
-    background: #121214;
+    background: rgba(25, 23, 36, 0.85);
 }
 
