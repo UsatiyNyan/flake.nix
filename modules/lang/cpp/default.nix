@@ -7,6 +7,17 @@
     vscode-extensions.vadimcn.vscode-lldb
   ];
 
+  home.file = {
+    ".local/bin/cmake-build" = {
+      source = ./scripts/cmake-build.sh;
+      executable = true;
+    };
+    ".local/bin/cmake-generate" = {
+      source = ./scripts/cmake-generate.sh;
+      executable = true;
+    };
+  };
+
   programs.nixvim.plugins.lsp.servers = {
     clangd = {
       enable = true;
