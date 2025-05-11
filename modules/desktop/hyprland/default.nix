@@ -9,7 +9,6 @@
   ];
 
   home.packages = with pkgs; [
-    mako # notification daemon
     wl-clipboard
     cliphist
     brightnessctl
@@ -55,6 +54,10 @@
       ];
 
       windowrule = [
+      ];
+
+      layerrule = [
+        "blur, rofi"
       ];
 
       misc = {

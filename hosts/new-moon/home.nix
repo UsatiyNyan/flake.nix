@@ -12,6 +12,7 @@
 
     desktop.hyprland
     desktop.rofi
+    desktop.mako
   ];
 
   # Allow unfree packages
