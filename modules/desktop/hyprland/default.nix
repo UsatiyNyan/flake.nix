@@ -12,7 +12,6 @@
     mako # notification daemon
     wl-clipboard
     cliphist
-    rofi-wayland # applauncher
     brightnessctl
     hyprpicker
     hyprshot

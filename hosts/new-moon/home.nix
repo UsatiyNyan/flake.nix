@@ -11,6 +11,7 @@
     lang.haskell
 
     desktop.hyprland
+    desktop.rofi
   ];
 
   # Allow unfree packages
