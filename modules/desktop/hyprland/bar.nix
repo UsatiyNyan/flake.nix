@@ -8,89 +8,80 @@
         height = 30;
         modules-left = ["hyprland/workspaces"];
         modules-center = ["hyprland/window"];
-        # modules-right = [
-        #   "hyprland/language"
-        #   "pulseaudio"
-        #   "battery"
-        #   "clock"
-        #   "tray"
-        # ];
+        modules-right = [
+          "hyprland/language"
+          "pulseaudio"
+          "battery"
+          "clock"
+        ];
+
+        "hyprland/workspaces" = {
+          format = "[{icon}]";
+          format-icons = {
+            "1" = "1";
+            "2" = "2";
+            "3" = "3";
+            "4" = "4";
+            "5" = "5";
+            "6" = "6";
+            "7" = "7";
+            "8" = "8";
+            "9" = "9";
+            "10" = "0";
+            "active" = "_";
+          };
+        };
 
         "hyprland/window".separate-outputs = true;
-        # "hyprland/workspaces" = {
-        #   disable-scroll = true;
-        #   show-special = true;
-        #   special-visible-only = true;
-        #   all-outputs = false;
-        #   format = "{icon}";
-        #   format-icons = {
-        #     "1" = "";
-        #     "2" = "";
-        #     "3" = "";
-        #     "4" = "";
-        #     "5" = "";
-        #     "6" = "";
-        #     "7" = "";
-        #     "8" = "";
-        #     "9" = "";
-        #     "magic" = "";
-        #   };
-        #
-        #   persistent-workspaces = {
-        #     "*" = 9;
-        #   };
-        # };
 
-        # "hyprland/language" = {
-        #   format-en = "🇺🇸";
-        #   format-ru = "🇷🇺";
-        #   min-length = 5;
-        #   tooltip = false;
-        # };
+        "hyprland/language" = {
+          format = "{short}";
+        };
 
-        # "custom/weather" = {
-        #   format = " {} ";
-        #   exec = "curl -s 'wttr.in/Tashkent?format=%c%t'";
-        #   interval = 300;
-        #   class = "weather";
-        # };
+        "pulseaudio" = {
+          states = {
+            none = 20;
+            good = 40;
+            warning = 60;
+            critical = 100;
+          };
+          format = "{icon} {volume}%";
+          format-bluetooth = "{icon} {volume}%";
+          format-muted = " 00%";
+          format-icons = {
+            "default" = ["" ""];
+          };
+          on-click-right = "pavucontrol";
+          on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        };
 
-        # "pulseaudio" = {
-        #   format = "{icon} {volume}%";
-        #   format-bluetooth = "{icon} {volume}% ";
-        #   format-muted = "";
-        #   format-icons = {
-        #     "headphones" = "";
-        #     "handsfree" = "";
-        #     "headset" = "";
-        #     "phone" = "";
-        #     "portable" = "";
-        #     "car" = "";
-        #     "default" = ["" ""];
-        #   };
-        #   on-click = "pavucontrol";
-        # };
+        "battery" = {
+          states = {
+            good = 70;
+            warning = 30;
+            critical = 15;
+          };
+          format = "{icon} {capacity}%";
+          format-charging = " {capacity}%";
+          format-icons = ["" "" "" "" ""];
+        };
 
-        # "battery" = {
-        #   states = {
-        #     warning = 30;
-        #     critical = 1;
-        #   };
-        #   format = "{icon} {capacity}%";
-        #   format-charging = " {capacity}%";
-        #   format-alt = "{time} {icon}";
-        #   format-icons = ["" "" "" "" ""];
-        # };
-
-        # "clock" = {
-        #   format = "{:%d.%m.%Y - %H:%M}";
-        #   format-alt = "{:%A, %B %d at %R}";
-        # };
-        #
-        # "tray" = {
-        #   icon-size = 14;
-        #   spacing = 1;
-        # };
+        "clock" = {
+          format = "{:%H:%M}";
+          format-alt = "{:%d.%m.%Y}";
+          tooltip = true;
+          tooltip-format = "{calendar}";
+          calendar = {
+            format = {
+              today = "<b><u>{}</u></b>";
+            };
+          };
+          actions = {
+            on-click = "shift_reset";
+            on-scroll-down = "shift_up";
+            on-scroll-up = "shift_down";
+          };
+        };
       };
     };
     style = ./bar.css;

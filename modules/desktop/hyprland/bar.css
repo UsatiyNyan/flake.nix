@@ -8,7 +8,43 @@
     background: transparent;
 }
 
-window#waybar {
+window#waybar, tooltip {
     background: rgba(25, 23, 36, 0.85);
 }
 
+tooltip {
+    margin: 2;
+}
+
+#window,
+#language,
+#pulseaudio,
+#battery,
+#clock {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#pulseaudio.good {
+    color: #9CCFD8;
+}
+
+#pulseaudio.warning {
+    color: #F6C177;
+}
+
+#pulseaudio.critical {
+    color: #EB6F92;
+}
+
+#battery.good {
+    color: #9CCFD8;
+}
+
+#battery.warning {
+    color: #F6C177;
+}
+
+#battery.critical {
+    color: #EB6F92;
+}
