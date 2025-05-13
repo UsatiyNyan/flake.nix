@@ -10,16 +10,28 @@
         };
       };
 
-      # catpuccin.enable = true;
-
       onedark = {
         enable = true;
-        settings.style = "deep";
+        settings = {
+          style = "warm";
+          transparent = true;
+        };
       };
 
-      oxocarbon.enable = true;
+      # catpuccin.enable = true;
     };
 
     colorscheme = "rose-pine";
+
+    highlightOverride = {
+      Normal = {bg = "none";};
+      NormalNC = {bg = "none";};
+      NormalFloat = {bg = "none";};
+      EndOfBuffer = {bg = "none";};
+      LineNr = {bg = "none";};
+      SignColumn = {bg = "none";};
+      StatusLine = {bg = "none";};
+      StatusLineNC = {bg = "none";};
+    };
   };
 }
