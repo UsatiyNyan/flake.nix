@@ -3,24 +3,24 @@
   pkgs,
   ...
 }: let
-  rosePineTheme = pkgs.stdenvNoCC.mkDerivation {
-    pname = "sddm-rose-pine-theme";
-    version = "1.2";
+  whereIsMySddmTheme = pkgs.stdenvNoCC.mkDerivation {
+    pname = "where-is-my-sddm-theme";
+    version = "0.0";
     dontBuild = true;
 
     propagatedUserEnvPkgs = [pkgs.libsForQt5.qt5.qtgraphicaleffects];
 
-    src = inputs.sddm-rose-pine;
+    src = inputs.where-is-my-sddm-theme;
 
     installPhase = ''
       mkdir -p $out/share/sddm/themes
-      cp -aR $src $out/share/sddm/themes/rose-pine
+      cp -aR $src/where_is_my_sddm_theme_qt5 $out/share/sddm/themes/where-is-my-sddm-theme
     '';
   };
 in {
-  environment.systemPackages = [rosePineTheme];
+  environment.systemPackages = [whereIsMySddmTheme];
   services.displayManager.sddm = {
     enable = true;
-    theme = "rose-pine";
+    theme = "where-is-my-sddm-theme";
   };
 }

@@ -26,8 +26,8 @@
       flake = false;
     };
 
-    sddm-rose-pine = {
-      url = "github:lwndhrst/sddm-rose-pine";
+    where-is-my-sddm-theme = {
+      url = "github:stepanzubkov/where-is-my-sddm-theme";
       flake = false;
     };
 

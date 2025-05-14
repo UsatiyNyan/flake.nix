@@ -740,23 +740,7 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim",
-        "sddm-rose-pine": "sddm-rose-pine"
-      }
-    },
-    "sddm-rose-pine": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1683980312,
-        "narHash": "sha256-9F+TOWqc88D9+OqQnXlaghBf1z/89XYforFspqbste0=",
-        "owner": "lwndhrst",
-        "repo": "sddm-rose-pine",
-        "rev": "e8735051bf4a418efaf076f52cb3d7873ccd1509",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lwndhrst",
-        "repo": "sddm-rose-pine",
-        "type": "github"
+        "where-is-my-sddm-theme": "where-is-my-sddm-theme"
       }
     },
     "systems": {
@@ -807,6 +791,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "where-is-my-sddm-theme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1746345267,
+        "narHash": "sha256-RIVvgPeRYZhnwSKqocZ0b8BgA5a1YVU8IZD81Hc8t5s=",
+        "owner": "stepanzubkov",
+        "repo": "where-is-my-sddm-theme",
+        "rev": "025705b3296d478e74d1041e4495e7a4ae466f92",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stepanzubkov",
+        "repo": "where-is-my-sddm-theme",
         "type": "github"
       }
     },
