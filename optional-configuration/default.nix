@@ -13,6 +13,7 @@
   # file managers
   thunar = ./thunar.nix;
   dolphin = ./dolphin.nix;
+  nautilus = ./nautilus.nix;
 
   # credential storage
   gnome-keyring = ./gnome-keyring.nix;

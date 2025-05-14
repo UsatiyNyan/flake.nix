@@ -14,7 +14,7 @@
     my.optionalConfiguration.sddm
     my.optionalConfiguration.gnome-keyring
     my.optionalConfiguration.hyprland
-    my.optionalConfiguration.dolphin
+    my.optionalConfiguration.nautilus
   ];
 
   # List packages installed in system profile. To search, run:

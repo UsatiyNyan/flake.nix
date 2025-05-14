@@ -13,6 +13,7 @@
     desktop.hyprland
     desktop.rofi
     desktop.mako
+    desktop.gtk-theme
   ];
 
   # Allow unfree packages
@@ -39,6 +40,6 @@
     "$webBrowser" = "google-chrome-stable";
     "$notesApp" = "obsidian";
     "$appLauncher" = "rofi -show drun -show-icons";
-    "$fileManager" = "dolphin"; # configured from optional-configuration
+    "$fileManager" = "nautilus"; # configured from optional-configuration
   };
 }
