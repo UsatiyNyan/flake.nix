@@ -4,6 +4,8 @@
   ...
 }: {
   imports = with my.modules; [
+    dot.alacritty
+
     lang.nix
     lang.cpp
     lang.lua
@@ -33,7 +35,17 @@
     # unfree
     obsidian
     google-chrome
+
+    # STYLE
+    (nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
+        "Iosevka"
+      ];
+    })
   ];
+
+  fonts.fontconfig.enable = true;
 
   wayland.windowManager.hyprland.settings = {
     "$monitor0" = "eDP-1";

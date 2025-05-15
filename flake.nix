@@ -56,7 +56,10 @@
         hostName = "new-moon";
         description = "laptop";
       }
-      # { hostName = "waxing-crescent"; description = "raspberry-pi"; }
+      {
+        hostName = "waxing-crescent";
+        description = "raspberry-pi";
+      }
     ];
 
     makeSystem = {hostName}:

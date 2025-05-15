@@ -8,7 +8,6 @@
 in {
   imports = with my.modules; [
     dot.zsh
-    dot.alacritty
     dot.tmux
     ide.nixvim
   ];
@@ -42,14 +41,6 @@ in {
 
       # TUI
       bluetuith
-
-      # STYLE
-      (nerdfonts.override {
-        fonts = [
-          "JetBrainsMono"
-          "Iosevka"
-        ];
-      })
     ];
 
     file = {
@@ -64,8 +55,6 @@ in {
       XDG_PICTURES_DIR = "$HOME/Pictures";
     };
   };
-
-  fonts.fontconfig.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
