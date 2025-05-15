@@ -22,11 +22,13 @@
   home.packages = with pkgs; [
     # TERMINAL
     ncspot
+    caligula
 
     # DESKTOP
     telegram-desktop
     pavucontrol
     seahorse
+    gparted
 
     # unfree
     obsidian
