@@ -37,6 +37,7 @@
       xwayland.force_zero_scaling = true;
 
       exec-once = [
+        "systemctl --user start hyprpolkitagent"
         "waybar"
         "hyprpaper"
         "wl-paste --type text --watch cliphist store"
