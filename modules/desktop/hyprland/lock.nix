@@ -10,17 +10,36 @@
         no_fade_in = false;
       };
 
-      label = {
-        text = "$TIME";
-        font_size = 96;
-        font_family = "JetBrains Mono";
-        color = "rgba(235, 219, 178, 1.0)";
-        position = "0, 600";
-        halign = "center";
-        walign = "center";
-
-        shadow_passes = 1;
-      };
+      label = [
+        {
+          text = "$TIME";
+          font_size = 96;
+          font_family = "Iosevka Nerd Font";
+          color = "rgba(224, 222, 244, 1.0)";
+          position = "0, 100";
+          halign = "center";
+          valign = "center";
+        }
+        {
+          text = "$LAYOUT";
+          font_size = 16;
+          font_family = "Iosevka Nerd Font";
+          color = "rgba(224, 222, 244, 1.0)";
+          position = "0, 0";
+          halign = "right";
+          valign = "top";
+        }
+        {
+          text = "λ";
+          font_size = 24;
+          font_family = "Iosevka Nerd Font";
+          color = "rgba(224, 222, 244, 1.0)";
+          position = "0, -80";
+          halign = "center";
+          valign = "center";
+          zindex = 1;
+        }
+      ];
 
       background = [
         {
@@ -33,14 +52,18 @@
       input-field = [
         {
           monitor = "";
-          size = "200, 50";
+          hide_input = true;
+
+          size = "64, 64";
           position = "0, -80";
-          outline_thickness = 0;
           dots_center = true;
-          inner_color = "rgba(0, 0, 0, 0.0)";
-          outer_color = "rgba(0, 0, 0, 0.0)";
-          font_color = "rgba(235, 219, 178, 1.0)";
-          check_color = "rgba(0, 0, 0, 0.1)";
+          outline_thickness = 8;
+
+          inner_color = "rgba(25, 23, 36, 1.0)";
+          outer_color = "rgba(31, 29, 46, 0.85)";
+          check_color = "rgba(110, 106, 134, 1.0)";
+          fail_color = "rgba(235, 111, 146, 1.0)";
+
           placeholder_text = "";
           fail_text = "";
         }
