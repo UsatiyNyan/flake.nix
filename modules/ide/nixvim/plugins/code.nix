@@ -104,14 +104,32 @@ in {
       cmp-path.enable = true;
       cmp-emoji.enable = true;
 
-      comment.enable = true;
-
       dap.enable = true;
+
+      comment.enable = true;
+      treesitter-textobjects.enable = true;
+      nvim-surround.enable = true;
+
+      nvim-ufo = {
+        enable = true;
+        settings.provider_selector = ''
+          function(bufnr, filetype, buftype)
+            local clients = vim.lsp.get_clients({ bufnr = bufnr })
+            for _, client in ipairs(clients) do
+              if client.server_capabilities.foldingRangeProvider then
+                return { "lsp", "indent" }
+              end
+            end
+            return { "treesitter", "indent" }
+          end
+        '';
+      };
     };
 
     extraPlugins = with pkgs.vimPlugins; [
       nvim-dap-ui
       nvim-dap-virtual-text
+      promise-async
     ];
 
     extraConfigLua = ''
