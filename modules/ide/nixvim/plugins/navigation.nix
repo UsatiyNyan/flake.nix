@@ -23,6 +23,29 @@ in {
           view_options.show_hidden = true;
         };
       };
+
+      zen-mode = {
+        enable = true;
+        settings = {
+          on_open = ''
+            function()
+              _G._zen_state = {
+                foldcolumn = vim.o.foldcolumn
+              }
+
+              vim.o.foldcolumn = "0"
+            end
+          '';
+          on_close = ''
+            function()
+              local state = _G._zen_state
+              _G._zen_state = nil
+
+              vim.o.foldcolumn = state.foldcolumn
+            end
+          '';
+        };
+      };
     };
 
     keymaps = [
@@ -124,6 +147,14 @@ in {
         key = "<leader>pv";
         action = mkRaw "require('oil').toggle_float";
         options.desc = "Oil: toggle float";
+      }
+
+      # zen-mode
+      {
+        mode = "n";
+        key = "<leader>zm";
+        action = mkCmd "ZenMode";
+        options.desc = "ZenMode";
       }
     ];
   };
