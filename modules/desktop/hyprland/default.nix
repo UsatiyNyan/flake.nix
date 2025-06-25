@@ -50,12 +50,6 @@
         "3, monitor:$monitor0, persistent:true, on-created-empty:$notesApp"
         "4, monitor:$monitor0, persistent:true, on-created-empty:$fileManager"
         "5, monitor:$monitor0, persistent:true, on-created-empty:$messagingApp"
-
-        "6, monitor:$monitor1"
-        "7, monitor:$monitor1"
-        "8, monitor:$monitor1"
-        "9, monitor:$monitor1"
-        "10, monitor:$monitor1"
       ];
 
       windowrule = [
