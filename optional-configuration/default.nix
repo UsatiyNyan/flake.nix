@@ -17,4 +17,7 @@
 
   # credential storage
   gnome-keyring = ./gnome-keyring.nix;
+
+  # keyboard configuration
+  vial = ./vial.nix;
 }

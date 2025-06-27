@@ -15,6 +15,7 @@
     my.optionalConfiguration.gnome-keyring
     my.optionalConfiguration.hyprland
     my.optionalConfiguration.nautilus
+    my.optionalConfiguration.vial
   ];
 
   # List packages installed in system profile. To search, run:
