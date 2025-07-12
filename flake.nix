@@ -42,7 +42,6 @@
     home-manager,
     ...
   } @ inputs: let
-    system = "x86_64-linux";
     user = "us4tiyny4n";
 
     my = {
@@ -54,22 +53,24 @@
     hosts = [
       {
         hostName = "new-moon";
+        system = "x86_64-linux";
         description = "laptop";
       }
       {
         hostName = "waxing-crescent";
+        system = "aarch64-linux";
         description = "raspberry-pi";
       }
     ];
 
-    makeSystem = {hostName}:
+    makeSystem = {hostName, system}:
       nixpkgs.lib.nixosSystem {
-        inherit system; # same as system = system
-        specialArgs = {inherit inputs user hostName my;};
+        inherit system;
+        specialArgs = {inherit system inputs user hostName my;};
         modules = [./hosts/${hostName}/configuration.nix];
       };
 
-    makeHomeConfiguration = {hostName}:
+    makeHomeConfiguration = {hostName, system}:
       home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         extraSpecialArgs = {inherit inputs user my;};
@@ -81,15 +82,15 @@
   in {
     nixosConfigurations =
       nixpkgs.lib.foldl'
-      (accConfigs: {hostName, ...}:
-        accConfigs // {"${hostName}" = makeSystem {inherit hostName;};})
+      (accConfigs: {hostName, system, ...}:
+        accConfigs // {"${hostName}" = makeSystem {inherit hostName system;};})
       {}
       hosts;
 
     homeConfigurations =
       nixpkgs.lib.foldl'
-      (accConfigs: {hostName, ...}:
-        accConfigs // {"${user}@${hostName}" = makeHomeConfiguration {inherit hostName;};})
+      (accConfigs: {hostName, system, ...}:
+        accConfigs // {"${user}@${hostName}" = makeHomeConfiguration {inherit hostName system;};})
       {}
       hosts;
   };
