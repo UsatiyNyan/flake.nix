@@ -209,6 +209,22 @@
         "type": "github"
       }
     },
+    "gp-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1744146845,
+        "narHash": "sha256-obYQyy1aHQXdf23NRNe8EPleP8KtKSisijgAQ7Ckkzo=",
+        "owner": "robitx",
+        "repo": "gp.nvim",
+        "rev": "b32327fe4ee65d24acbab0f645747c113eb935c0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "robitx",
+        "repo": "gp.nvim",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -733,6 +749,7 @@
     "root": {
       "inputs": {
         "alacritty-rose-pine": "alacritty-rose-pine",
+        "gp-nvim": "gp-nvim",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",

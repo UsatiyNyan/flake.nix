@@ -35,6 +35,11 @@
       url = "github:UsatiyNyan/init.lua";
       flake = false;
     };
+
+    gp-nvim = {
+      url = "github:robitx/gp.nvim?tag=v3.9.0";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -63,14 +68,20 @@
       }
     ];
 
-    makeSystem = {hostName, system}:
+    makeSystem = {
+      hostName,
+      system,
+    }:
       nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit system inputs user hostName my;};
         modules = [./hosts/${hostName}/configuration.nix];
       };
 
-    makeHomeConfiguration = {hostName, system}:
+    makeHomeConfiguration = {
+      hostName,
+      system,
+    }:
       home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         extraSpecialArgs = {inherit inputs user my;};
@@ -82,14 +93,22 @@
   in {
     nixosConfigurations =
       nixpkgs.lib.foldl'
-      (accConfigs: {hostName, system, ...}:
+      (accConfigs: {
+        hostName,
+        system,
+        ...
+      }:
         accConfigs // {"${hostName}" = makeSystem {inherit hostName system;};})
       {}
       hosts;
 
     homeConfigurations =
       nixpkgs.lib.foldl'
-      (accConfigs: {hostName, system, ...}:
+      (accConfigs: {
+        hostName,
+        system,
+        ...
+      }:
         accConfigs // {"${user}@${hostName}" = makeHomeConfiguration {inherit hostName system;};})
       {}
       hosts;
