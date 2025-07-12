@@ -5,6 +5,8 @@
 }: {
   imports = with my.modules; [
     lang.rust
+    lang.cpp
+    lang.haskell
   ];
 
   # nixpkgs.config.allowUnfree = false;

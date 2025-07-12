@@ -8,7 +8,7 @@
       "my-tmux-attach"
       ''
         #!/bin/sh
-        if [ -z "$TMUX" ] && [ -n "$DISPLAY" ]; then
+        if [ -z "$TMUX" ]; then
             tmux attach-session -t ${user} || tmux new-session -s ${user}
         fi
       '')
@@ -16,7 +16,7 @@
       "my-tmux-new"
       ''
         #!/bin/sh
-        if [ -z "$TMUX" ] && [ -n "$DISPLAY" ]; then
+        if [ -z "$TMUX" ]; then
             tmux new-session -t ${user}
         fi
       '')
