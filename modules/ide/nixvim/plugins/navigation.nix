@@ -153,6 +153,18 @@ in {
           })'';
         options.desc = "Snacks.picker: git grep";
       }
+      {
+        mode = "n";
+        key = "<leader>pc";
+        action = mkFun ''
+          Snacks.picker.cliphist({
+            finder = "system_cliphist",
+            format = "text",
+            preview = "preview",
+            confirm = { "copy", "close" },
+          })'';
+        options.desc = "Snacks.picker: clip hist";
+      }
 
       # neo-tree
       {
