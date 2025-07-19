@@ -26,30 +26,21 @@ in {
             enabled = true;
             layout = "ivy";
           };
+          zen = {
+            enabled = true;
+            toggles = {
+              foldcolumn = false;
+              number = false;
+              relativenumber = false;
+            };
+            win.width = 130;
+          };
         };
-      };
-
-      zen-mode = {
-        enable = true;
-        settings = {
-          on_open = ''
-            function()
-              _G._zen_state = {
-                foldcolumn = vim.o.foldcolumn
-              }
-
-              vim.o.foldcolumn = "0"
-            end
-          '';
-          on_close = ''
-            function()
-              local state = _G._zen_state
-              _G._zen_state = nil
-
-              vim.o.foldcolumn = state.foldcolumn
-            end
-          '';
-        };
+        luaConfig.post = ''
+          Snacks.toggle.option("foldcolumn", { off = "0", on = vim.o.foldcolumn, global = true })
+          Snacks.toggle.option("number", { off = false, on = vim.o.number, global = true })
+          Snacks.toggle.option("relativenumber", { off = false, on = vim.o.relativenumber, global = true })
+        '';
       };
     };
 
@@ -166,6 +157,14 @@ in {
         options.desc = "Snacks.picker: clip hist";
       }
 
+      # snacks.zen
+      {
+        mode = "n";
+        key = "<leader>zm";
+        action = mkFun ''Snacks.zen.zen({})'';
+        options.desc = "Snacks.zen";
+      }
+
       # neo-tree
       {
         mode = "n";
@@ -180,14 +179,6 @@ in {
         key = "<leader>-";
         action = mkFun "require('oil').toggle_float()";
         options.desc = "Oil: toggle float";
-      }
-
-      # zen-mode
-      {
-        mode = "n";
-        key = "<leader>zm";
-        action = mkCmd "ZenMode";
-        options.desc = "ZenMode";
       }
     ];
   };
