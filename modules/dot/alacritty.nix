@@ -25,7 +25,7 @@
       };
 
       font = let
-        aFont = "Iosevka Nerd Font";
+        aFont = "Iosevka Term Nerd Font";
       in {
         size = 16.0;
 

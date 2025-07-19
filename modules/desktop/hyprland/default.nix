@@ -45,7 +45,7 @@
       ];
 
       workspace = [
-        "1, monitor:$monitor0, persistent:true, on-created-empty:$terminalTmux, default: true"
+        "1, monitor:$monitor0, persistent:true, on-created-empty:$terminalTmux, default:true"
         "2, monitor:$monitor0, persistent:true, on-created-empty:$webBrowser"
         "3, monitor:$monitor0, persistent:true, on-created-empty:$notesApp"
         "4, monitor:$monitor0, persistent:true, on-created-empty:$fileManager"

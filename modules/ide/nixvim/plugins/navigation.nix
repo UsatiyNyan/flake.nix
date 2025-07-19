@@ -8,10 +8,6 @@ in {
     plugins = {
       tmux-navigator.enable = true;
 
-      harpoon = {
-        enable = true;
-        enableTelescope = true;
-      };
       telescope.enable = true;
 
       neo-tree.enable = true;
@@ -75,55 +71,17 @@ in {
         options.desc = "Tmux: window right";
       }
 
-      # harpoon
-      {
-        mode = "n";
-        key = "<leader>ha";
-        action = mkRaw "require('harpoon.mark').add_file";
-        options.desc = "Harpoon: add file";
-      }
-      {
-        mode = "n";
-        key = "<leader>hm";
-        action = mkRaw "require('harpoon.ui').toggle_quick_menu";
-        options.desc = "Harpoon: quick menu";
-      }
-      {
-        mode = "n";
-        key = "<leader>h1";
-        action = mkFun "require('harpoon.ui').nav_file(1)";
-        options.desc = "Harpoon: file 1";
-      }
-      {
-        mode = "n";
-        key = "<leader>h2";
-        action = mkFun "require('harpoon.ui').nav_file(2)";
-        options.desc = "Harpoon: file 2";
-      }
-      {
-        mode = "n";
-        key = "<leader>h3";
-        action = mkFun "require('harpoon.ui').nav_file(3)";
-        options.desc = "Harpoon: file 3";
-      }
-      {
-        mode = "n";
-        key = "<leader>h4";
-        action = mkFun "require('harpoon.ui').nav_file(4)";
-        options.desc = "Harpoon: file 4";
-      }
-
       # telescope
       {
         mode = "n";
         key = "<leader>pf";
-        action = mkRaw "require('telescope.builtin').find_files";
+        action = mkFun "require('telescope.builtin').find_files()";
         options.desc = "Telescope: search files";
       }
       {
         mode = "n";
         key = "<leader>pg";
-        action = mkRaw "require('telescope.builtin').git_files";
+        action = mkFun "require('telescope.builtin').git_files()";
         options.desc = "Telescope: search git staged files";
       }
       {

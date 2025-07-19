@@ -1,8 +1,6 @@
 {
-  # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
-  # services.pulseaudio.enable = false; in unstable
   security.rtkit.enable = true;
+  services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa.enable = true;

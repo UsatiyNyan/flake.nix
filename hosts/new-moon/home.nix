@@ -37,12 +37,8 @@
     google-chrome
 
     # STYLE
-    (nerdfonts.override {
-      fonts = [
-        "JetBrainsMono"
-        "Iosevka"
-      ];
-    })
+    nerd-fonts.iosevka
+    nerd-fonts.iosevka-term
   ];
 
   fonts.fontconfig.enable = true;
