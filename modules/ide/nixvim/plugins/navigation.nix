@@ -26,29 +26,7 @@ in {
             enabled = true;
             layout = "ivy";
           };
-        };
-      };
-
-      zen-mode = {
-        enable = true;
-        settings = {
-          on_open = ''
-            function()
-              _G._zen_state = {
-                foldcolumn = vim.o.foldcolumn
-              }
-
-              vim.o.foldcolumn = "0"
-            end
-          '';
-          on_close = ''
-            function()
-              local state = _G._zen_state
-              _G._zen_state = nil
-
-              vim.o.foldcolumn = state.foldcolumn
-            end
-          '';
+          zen.enabled = true;
         };
       };
     };
@@ -166,6 +144,25 @@ in {
         options.desc = "Snacks.picker: clip hist";
       }
 
+      # snacks.zen
+      {
+        mode = "n";
+        key = "<leader>zm";
+        action = mkFun ''
+          Snacks.zen.zen({
+            toggles = {
+              foldline = false,
+            },
+            show = {
+              tabline = false,
+            },
+            win = { style = "zen" },
+            on_open = function(win) end,
+            on_close = function(win) end,
+          })'';
+        options.desc = "Snacks.zen";
+      }
+
       # neo-tree
       {
         mode = "n";
@@ -180,14 +177,6 @@ in {
         key = "<leader>-";
         action = mkFun "require('oil').toggle_float()";
         options.desc = "Oil: toggle float";
-      }
-
-      # zen-mode
-      {
-        mode = "n";
-        key = "<leader>zm";
-        action = mkCmd "ZenMode";
-        options.desc = "ZenMode";
       }
     ];
   };
