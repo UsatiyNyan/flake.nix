@@ -8,8 +8,6 @@ in {
     plugins = {
       tmux-navigator.enable = true;
 
-      telescope.enable = true;
-
       neo-tree.enable = true;
       oil = {
         enable = true;
@@ -17,6 +15,17 @@ in {
           columns = ["icon"];
           keymaps."<C-h>" = false; # conflicts with Tmux
           view_options.show_hidden = true;
+        };
+      };
+
+      snacks = {
+        enable = true;
+        autoLoad = true;
+        settings = {
+          picker = {
+            enabled = true;
+            layout = "ivy";
+          };
         };
       };
 
@@ -71,24 +80,78 @@ in {
         options.desc = "Tmux: window right";
       }
 
-      # telescope
+      # snacks.picker
       {
         mode = "n";
-        key = "<leader>pf";
-        action = mkFun "require('telescope.builtin').find_files()";
-        options.desc = "Telescope: search files";
+        key = "<leader>km";
+        action = mkFun ''Snacks.picker.keymaps({ layout = "vertical" })'';
+        options.desc = "Snacks.picker: keymap";
       }
       {
         mode = "n";
-        key = "<leader>pg";
-        action = mkFun "require('telescope.builtin').git_files()";
-        options.desc = "Telescope: search git staged files";
+        key = "<leader>pb";
+        action = mkFun ''
+          Snacks.picker.buffers({
+            finder = "buffers",
+            format = "buffer",
+            hidden = false,
+            unloaded = true,
+            current = true,
+            sort_lastused = true,
+          })'';
+        options.desc = "Snacks.picker: buffers";
+      }
+      {
+        mode = "n";
+        key = "<leader>pf";
+        action = mkFun ''
+          Snacks.picker.files({
+            finder = "files",
+            format = "file",
+            show_empty = true,
+            supports_live = true,
+          })'';
+        options.desc = "Snacks.picker: files";
       }
       {
         mode = "n";
         key = "<leader>ps";
-        action = mkFun "require('telescope.builtin').grep_string({ search = vim.fn.input('Grep > ') })";
-        options.desc = "Telescope: grep files";
+        action = mkFun ''
+          Snacks.picker.grep({
+            finder = "grep",
+            format = "file",
+            regex = false,
+            show_empty = true,
+            supports_live = true,
+          })'';
+        options.desc = "Snacks.picker: grep";
+      }
+      {
+        mode = "n";
+        key = "<leader>pgf";
+        action = mkFun ''
+          Snacks.picker.git_files({
+            finder = "git_files",
+            format = "file",
+            show_empty = true,
+            untracked = true,
+            submodules = true,
+          })'';
+        options.desc = "Snacks.picker: git files";
+      }
+      {
+        mode = "n";
+        key = "<leader>pgs";
+        action = mkFun ''
+          Snacks.picker.git_grep({
+            finder = "git_grep",
+            format = "file",
+            show_empty = true,
+            untracked = true,
+            submodules = true,
+            live = true,
+          })'';
+        options.desc = "Snacks.picker: git grep";
       }
 
       # neo-tree
@@ -102,8 +165,8 @@ in {
       # oil
       {
         mode = "n";
-        key = "<leader>pv";
-        action = mkRaw "require('oil').toggle_float";
+        key = "<leader>-";
+        action = mkFun "require('oil').toggle_float()";
         options.desc = "Oil: toggle float";
       }
 
