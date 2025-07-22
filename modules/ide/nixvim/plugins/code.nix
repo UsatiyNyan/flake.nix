@@ -122,18 +122,11 @@ in {
       };
     };
 
-    extraPlugins = with pkgs.vimPlugins;
-      [
-        nvim-dap-ui
-        nvim-dap-virtual-text
-        promise-async
-      ]
-      ++ map pkgs.vimUtils.buildVimPlugin (with inputs; [
-        {
-          name = "gp";
-          src = gp-nvim;
-        }
-      ]);
+    extraPlugins = with pkgs.vimPlugins; [
+      nvim-dap-ui
+      nvim-dap-virtual-text
+      promise-async
+    ];
 
     extraConfigLua = ''
       local dap = require("dap")
@@ -141,15 +134,6 @@ in {
       dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
       dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
       dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
-
-      local gp = require("gp")
-      gp.setup({
-        providers = {
-          openai = { secret = { "secret-tool", "lookup", "key", "openai", "service", "api" } },
-        },
-        whisper = { disable = true },
-        image = { disable = true },
-      })
     '';
 
     keymaps = [

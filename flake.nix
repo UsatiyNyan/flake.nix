@@ -35,11 +35,6 @@
       url = "github:UsatiyNyan/init.lua";
       flake = false;
     };
-
-    gp-nvim = {
-      url = "github:robitx/gp.nvim?tag=v3.9.0";
-      flake = false;
-    };
   };
 
   outputs = {
