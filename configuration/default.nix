@@ -3,7 +3,6 @@
     ./user.nix
     ./zsh.nix
     ./home-manager.nix
-    ./boot.nix
     ./nix.nix
     ./networking.nix
     ./timezone.nix

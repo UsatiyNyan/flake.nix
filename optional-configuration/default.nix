@@ -1,4 +1,6 @@
 {
+  boot = ./boot.nix;
+
   # display managers
   sddm = ./sddm.nix;
   ly = ./ly.nix;

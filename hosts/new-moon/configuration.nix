@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
     my.configuration
 
+    my.optionalConfiguration.boot
     my.optionalConfiguration.sddm
     my.optionalConfiguration.gnome-keyring
     my.optionalConfiguration.hyprland
