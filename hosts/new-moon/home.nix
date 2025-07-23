@@ -16,6 +16,8 @@
     desktop.rofi
     desktop.mako
     desktop.gtk-theme
+
+    ide.aider
   ];
 
   # Allow unfree packages
