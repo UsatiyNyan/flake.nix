@@ -11,6 +11,7 @@
     lang.lua
     lang.rust
     lang.haskell
+    lang.erlang
 
     desktop.hyprland
     desktop.rofi

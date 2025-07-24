@@ -4,4 +4,5 @@
   lua = ./lua.nix;
   rust = ./rust.nix;
   haskell = ./haskell.nix;
+  erlang = ./erlang.nix;
 }
