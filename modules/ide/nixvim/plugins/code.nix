@@ -1,13 +1,11 @@
 {
-  inputs,
   pkgs,
   config,
+  my,
   ...
 }: let
-  helpers = config.lib.nixvim;
-  mkRaw = helpers.mkRaw;
-  mkFun = x: mkRaw ("function () " + x + " end");
-  mkCmd = x: "<cmd>" + x + "<CR>";
+  helpers = my.lib.nixvim config;
+  inherit (helpers) mkFun mkCmd;
 in {
   programs.nixvim = {
     plugins = {

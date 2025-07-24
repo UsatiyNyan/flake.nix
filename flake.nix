@@ -45,6 +45,7 @@
     user = "us4tiyny4n";
 
     my = {
+      lib = import ./lib;
       configuration = ./configuration;
       optionalConfiguration = import ./optional-configuration;
       modules = import ./modules;

@@ -1,5 +1,10 @@
-let
-  mkCmd = x: "<cmd>" + x + "<CR>";
+{
+  config,
+  my,
+  ...
+}: let
+  helpers = my.lib.nixvim config;
+  inherit (helpers) mkCmd;
 in {
   imports = [
     ./colors.nix
