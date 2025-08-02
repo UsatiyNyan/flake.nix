@@ -3,6 +3,8 @@
     erlang
     elixir
     gleam
+    beamPackages.rebar3
+    inotify-tools
   ];
 
   programs.nixvim = {
