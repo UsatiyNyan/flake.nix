@@ -11,8 +11,11 @@
     };
   };
 
-  wayland.windowManager.hyprland.settings.env = [
-    "XCURSOR_THEME,BreezeX-RosePine-Linux"
-    "XCURSOR_SIZE,24"
-  ];
+  wayland.windowManager.hyprland.settings = {
+    env = [
+      "XCURSOR_THEME,BreezeX-RosePine-Linux"
+      "XCURSOR_SIZE,24"
+    ];
+    cursor.inactive_timeout = 5;
+  };
 }
