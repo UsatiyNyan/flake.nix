@@ -45,11 +45,11 @@
       ];
 
       workspace = [
-        "1, monitor:$monitor0, persistent:true, on-created-empty:$terminalTmux, default:true"
-        "2, monitor:$monitor0, persistent:true, on-created-empty:$webBrowser"
-        "3, monitor:$monitor0, persistent:true, on-created-empty:$notesApp"
-        "4, monitor:$monitor0, persistent:true, on-created-empty:$fileManager"
-        "5, monitor:$monitor0, persistent:true, on-created-empty:$messagingApp"
+        "1, monitor:$monitor0, persistent:true, default:true"
+        "2, monitor:$monitor0, persistent:true"
+        "3, monitor:$monitor0, persistent:true"
+        "4, monitor:$monitor0, persistent:true"
+        "5, monitor:$monitor0, persistent:true"
       ];
 
       windowrule = [

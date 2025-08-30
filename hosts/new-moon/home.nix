@@ -51,9 +51,7 @@
     "$monitor1" = "DP-7";
 
     "$webBrowser" = "google-chrome-stable";
-    "$notesApp" = "obsidian";
     "$appLauncher" = "rofi -show drun -show-icons";
     "$fileManager" = "nautilus"; # configured from optional-configuration
-    "$messagingApp" = "telegram-desktop";
   };
 }
