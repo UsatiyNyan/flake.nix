@@ -36,7 +36,6 @@
     gparted
 
     # unfree
-    obsidian
     google-chrome
 
     # STYLE

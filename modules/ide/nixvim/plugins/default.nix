@@ -11,6 +11,7 @@ in {
     ./fonts.nix
     ./navigation.nix
     ./code.nix
+    ./notes.nix
   ];
 
   programs.nixvim = {
