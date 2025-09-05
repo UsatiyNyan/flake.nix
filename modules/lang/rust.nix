@@ -4,6 +4,8 @@
     rust-analyzer
     rustc
     cargo
+    wasm-pack
+    lld
 
     clippy
     rustfmt
