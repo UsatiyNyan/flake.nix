@@ -6,6 +6,7 @@
   imports = with my.modules; [
     dot.alacritty
 
+    lang.build
     lang.nix
     lang.cpp
     lang.lua

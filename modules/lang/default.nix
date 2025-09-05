@@ -1,4 +1,6 @@
 {
+  build = ./build.nix;
+
   nix = ./nix.nix;
   cpp = ./cpp;
   lua = ./lua.nix;
