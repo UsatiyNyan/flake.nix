@@ -5,7 +5,7 @@
     rustc
     cargo
     wasm-pack
-    lld
+    lld # needed for wasm-pack dylib
 
     clippy
     rustfmt

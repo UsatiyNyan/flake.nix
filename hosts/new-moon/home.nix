@@ -12,6 +12,7 @@
     lang.rust
     lang.haskell
     lang.erlang
+    lang.js
 
     desktop.hyprland
     desktop.rofi
