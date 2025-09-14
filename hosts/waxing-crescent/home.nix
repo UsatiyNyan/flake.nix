@@ -8,8 +8,8 @@
   config,
   ...
 }: {
-  imports = with my.modules; [
-    ide.nixvim
+  imports = [
+    ./minecraft.nix
   ];
 
   home.packages = [
