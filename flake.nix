@@ -58,6 +58,11 @@
         description = "laptop";
       }
       {
+        hostName = "lunar-eclipse";
+        system = "x86_64-linux";
+        description = "laptop";
+      }
+      {
         hostName = "waxing-crescent";
         system = "aarch64-linux";
         description = "raspberry-pi";
