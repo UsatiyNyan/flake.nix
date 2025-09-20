@@ -41,5 +41,23 @@
   # networking.interfaces.wlp2s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  hardware = {
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+    enableRedistributableFirmware = true;
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [
+        mesa
+        amdvlk
+      ];
+
+      enable32Bit = true;
+      extraPackages32 = with pkgs; [
+        driversi686Linux.mesa
+        driversi686Linux.amdvlk
+      ];
+    };
+  };
 }
