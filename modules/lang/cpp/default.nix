@@ -3,6 +3,7 @@
     clang
     clang-tools
     cmake
+    extra-cmake-modules
     ninja
     vscode-extensions.vadimcn.vscode-lldb
   ];
@@ -16,6 +17,9 @@
       source = ./scripts/cmake-generate.sh;
       executable = true;
     };
+    ".local/.gitignore".text = ''
+      __cmake_systeminformation/
+    '';
   };
 
   programs.nixvim.plugins.lsp.servers = {

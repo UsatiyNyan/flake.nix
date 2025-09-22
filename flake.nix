@@ -113,5 +113,7 @@
         accConfigs // {"${user}@${hostName}" = makeHomeConfiguration {inherit hostName system;};})
       {}
       hosts;
+
+    devShells = (import ./dev-shells) inputs;
   };
 }
