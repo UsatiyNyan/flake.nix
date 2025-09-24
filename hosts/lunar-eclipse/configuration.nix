@@ -50,4 +50,27 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+
+  boot.loader.systemd-boot = {
+    # The device handle of the EFI System Partition (ESP) where the Windows bootloader is
+    # located. This is the device handle that the EDK2 UEFI Shell uses to load the
+    # bootloader.
+    #
+    # To find this handle, follow these steps:
+    # 1. Set {option}`boot.loader.systemd-boot.edk2-uefi-shell.enable` to `true`
+    # 2. Run `nixos-rebuild boot`
+    # 3. Reboot and select "EDK2 UEFI Shell" from the systemd-boot menu
+    # 4. Run `map -c` to list all consistent device handles
+    # 5. For each device handle (for example, `HD0c1`), run `ls HD0c1:\EFI`
+    # 6. If the output contains the directory `Microsoft`, you might have found the correct device handle
+    # 7. Run `HD0c1:\EFI\Microsoft\Boot\Bootmgfw.efi` to check if Windows boots correctly
+    # 8. If it does, this device handle is the one you need (in this example, `HD0c1`)
+
+    windows = {
+      "whatever" = {
+        title = "more like Shindows";
+        efiDeviceHandle = "FS0";
+      };
+    };
+  };
 }
