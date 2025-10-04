@@ -31,6 +31,7 @@ in {
           zen = {
             enabled = true;
             toggles = {
+              dim = false;
               foldcolumn = false;
               number = false;
               relativenumber = false;

@@ -54,4 +54,6 @@
     "$appLauncher" = "rofi -show drun -show-icons";
     "$fileManager" = "nautilus"; # configured from optional-configuration
   };
+
+  hypridle.enableSuspend = false;
 }
