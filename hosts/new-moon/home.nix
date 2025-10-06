@@ -29,6 +29,7 @@
   home.packages = with pkgs; [
     # TERMINAL
     caligula
+    openvpn
 
     # DESKTOP
     telegram-desktop
