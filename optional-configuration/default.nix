@@ -22,4 +22,7 @@
 
   # keyboard configuration
   vial = ./vial.nix;
+
+  #
+  box = ./box.nix;
 }

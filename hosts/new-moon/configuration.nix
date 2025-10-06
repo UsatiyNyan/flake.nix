@@ -17,6 +17,7 @@
     my.optionalConfiguration.hyprland
     my.optionalConfiguration.nautilus
     my.optionalConfiguration.vial
+    my.optionalConfiguration.box
   ];
 
   # List packages installed in system profile. To search, run:
