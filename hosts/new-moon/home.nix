@@ -30,6 +30,7 @@
     # TERMINAL
     caligula
     openvpn
+    inetutils
 
     # DESKTOP
     telegram-desktop
