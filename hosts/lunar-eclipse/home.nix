@@ -21,6 +21,8 @@
     desktop.gtk-theme
 
     ide.aider
+
+    utils.box
   ];
 
   # Allow unfree packages
@@ -29,8 +31,6 @@
   home.packages = with pkgs; [
     # TERMINAL
     caligula
-    openvpn
-    inetutils
 
     # DESKTOP
     telegram-desktop
