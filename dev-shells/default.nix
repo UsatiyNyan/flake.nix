@@ -6,6 +6,7 @@
 
   modules = {
     "wayland_cpp" = import ./wayland_cpp.nix;
+    "haskell" = import ./haskell.nix;
   };
 
   _modules = system: let

@@ -1,10 +1,4 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [
-    ghc
-    cabal-install
-    haskell-language-server
-  ];
-
   programs.nixvim = {
     plugins.lsp.servers.hls = {
       enable = true;
