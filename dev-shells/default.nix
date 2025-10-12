@@ -1,4 +1,4 @@
-{nixpkgs, ...}: let
+{nixpkgs, ...} @ inputs: let
   systems = [
     "x86_64-linux"
     "aarch64-linux"
@@ -11,7 +11,7 @@
   _modules = system: let
     pkgs = nixpkgs.legacyPackages.${system};
   in
-    nixpkgs.lib.mapAttrs (name: module: pkgs.mkShell (module {inherit pkgs;}))
+    nixpkgs.lib.mapAttrs (name: module: pkgs.mkShell (module {inherit inputs pkgs;}))
     modules;
 in
   builtins.listToAttrs (map (system: {
