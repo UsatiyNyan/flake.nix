@@ -8,7 +8,6 @@
 
     lang.nix
     lang.cpp
-    lang.lua
     lang.rust
     lang.erlang
     lang.js
