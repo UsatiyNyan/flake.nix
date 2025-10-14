@@ -9,7 +9,6 @@ in {
   imports = with my.modules; [
     dot.zsh
     dot.tmux
-    ide.nixvim
   ];
 
   home = {

@@ -7,6 +7,8 @@
     lang.rust
     lang.cpp
     lang.haskell
+
+    ide.nixvim
   ];
 
   # nixpkgs.config.allowUnfree = false;
