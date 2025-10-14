@@ -85,7 +85,7 @@
     }:
       home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = {inherit inputs user my;};
+        extraSpecialArgs = {inherit system inputs user my;};
         modules = [
           my.modules.dot.home
           ./hosts/${hostName}/home.nix
