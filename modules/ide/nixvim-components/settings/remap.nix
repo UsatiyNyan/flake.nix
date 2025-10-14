@@ -1,8 +1,8 @@
-{config, ...}: let
-  helpers = config.lib.nixvim;
+{my, lib, ...}: let
+  helpers = my.lib.nixvim lib;
   mkRaw = helpers.mkRaw;
 in {
-  programs.nixvim.keymaps = [
+  keymaps = [
     # Diagnostic
     {
       mode = "n";
@@ -30,12 +30,6 @@ in {
     }
 
     # Greatest remaps ever: ThePrimeagen
-    {
-      mode = "v";
-      key = "K";
-      action = ":m '<-2<CR>gv=gv";
-      options.desc = "Move selected up";
-    }
     {
       mode = "v";
       key = "K";

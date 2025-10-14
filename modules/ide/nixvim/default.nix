@@ -1,8 +1,8 @@
 {inputs, ...}: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    ./settings
-    ./plugins
+    ./plugins.nix
+    ./settings.nix
   ];
 
   home.sessionVariables.EDITOR = "nvim";

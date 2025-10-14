@@ -1,5 +1,5 @@
-{
-  programs.nixvim.plugins = {
+{...}: {
+  plugins = {
     web-devicons.enable = true; # dependency
   };
 }
