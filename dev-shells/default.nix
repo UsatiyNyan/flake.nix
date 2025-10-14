@@ -1,4 +1,4 @@
-{inputs, ...} @args: let
+{user, inputs, ...} @args: let
   systems = [
     "x86_64-linux"
     "aarch64-linux"
@@ -13,7 +13,7 @@
   _modules = system: let
     pkgs = inputs.nixpkgs.legacyPackages.${system};
     _args = args // {
-      config.xdg.cacheHome = "~/.cache";
+      config.xdg.cacheHome = "/home/${user}/.cache";
       inherit system pkgs;
     };
   in
