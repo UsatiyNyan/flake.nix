@@ -10,7 +10,6 @@
     lang.cpp
     lang.lua
     lang.rust
-    lang.haskell
     lang.erlang
     lang.js
 

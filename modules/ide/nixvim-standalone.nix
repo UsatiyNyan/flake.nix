@@ -3,7 +3,7 @@
   system,
   my,
   lib,
-  additionalConfigurations ? [],
+  additionalComponents ? [],
   ...
 } @ args:
 inputs.nixvim.legacyPackages."${system}".makeNixvim {
@@ -19,6 +19,6 @@ inputs.nixvim.legacyPackages."${system}".makeNixvim {
       plugins.navigation
       plugins.notes
     ]
-    ++ additionalConfigurations
+    ++ additionalComponents
   ));
 }

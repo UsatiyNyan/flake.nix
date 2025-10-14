@@ -1,4 +1,4 @@
-{nixpkgs, ...} @ inputs: let
+{inputs, ...} @args: let
   systems = [
     "x86_64-linux"
     "aarch64-linux"
@@ -10,9 +10,13 @@
   };
 
   _modules = system: let
-    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = inputs.nixpkgs.legacyPackages.${system};
+    _args = args // {
+      config.xdg.cacheHome = "~/.cache";
+      inherit system pkgs;
+    };
   in
-    nixpkgs.lib.mapAttrs (name: module: pkgs.mkShell (module {inherit inputs pkgs;}))
+    inputs.nixpkgs.lib.mapAttrs (name: module: pkgs.mkShell (module _args))
     modules;
 in
   builtins.listToAttrs (map (system: {

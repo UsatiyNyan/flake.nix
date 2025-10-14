@@ -114,6 +114,6 @@
       {}
       hosts;
 
-    devShells = (import ./dev-shells) inputs;
+    devShells = (import ./dev-shells) {inherit inputs user my; lib = nixpkgs.lib;};
   };
 }
