@@ -16,7 +16,6 @@
     desktop.mako
     desktop.gtk-theme
 
-    ide.nixvim
     ide.aider
 
     utils.box
