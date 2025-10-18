@@ -52,6 +52,7 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  boot.loader.timeout = 15;
   boot.loader.systemd-boot = {
     # The device handle of the EFI System Partition (ESP) where the Windows bootloader is
     # located. This is the device handle that the EDK2 UEFI Shell uses to load the
