@@ -10,6 +10,7 @@
     "lua" = import ./lua.nix;
     "js" = import ./js.nix;
     "erlang" = import ./erlang.nix;
+    "nix" = import ./nix.nix;
   };
 
   _modules = system: let

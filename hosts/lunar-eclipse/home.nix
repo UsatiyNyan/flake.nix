@@ -6,7 +6,6 @@
   imports = with my.modules; [
     dot.alacritty
 
-    lang.nix
     lang.cpp
     lang.rust
 
