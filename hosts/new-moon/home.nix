@@ -9,7 +9,6 @@
     lang.nix
     lang.cpp
     lang.rust
-    lang.erlang
 
     desktop.hyprland
     desktop.rofi

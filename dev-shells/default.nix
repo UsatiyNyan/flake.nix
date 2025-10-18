@@ -9,6 +9,7 @@
     "haskell" = import ./haskell.nix;
     "lua" = import ./lua.nix;
     "js" = import ./js.nix;
+    "erlang" = import ./erlang.nix;
   };
 
   _modules = system: let
