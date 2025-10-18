@@ -8,6 +8,7 @@
     "wayland_cpp" = import ./wayland_cpp.nix;
     "haskell" = import ./haskell.nix;
     "lua" = import ./lua.nix;
+    "js" = import ./js.nix;
   };
 
   _modules = system: let

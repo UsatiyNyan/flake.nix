@@ -10,7 +10,6 @@
     lang.cpp
     lang.rust
     lang.erlang
-    lang.js
 
     desktop.hyprland
     desktop.rofi
