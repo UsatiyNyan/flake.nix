@@ -1,12 +1,10 @@
-{
-  pkgs,
-  lib,
-  ...
-} @ args:
-lib.mkMerge [
-  (import ./cpp.clang.nix args)
-  {
-    buildInputs = with pkgs; [
+let
+  base = import ./cpp.clang.nix;
+in {
+  inherit (base) nixvim scripts;
+  buildInputs = {pkgs, ...} @ args:
+    (base.buildInputs args)
+    ++ (with pkgs; [
       extra-cmake-modules
 
       # graphics
@@ -21,6 +19,5 @@ lib.mkMerge [
       alsa-lib
       libpulseaudio
       pipewire
-    ];
-  }
-]
+    ]);
+}
