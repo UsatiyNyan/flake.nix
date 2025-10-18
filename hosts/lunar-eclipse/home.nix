@@ -50,7 +50,6 @@
   wayland.windowManager.hyprland.settings = {
     "$monitor0" = "DP-7";
 
-    "$webBrowser" = "google-chrome-stable";
     "$appLauncher" = "rofi -show drun -show-icons";
     "$fileManager" = "nautilus"; # configured from optional-configuration
   };
