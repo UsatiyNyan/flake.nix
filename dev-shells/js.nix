@@ -1,4 +1,8 @@
-{pkgs, my, ...} @ args: {
+{
+  pkgs,
+  my,
+  ...
+} @ args: {
   buildInputs = with pkgs; [
     typescript-language-server
     (import my.modules.ide.nixvim-standalone (args

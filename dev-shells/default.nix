@@ -1,4 +1,8 @@
-{user, inputs, ...} @args: let
+{
+  user,
+  inputs,
+  ...
+} @ args: let
   systems = [
     "x86_64-linux"
     "aarch64-linux"
@@ -15,10 +19,12 @@
 
   _modules = system: let
     pkgs = inputs.nixpkgs.legacyPackages.${system};
-    _args = args // {
-      config.xdg.cacheHome = "/home/${user}/.cache";
-      inherit system pkgs;
-    };
+    _args =
+      args
+      // {
+        config.xdg.cacheHome = "/home/${user}/.cache";
+        inherit system pkgs;
+      };
   in
     inputs.nixpkgs.lib.mapAttrs (name: module: pkgs.mkShell (module _args))
     modules;

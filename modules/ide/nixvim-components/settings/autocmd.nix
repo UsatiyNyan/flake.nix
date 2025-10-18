@@ -1,4 +1,8 @@
-{lib, my, ...}: let
+{
+  lib,
+  my,
+  ...
+}: let
   helpers = my.lib.nixvim lib;
   mkRaw = helpers.mkRaw;
 in {
