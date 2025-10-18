@@ -9,13 +9,14 @@
   ];
 
   modules = {
-    "wayland_cpp" = import ./wayland_cpp.nix;
     "haskell" = import ./haskell.nix;
     "lua" = import ./lua.nix;
     "js" = import ./js.nix;
     "erlang" = import ./erlang.nix;
     "nix" = import ./nix.nix;
     "rust" = import ./rust.nix;
+    "cpp.clang" = import ./cpp.clang.nix;
+    "cpp.clang.wayland" = import ./cpp.clang.wayland.nix;
   };
 
   _modules = system: let

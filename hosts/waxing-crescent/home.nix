@@ -4,8 +4,6 @@
   ...
 }: {
   imports = with my.modules; [
-    lang.cpp
-
     ide.nixvim
   ];
   home.sessionVariables.EDITOR = "nvim";

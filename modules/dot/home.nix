@@ -45,6 +45,7 @@ in {
     file = {
       ".local/.gitignore".text = ''
         /build
+        __cmake_systeminformation/
       '';
     };
 

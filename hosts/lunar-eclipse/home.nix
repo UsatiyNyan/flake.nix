@@ -6,8 +6,6 @@
   imports = with my.modules; [
     dot.alacritty
 
-    lang.cpp
-
     desktop.hyprland
     desktop.rofi
     desktop.mako
