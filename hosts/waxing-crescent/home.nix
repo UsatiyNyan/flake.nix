@@ -9,6 +9,7 @@
 
     ide.nixvim
   ];
+  home.sessionVariables.EDITOR = "nvim";
 
   # nixpkgs.config.allowUnfree = false;
 
