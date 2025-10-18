@@ -1,6 +1,11 @@
 {
   pkgs,
   my,
+  inputs,
+  system,
+  lib,
+  user,
+  config,
   ...
 }: {
   imports = with my.modules; [
@@ -11,7 +16,6 @@
     desktop.mako
     desktop.gtk-theme
 
-    ide.nixvim
     ide.aider
 
     utils.box
@@ -36,6 +40,8 @@
     # STYLE
     nerd-fonts.iosevka
     nerd-fonts.iosevka-term
+
+    (import my.modules.ide.nixvim-standalone {inherit pkgs inputs my lib system user config;})
   ];
   home.sessionVariables.EDITOR = "nvim";
 
