@@ -15,8 +15,8 @@
     "erlang" = import ./erlang.nix;
     "nix" = import ./nix.nix;
     "rust" = import ./rust.nix;
-    "cpp.clang" = import ./cpp.clang.nix;
-    "cpp.clang.wayland" = import ./cpp.clang.wayland.nix;
+    "cpp-clang" = import ./cpp.clang.nix;
+    "cpp-clang-wayland" = import ./cpp.clang.wayland.nix;
   };
 
   _modules = system: let

@@ -2,7 +2,17 @@
   pkgs,
   my,
   ...
-} @ args: {
+} @ args: let
+  mkScripts = name: src:
+    pkgs.stdenv.mkDerivation {
+      inherit name src;
+      installPhase = ''
+        mkdir -p $out/bin
+        cp ${src}/* $out/bin/
+        chmod +x $out/bin/*
+      '';
+    };
+in {
   buildInputs = with pkgs; [
     clang
     clang-tools
@@ -32,15 +42,6 @@
           })
         ];
       }))
-    pkgs.writeShellApplication
-    {
-      name = "cmake-build";
-      text = builtins.readFile ./cpp.scripts/cmake-build.sh;
-    }
-    pkgs.writeShellApplication
-    {
-      name = "cmake-generate";
-      text = builtins.readFile ./cpp.scripts/cmake-generate.sh;
-    }
+    (mkScripts "cpp.scripts" ./cpp.scripts)
   ];
 }

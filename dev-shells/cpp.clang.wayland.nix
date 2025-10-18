@@ -2,9 +2,9 @@
   pkgs,
   lib,
   ...
-}:
+} @ args:
 lib.mkMerge [
-  (import ./cpp.clang.nix)
+  (import ./cpp.clang.nix args)
   {
     buildInputs = with pkgs; [
       extra-cmake-modules
