@@ -15,6 +15,7 @@
     "js" = import ./js.nix;
     "erlang" = import ./erlang.nix;
     "nix" = import ./nix.nix;
+    "rust" = import ./rust.nix;
   };
 
   _modules = system: let

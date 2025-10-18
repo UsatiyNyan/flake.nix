@@ -4,7 +4,6 @@
   ...
 }: {
   imports = with my.modules; [
-    lang.rust
     lang.cpp
 
     ide.nixvim

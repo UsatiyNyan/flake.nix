@@ -7,7 +7,6 @@
     dot.alacritty
 
     lang.cpp
-    lang.rust
 
     desktop.hyprland
     desktop.rofi
