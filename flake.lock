@@ -598,6 +598,23 @@
         "type": "github"
       }
     },
+    "private-hosts": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1760824375,
+        "narHash": "sha256-CFF7ZSkSYxRdAzHye6rrsRBciQuUP3U93zgP3Hgqolk=",
+        "ref": "main",
+        "rev": "fbc9e9a1caba523e765cc69768108fe956512b9e",
+        "revCount": 3,
+        "type": "git",
+        "url": "ssh://git@github.com/UsatiyNyan/private-hosts.nix"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "ssh://git@github.com/UsatiyNyan/private-hosts.nix"
+      }
+    },
     "root": {
       "inputs": {
         "alacritty-rose-pine": "alacritty-rose-pine",
@@ -608,6 +625,7 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim",
+        "private-hosts": "private-hosts",
         "where-is-my-sddm-theme": "where-is-my-sddm-theme"
       }
     },
