@@ -1,5 +1,12 @@
-{config, ...}: {
-  # home.file.".config/oh-my-zsh/themes/ultima.zsh-theme".source = inputs.omz-ultima-theme + /ultima.zsh-theme;
+{inputs, pkgs, config, ...}: {
+  home.packages = [
+    (pkgs.writeScriptBin
+      "my-dev-shell"
+      ''
+        #!/bin/sh
+        nix develop ${inputs.self}#$1 --command $SHELL
+      '')
+  ];
 
   programs.zsh = {
     enable = true;
@@ -13,6 +20,19 @@
     };
 
     initContent = ''
+      # Modify prompt
+      if [[ $TERM = (*256color|*rxvt*) ]]; then
+        my_nix_blue="%{''${(%):-"%F{117}"}%}"   # light-blue, Nix flake style
+      else
+        my_nix_blue="%{''${(%):-"%F{blue}"}%}"  # fallback
+      fi
+      function devshell_prompt_info {
+        if [[ -n "''${MY_NIX_VIA}" ]]; then
+          echo "''${my_nix_blue}$MY_NIX_VIA   %{$reset_color%}";
+        fi
+      }
+      PROMPT="$PROMPT\$(devshell_prompt_info)"
+
       # Match results that include your partial input anywhere within the completion candidates.
       zstyle ':completion:*' matcher-list 'm:{a-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
@@ -21,7 +41,6 @@
 
     oh-my-zsh = {
       enable = true;
-      # theme = "ultima";
       theme = "half-life";
       custom = "${config.xdg.configHome}/oh-my-zsh";
       plugins = ["git"];
