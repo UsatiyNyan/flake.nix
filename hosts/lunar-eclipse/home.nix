@@ -33,6 +33,7 @@
     pavucontrol
     seahorse
     gparted
+    prismlauncher
 
     # unfree
     google-chrome
