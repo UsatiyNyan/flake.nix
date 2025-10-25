@@ -20,6 +20,7 @@
   };
 
   _mkModule = {
+    moduleName,
     module,
     _args,
   }: let
@@ -39,29 +40,40 @@
       };
   in
     pkgs.mkShell
-    (
-      if builtins.isFunction module
-      then (module _args)
-      else let
-        _buildInputs =
-          if builtins.hasAttr "buildInputs" module
-          then (module.buildInputs _args)
-          else [];
-        _nixvim =
-          if builtins.hasAttr "nixvim" module
-          then [(import my.modules.ide.nixvim-standalone (_args // {additionalComponents = [module.nixvim];}))]
-          else [];
-        _scripts =
-          if builtins.hasAttr "scripts" module
-          then [(mkScripts module.scripts)]
-          else [];
-        _env =
-          if builtins.hasAttr "env" module
-          then (module.env _args)
-          else {};
-      in
-        {buildInputs = _buildInputs ++ _nixvim ++ _scripts;} // _env
-    );
+    (let
+      _buildInputs =
+        if builtins.hasAttr "buildInputs" module
+        then (module.buildInputs _args)
+        else [];
+      _nixvim =
+        if builtins.hasAttr "nixvim" module
+        then [(import my.modules.ide.nixvim-standalone (_args // {additionalComponents = [module.nixvim];}))]
+        else [];
+      _scripts =
+        if builtins.hasAttr "scripts" module
+        then [(mkScripts module.scripts)]
+        else [];
+      _shellHook =
+        if builtins.hasAttr "shellHook" module
+        then module.shellHook
+        else "";
+      _env =
+        if builtins.hasAttr "env" module
+        then (module.env _args)
+        else {};
+      _moduleAlias =
+        if builtins.hasAttr "alias" module
+        then module.alias
+        else moduleName;
+    in
+      {
+        buildInputs = _buildInputs ++ _nixvim ++ _scripts;
+        shellHook = ''
+          ${_shellHook}
+          export MY_NIX_VIA="${_moduleAlias}";
+        '';
+      }
+      // _env);
 
   _mkModules = system: let
     _args =
@@ -73,7 +85,7 @@
       };
   in
     inputs.nixpkgs.lib.mapAttrs
-    (name: module: _mkModule {inherit module _args;})
+    (moduleName: module: _mkModule {inherit moduleName module _args;})
     modules;
 in
   builtins.listToAttrs (map (system: {

@@ -1,17 +1,9 @@
 {
-  pkgs,
-  my,
-  ...
-} @ args: {
-  buildInputs = with pkgs; [
-    typescript-language-server
-    (import my.modules.ide.nixvim-standalone (args
-      // {
-        additionalComponents = [
-          ({...}: {
-            plugins.lsp.servers.ts_ls.enable = true;
-          })
-        ];
-      }))
-  ];
+  buildInputs = {pkgs, ...}:
+    with pkgs; [
+      typescript-language-server
+    ];
+  nixvim = {...}: {
+    plugins.lsp.servers.ts_ls.enable = true;
+  };
 }
