@@ -29,4 +29,8 @@
     name = "cpp.scripts";
     src = ./cpp.scripts;
   };
+  shellHook = ''
+    export CXX="clang++"
+    export CC="clang"
+  '';
 }

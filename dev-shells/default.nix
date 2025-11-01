@@ -57,23 +57,17 @@
         if builtins.hasAttr "shellHook" module
         then module.shellHook
         else "";
-      _env =
-        if builtins.hasAttr "env" module
-        then (module.env _args)
-        else {};
       _moduleAlias =
         if builtins.hasAttr "alias" module
         then module.alias
         else moduleName;
-    in
-      {
-        buildInputs = _buildInputs ++ _nixvim ++ _scripts;
-        shellHook = ''
-          ${_shellHook}
-          export MY_NIX_VIA="${_moduleAlias}";
-        '';
-      }
-      // _env);
+    in {
+      buildInputs = _buildInputs ++ _nixvim ++ _scripts;
+      shellHook = ''
+        ${_shellHook}
+        export MY_NIX_VIA="${_moduleAlias}";
+      '';
+    });
 
   _mkModules = system: let
     _args =

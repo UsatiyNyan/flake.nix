@@ -1,7 +1,7 @@
 let
   base = import ./cpp.clang.nix;
 in {
-  inherit (base) nixvim scripts;
+  inherit (base) nixvim scripts shellHook;
   buildInputs = {pkgs, ...} @ args:
     (base.buildInputs args)
     ++ (with pkgs; [
