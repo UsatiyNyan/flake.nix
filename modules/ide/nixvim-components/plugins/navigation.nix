@@ -9,7 +9,6 @@ in {
   plugins = {
     tmux-navigator.enable = true;
 
-    neo-tree.enable = true;
     oil = {
       enable = true;
       settings = {
@@ -46,7 +45,6 @@ in {
     };
 
     undotree.enable = true;
-    fugitive.enable = true;
   };
 
   keymaps = [
@@ -100,6 +98,7 @@ in {
         Snacks.picker.files({
           finder = "files",
           format = "file",
+          cmd = "rg",
           show_empty = true,
           supports_live = true,
         })'';
@@ -158,20 +157,21 @@ in {
       options.desc = "Snacks.picker: clip hist";
     }
 
+    {
+      mode = "n";
+      key = "<leader>pe";
+      action = mkFun ''Snacks.picker.explorer({
+          cmd = "rg",
+      })'';
+      options.desc = "Snacks.picker: explorer";
+    }
+
     # snacks.zen
     {
       mode = "n";
       key = "<leader>zm";
       action = mkFun ''Snacks.zen.zen({})'';
       options.desc = "Snacks.zen";
-    }
-
-    # neo-tree
-    {
-      mode = "n";
-      key = "<leader>nt";
-      action = mkCmd "Neotree toggle";
-      options.desc = "Neotree: toggle";
     }
 
     # oil
@@ -188,14 +188,6 @@ in {
       key = "<leader>u";
       action = mkCmd "UndotreeToggle";
       options.desc = "Undotree";
-    }
-
-    # git
-    {
-      mode = "n";
-      key = "<leader>gg";
-      action = mkCmd "Git";
-      options.desc = "Git status";
     }
   ];
 }
