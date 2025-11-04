@@ -160,9 +160,7 @@ in {
     {
       mode = "n";
       key = "<leader>pe";
-      action = mkFun ''Snacks.picker.explorer({
-          cmd = "rg",
-      })'';
+      action = mkFun ''Snacks.picker.explorer()'';
       options.desc = "Snacks.picker: explorer";
     }
 

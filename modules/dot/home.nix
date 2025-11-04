@@ -37,6 +37,7 @@ in {
       ripgrep
       fzf
       tldr
+      fd
 
       # TUI
       bluetuith
