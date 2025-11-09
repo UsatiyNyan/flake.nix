@@ -11,25 +11,25 @@ in {
     {
       mode = "n";
       key = "[d";
-      action = mkRaw "vim.diagnostic.goto_prev";
+      action = mkRaw "vim.diagnostic.goto_prev ";
       options.desc = "Go to previous diagnostic message";
     }
     {
       mode = "n";
       key = "]d";
-      action = mkRaw "vim.diagnostic.goto_next";
+      action = mkRaw "vim.diagnostic.goto_next ";
       options.desc = "Go to next diagnostic message";
     }
     {
       mode = "n";
       key = "<leader>e";
-      action = mkRaw "vim.diagnostic.open_float";
+      action = mkRaw "vim.diagnostic.open_float ";
       options.desc = "Open floating diagnostic message";
     }
     {
       mode = "n";
       key = "<leader>q";
-      action = mkRaw "vim.diagnostic.setloclist";
+      action = mkRaw "vim.diagnostic.setloclist ";
       options.desc = "Open diagnostics list";
     }
 
@@ -65,6 +65,14 @@ in {
       key = "<leader>Y";
       action = ''"+Y'';
       options.desc = "Yank to system clipboard!";
+    }
+
+    # Greates remap ever: SylvanFranklin
+    {
+      mode = ["n" "v"];
+      key = "<leader>n";
+      action = '':norm '';
+      options.desc  = "norm";
     }
   ];
 }
