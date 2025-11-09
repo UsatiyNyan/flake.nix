@@ -12,6 +12,7 @@
   # desktop environments
   plasma6 = ./plasma6.nix;
   hyprland = ./hyprland.nix;
+  sway = ./sway.nix;
 
   # file managers
   thunar = ./thunar.nix;

@@ -14,6 +14,7 @@
     my.optionalConfiguration.boot
     (import my.optionalConfiguration.greetd {cmd = "Hyprland";})
     my.optionalConfiguration.gnome-keyring
+    my.optionalConfiguration.sway
     my.optionalConfiguration.hyprland
     my.optionalConfiguration.nautilus
     my.optionalConfiguration.vial
