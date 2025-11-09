@@ -4,6 +4,7 @@
   # display managers
   sddm = ./sddm.nix;
   ly = ./ly.nix;
+  greetd = ./greetd.nix;
 
   # display protocols
   x11 = ./x11.nix;
