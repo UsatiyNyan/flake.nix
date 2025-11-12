@@ -11,7 +11,7 @@
   imports = with my.modules; [
     dot.alacritty
 
-    desktop.hyprland
+    desktop.sway
     desktop.rofi
     desktop.mako
     desktop.gtk-theme
@@ -47,11 +47,24 @@
 
   fonts.fontconfig.enable = true;
 
-  wayland.windowManager.hyprland.settings = {
-    "$monitor0" = "eDP-1";
-    "$monitor1" = "DP-7";
+  wayland.windowManager.sway = {
+    config.output = {
+      "$monitor0" = {
+        mode = "1920x1080@60Hz";
+        position = "0 0";
+      };
+      "$monitor1" = {
+        mode = "1920x1080@60Hz";
+        position = "1920 0";
+      };
+    };
 
-    "$appLauncher" = "rofi -show drun -show-icons";
-    "$fileManager" = "nautilus"; # configured from optional-configuration
+    extraConfig = ''
+      set $monitor0 eDP-1
+      set $monitor1 DP-7
+
+      set $appLauncher rofi -show drun -show-icons
+      set $fileManager nautilus
+    '';
   };
 }
