@@ -33,6 +33,8 @@
     pavucontrol
     seahorse
     gparted
+    vlc
+    obs-studio
 
     # unfree
     google-chrome
