@@ -10,11 +10,6 @@
     };
   };
 
-  home.sessionVariables = {
-    "XCURSOR_THEME" = "BreezeX-RosePine-Linux";
-    "XCURSOR_SIZE" = "24";
-  };
-
   wayland.windowManager.sway = {
     enable = true;
 
@@ -27,5 +22,10 @@
     # extraConfig = ''
     #   seat * hide_cursor 5
     # '';
+
+    extraSessionCommands = ''
+      export XCURSOR_THEME="BreezeX-RosePine-Linux"
+      export XCURSOR_SIZE="24"
+    '';
   };
 }
