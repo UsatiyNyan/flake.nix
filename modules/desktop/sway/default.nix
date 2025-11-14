@@ -44,7 +44,6 @@
 
       defaultWorkspace = "workspace number 1";
       workspaceLayout = "default";
-      workspaceOutputAssign = [];
 
       window = {
         hideEdgeBorders = "smart_no_gaps";
@@ -56,5 +55,18 @@
         outer = 0;
       };
     };
+
+    extraConfig = ''
+      workspace "1" output "$monitor0"
+      workspace "2" output "$monitor0"
+      workspace "3" output "$monitor0"
+      workspace "4" output "$monitor0"
+      workspace "5" output "$monitor0"
+      workspace "6" output "$monitor1"
+      workspace "7" output "$monitor1"
+      workspace "8" output "$monitor1"
+      workspace "9" output "$monitor1"
+      workspace "10" output "$monitor1"
+    '';
   };
 }
