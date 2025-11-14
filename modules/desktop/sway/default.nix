@@ -33,7 +33,7 @@
     extraConfigEarly = ''
       set $terminal alacritty -e my-tmux-new
       set $terminalTmux alacritty -e my-tmux-attach
-      set $screenshotDir ${config.xdg.userDirs.pictures}/Screenshots
+      set $mod ${config.wayland.windowManager.sway.config.modifier}
     '';
 
     config = {
