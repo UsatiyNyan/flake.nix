@@ -1,6 +1,7 @@
-{...}: {
+{pkgs, ...}: {
   programs.waybar = {
     enable = true;
+    package = pkgs.waybar;
     settings = {
       mainBar = {
         layer = "top";
@@ -28,7 +29,8 @@
             "8" = "8";
             "9" = "9";
             "10" = "0";
-            "active" = "_";
+            "urgent" = "*";
+            "focused" = "_";
           };
           disable-scroll = false;
           all-outputs = true;
@@ -93,4 +95,10 @@
     };
     style = ./bar.css;
   };
+
+  wayland.windowManager.sway.config.bars = [
+    {
+      command = "${pkgs.waybar}/bin/waybar";
+    }
+  ];
 }

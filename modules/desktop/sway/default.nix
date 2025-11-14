@@ -37,7 +37,6 @@
 
       startup = [
         {command = "systemctl --user start polkit-gnome-authentication-agent-1";}
-        {command = "waybar";}
         {command = "swaybg -i ${config.xdg.userDirs.pictures}/wallpaper.jpg --mode fill";}
         {command = "wl-paste --type text --watch cliphist store";}
         {command = "wl-paste --type image --watch cliphist store";}
