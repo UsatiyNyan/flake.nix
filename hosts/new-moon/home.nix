@@ -52,18 +52,18 @@
   wayland.windowManager.sway = {
     config.output = {
       "$monitor0" = {
-        mode = "1920x1080@60Hz";
+        mode = "1920x1200@60Hz";
         position = "0 0";
       };
       "$monitor1" = {
-        mode = "1920x1080@60Hz";
+        mode = "2560x1440@120Hz";
         position = "1920 0";
       };
     };
 
-    extraConfig = ''
+    extraConfigEarly = ''
       set $monitor0 eDP-1
-      set $monitor1 DP-7
+      set $monitor1 HDMI-A-1
 
       set $appLauncher rofi -show drun -show-icons
       set $fileManager nautilus

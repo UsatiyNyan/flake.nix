@@ -16,20 +16,16 @@
     wl-clipboard
     cliphist
     brightnessctl
+    wl-color-picker
     grim
     slurp
     wf-recorder
-    swaybg # duplicate
   ];
-
-  home.sessionVariables = {
-    SWAYSHOT_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
-  };
 
   wayland.windowManager.sway = {
     enable = true;
 
-    extraConfig = ''
+    extraConfigEarly = ''
       set $terminal alacritty -e my-tmux-new
       set $terminalTmux alacritty -e my-tmux-attach
       set $screenshotDir ${config.xdg.userDirs.pictures}/Screenshots
@@ -47,36 +43,18 @@
         {command = "wl-paste --type image --watch cliphist store";}
       ];
 
-      workspaceOutputAssign = [
-        {
-          workspace = "1";
-          output = "$monitor0";
-        }
-        {
-          workspace = "2";
-          output = "$monitor0";
-        }
-        {
-          workspace = "3";
-          output = "$monitor0";
-        }
-        {
-          workspace = "4";
-          output = "$monitor0";
-        }
-        {
-          workspace = "5";
-          output = "$monitor0";
-        }
-      ];
+      defaultWorkspace = "workspace number 1";
+      workspaceLayout = "default";
+      workspaceOutputAssign = [];
+
+      window = {
+        hideEdgeBorders = "smart_no_gaps";
+        titlebar = false;
+      };
 
       gaps = {
         inner = 4;
         outer = 0;
-      };
-
-      window = {
-        hideEdgeBorders = "smart_no_gaps";
       };
     };
   };
