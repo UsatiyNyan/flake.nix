@@ -25,6 +25,11 @@
   wayland.windowManager.sway = {
     enable = true;
 
+    xwayland = true;
+    wrapperFeatures = {
+      gtk = true;
+    };
+
     extraConfigEarly = ''
       set $terminal alacritty -e my-tmux-new
       set $terminalTmux alacritty -e my-tmux-attach
@@ -67,6 +72,15 @@
       workspace "8" output "$monitor1"
       workspace "9" output "$monitor1"
       workspace "10" output "$monitor1"
+    '';
+
+    extraSessionCommands = ''
+      export NIXOS_OZONE_WL="1"
+      export WLR_NO_HARDWARE_CURSORS="1"
+      export XDG_CURRENT_DESKTOP="sway"
+      export XDG_SESSION_TYPE="wayland"
+      export XDG_SESSION_DESKTOP="sway"
+      export QT_QPA_PLATFORM="wayland"
     '';
   };
 }
