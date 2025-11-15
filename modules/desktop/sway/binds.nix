@@ -1,11 +1,35 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.packages = with pkgs; [
     wev # still useful for keycode debugging
     brightnessctl
+
+    # screen capture
+    grim
+    slurp
+    jq
+    hyprpicker
+    woomer
+
+    (pkgs.writeShellScriptBin "my-grim-window" ''
+      #!/bin/sh
+
+      jq_cmd=".. | select(.type?) | select(.focused).rect | \"\(.x),\(.y) \(.width)x\(.height)\""
+      rect="$(swaymsg -t get_tree | jq -j "$jq_cmd")"
+
+      grim -g "$rect" "$@"
+    '')
   ];
 
   wayland.windowManager.sway = {
     enable = true;
+
+    extraSessionCommands = ''
+      export GRIM_DEFAULT_DIR="${config.xdg.userDirs.pictures}/Screenshots"
+    '';
 
     config = {
       input = {
@@ -20,15 +44,26 @@
 
       bindkeysToCode = true;
 
-      keybindings = {
+      keybindings = let
+        wrap = x: "exec sh -c \"${x}\"";
+        wrapClip = x: wrap "${x} - | wl-copy";
+        screenshotArea = ''grim -g $(slurp)'';
+        screenshotWindow = "my-grim-window";
+        screenshotOutput = ''grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')'';
+      in {
         "$mod+Shift+t" = "exec $terminal";
         "$mod+t" = "exec $terminalTmux";
         "$mod+slash" = "exec $appLauncher";
         "$mod+f" = "exec $fileManager";
-        "$mod+c" = "exec wl-color-picker -a";
-        "Print" = "exec grim -g \"$(slurp)\" - | wl-copy";
-        # "$mod+Print" = "";
-        # "$mod+Shift+Print" = "";
+
+        "$mod+z" = wrap "woomer";
+        "$mod+c" = wrapClip "hyprpicker";
+        "Print" = wrap screenshotArea;
+        "$mod+Print" = wrap screenshotWindow;
+        "Shift+Print" = wrap screenshotOutput;
+        "Ctrl+Print" = wrapClip screenshotArea;
+        "Ctrl+$mod+Print" = wrapClip screenshotWindow;
+        "Ctrl+Shift+Print" = wrapClip screenshotOutput;
 
         "$mod+q" = "kill";
         "$mod+Shift+Escape" = "exit";

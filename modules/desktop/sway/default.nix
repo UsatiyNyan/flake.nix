@@ -15,11 +15,6 @@
   home.packages = with pkgs; [
     wl-clipboard
     cliphist
-    brightnessctl
-    wl-color-picker
-    grim
-    slurp
-    wf-recorder
   ];
 
   wayland.windowManager.sway = {
