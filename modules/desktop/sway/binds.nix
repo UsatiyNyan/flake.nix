@@ -55,6 +55,7 @@
         "$mod+t" = "exec $terminalTmux";
         "$mod+slash" = "exec $appLauncher";
         "$mod+f" = "exec $fileManager";
+        "$mod+Shift+V" = wrap "cliphist list | $picker | cliphist decode | wl-copy";
 
         "$mod+z" = wrap "woomer";
         "$mod+c" = wrapClip "hyprpicker";

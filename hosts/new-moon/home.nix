@@ -66,6 +66,7 @@
       set $monitor1 HDMI-A-1
 
       set $appLauncher rofi -show drun -show-icons
+      set $picker rofi -dmenu
       set $fileManager nautilus
     '';
   };
