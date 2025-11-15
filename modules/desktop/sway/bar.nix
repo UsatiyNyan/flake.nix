@@ -10,9 +10,12 @@
         modules-left = ["sway/workspaces"];
         modules-center = ["sway/window"];
         modules-right = [
-          "keyboard-state"
+          "memory"
+          "cpu"
+          "network"
           "pulseaudio"
           "battery"
+          "sway/language"
           "clock"
         ];
 
@@ -41,10 +44,51 @@
           separate-outputs = true;
         };
 
-        "keyboard-state" = {
-          format = "{layout}";
-          format-alt = "{variant}";
-          interval = 1;
+        "cpu" = {
+          states = {
+            none = 20;
+            good = 40;
+            warning = 60;
+            critical = 100;
+          };
+          interval = 10;
+          format = " {usage}%";
+          max-length = 10;
+        };
+
+        "memory" = {
+          states = {
+            none = 20;
+            good = 40;
+            warning = 60;
+            critical = 100;
+          };
+          format = " {percentage}%";
+          tooltip-format = "{used:0.1f}G/{total:0.1f}G";
+        };
+
+        "network" = {
+          format-wifi = "{icon}{signalStrength}%";
+          format-ethernet = " ";
+          format-disconnected = "<span color='#EB6F92'> </span>";
+          format-icons = [
+            "<span color='#EB6F92'>󰤯 </span>"
+            "<span color='#F6C177'>󰤟 </span>"
+            "<span color='#F6C177'>󰤢 </span>"
+            "<span color='#9CCFD8'>󰤥 </span>"
+            "󰤨 "
+          ];
+          tooltip-format = "{ifname} via {gwaddr}";
+          tooltip-format-wifi = "{essid}";
+          tooltip-format-ethernet = "{ifname}";
+          tooltip-format-disconnected = "Disconnected";
+          max-length = 50;
+        };
+
+        "sway/language" = {
+          format = "{shortDescription}";
+          tooltip-format = "{long}";
+          on-click = ''swaymsg input "*" xkb_switch_layout next'';
         };
 
         "pulseaudio" = {
