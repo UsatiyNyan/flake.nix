@@ -51,12 +51,13 @@
       workspaceLayout = "default";
 
       window = {
-        hideEdgeBorders = "smart_no_gaps";
+        border = 0;
+        hideEdgeBorders = "both";
         titlebar = false;
       };
 
       gaps = {
-        inner = 4;
+        inner = 0;
         outer = 0;
       };
     };
