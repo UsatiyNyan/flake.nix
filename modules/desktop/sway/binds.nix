@@ -46,7 +46,7 @@
 
       keybindings = let
         wrap = x: "exec sh -c \"${x}\"";
-        wrapClip = x: wrap "${x} - | wl-copy";
+        wrapClip = x: wrap "${x} | wl-copy";
         screenshotArea = ''grim -g $(slurp)'';
         screenshotWindow = "my-grim-window";
         screenshotOutput = ''grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')'';
@@ -62,9 +62,9 @@
         "Print" = wrap screenshotArea;
         "$mod+Print" = wrap screenshotWindow;
         "Shift+Print" = wrap screenshotOutput;
-        "Ctrl+Print" = wrapClip screenshotArea;
-        "Ctrl+$mod+Print" = wrapClip screenshotWindow;
-        "Ctrl+Shift+Print" = wrapClip screenshotOutput;
+        "Ctrl+Print" = wrapClip "${screenshotArea} -";
+        "Ctrl+$mod+Print" = wrapClip "${screenshotWindow} -";
+        "Ctrl+Shift+Print" = wrapClip "${screenshotOutput} -";
 
         "$mod+q" = "kill";
         "$mod+Shift+Escape" = "exit";
