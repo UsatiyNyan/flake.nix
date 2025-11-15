@@ -9,6 +9,5 @@
     systemPackages = with pkgs; [hyprpolkitagent];
   };
 
-  # TODO: swaylock
-  security.pam.services.hyprlock = {};
+  security.pam.services.swaylock = {};
 }

@@ -11,10 +11,9 @@
   };
 
   config = {
-    # screen locker
     programs.swaylock = {
       enable = true;
-      package = pkgs.swaylock-effects; # optional for blur, etc.
+      package = pkgs.swaylock;
       settings = {
         indicator-idle-visible = true;
         show-failed-attempts = false;
@@ -30,7 +29,6 @@
       };
     };
 
-    # idle daemon
     services.swayidle = {
       enable = true;
       systemdTarget = "graphical-session.target";
