@@ -11,7 +11,7 @@
   imports = with my.modules; [
     dot.alacritty
 
-    desktop.sway
+    desktop.hyprland
     desktop.rofi
     desktop.mako
     desktop.gtk-theme
@@ -50,22 +50,13 @@
 
   fonts.fontconfig.enable = true;
 
-  wayland.windowManager.sway = {
-    config.output = {
-      "$monitor0" = {
-        mode = "2560x1440@120Hz";
-        position = "0 0";
-      };
-    };
+  wayland.windowManager.hyprland.settings = {
+    "$monitor0" = "DP-7";
 
-    extraConfigEarly = ''
-      set $monitor0 DP-7
-
-      set $appLauncher rofi -show drun -show-icons
-      set $picker rofi -dmenu
-      set $fileManager nautilus
-    '';
+    "$appLauncher" = "rofi -show drun -show-icons";
+    "$picker" = "rofi -dmenu";
+    "$fileManager" = "nautilus";
   };
 
-  swayidle.enableSuspend = false;
+  hypridle.enableSuspend = false;
 }
