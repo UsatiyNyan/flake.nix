@@ -40,6 +40,9 @@
         "type:touchpad" = {
           natural_scroll = "enabled";
         };
+        "*" = {
+          drag_lock = "disabled";
+        };
       };
 
       bindkeysToCode = true;

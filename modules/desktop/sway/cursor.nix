@@ -13,15 +13,10 @@
   wayland.windowManager.sway = {
     enable = true;
 
-    config = {
-      seat."*" = {
-        hide_cursor = "when-typing enable";
-        # idle_warp = "no";
-      };
-    };
-    # extraConfig = ''
-    #   seat * hide_cursor 5
-    # '';
+    extraConfig = ''
+      seat * hide_cursor when-typing disable
+      seat * hide_cursor 5000
+    '';
 
     extraSessionCommands = ''
       export XCURSOR_THEME="BreezeX-RosePine-Linux"
