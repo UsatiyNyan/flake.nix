@@ -11,7 +11,7 @@
   imports = with my.modules; [
     dot.alacritty
 
-    desktop.hyprland
+    desktop.sway
     desktop.rofi
     desktop.mako
     desktop.gtk-theme
@@ -33,6 +33,8 @@
     pavucontrol
     seahorse
     gparted
+    vlc
+    obs-studio
     prismlauncher
 
     # unfree
@@ -48,12 +50,22 @@
 
   fonts.fontconfig.enable = true;
 
-  wayland.windowManager.hyprland.settings = {
-    "$monitor0" = "DP-7";
+  wayland.windowManager.sway = {
+    config.output = {
+      "$monitor0" = {
+        mode = "2560x1440@120Hz";
+        position = "0 0";
+      };
+    };
 
-    "$appLauncher" = "rofi -show drun -show-icons";
-    "$fileManager" = "nautilus"; # configured from optional-configuration
+    extraConfigEarly = ''
+      set $monitor0 DP-7
+
+      set $appLauncher rofi -show drun -show-icons
+      set $picker rofi -dmenu
+      set $fileManager nautilus
+    '';
   };
 
-  hypridle.enableSuspend = false;
+  swayidle.enableSuspend = false;
 }
