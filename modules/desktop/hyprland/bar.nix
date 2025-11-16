@@ -9,9 +9,12 @@
         modules-left = ["hyprland/workspaces"];
         modules-center = ["hyprland/window"];
         modules-right = [
-          "hyprland/language"
+          "memory"
+          "cpu"
+          "network"
           "pulseaudio"
           "battery"
+          "hyprland/language"
           "clock"
         ];
 
@@ -28,11 +31,56 @@
             "8" = "8";
             "9" = "9";
             "10" = "0";
+            "urgent" = "*";
             "active" = "_";
           };
         };
 
-        "hyprland/window".separate-outputs = true;
+        "hyprland/window" = {
+          max-length = 60;
+          separate-outputs = true;
+        };
+
+        "cpu" = {
+          states = {
+            none = 20;
+            good = 40;
+            warning = 60;
+            critical = 100;
+          };
+          interval = 10;
+          format = " {usage}%";
+          max-length = 10;
+        };
+
+        "memory" = {
+          states = {
+            none = 20;
+            good = 40;
+            warning = 60;
+            critical = 100;
+          };
+          format = " {percentage}%";
+          tooltip-format = "{used:0.1f}G/{total:0.1f}G";
+        };
+
+        "network" = {
+          format-wifi = "{icon}{signalStrength}%";
+          format-ethernet = " ";
+          format-disconnected = "<span color='#EB6F92'> </span>";
+          format-icons = [
+            "<span color='#EB6F92'>󰤯 </span>"
+            "<span color='#F6C177'>󰤟 </span>"
+            "<span color='#F6C177'>󰤢 </span>"
+            "<span color='#9CCFD8'>󰤥 </span>"
+            "󰤨 "
+          ];
+          tooltip-format = "{ifname} via {gwaddr}";
+          tooltip-format-wifi = "{essid}";
+          tooltip-format-ethernet = "{ifname}";
+          tooltip-format-disconnected = "Disconnected";
+          max-length = 50;
+        };
 
         "hyprland/language" = {
           format = "{short}";

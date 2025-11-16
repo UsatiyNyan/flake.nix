@@ -20,31 +20,32 @@ tooltip {
 #language,
 #pulseaudio,
 #battery,
-#clock {
+#clock,
+#memory,
+#cpu,
+#network {
     padding-left: 8px;
     padding-right: 8px;
 }
 
-#pulseaudio.good {
+#pulseaudio.good,
+#battery.good,
+#memory.good,
+#cpu.good {
     color: #9CCFD8;
 }
 
-#pulseaudio.warning {
+#pulseaudio.warning,
+#battery.warning,
+#memory.warning,
+#cpu.warning {
     color: #F6C177;
 }
 
-#pulseaudio.critical {
+#pulseaudio.critical,
+#battery.critical,
+#memory.critical,
+#cpu.critical {
     color: #EB6F92;
 }
 
-#battery.good {
-    color: #9CCFD8;
-}
-
-#battery.warning {
-    color: #F6C177;
-}
-
-#battery.critical {
-    color: #EB6F92;
-}

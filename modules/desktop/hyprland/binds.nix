@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     wev # to know which events are which keys
+    woomer
   ];
 
   wayland.windowManager.hyprland.settings = {
@@ -23,6 +24,9 @@
       "$mainMod, T, exec, $terminalTmux"
       "$mainMod, SLASH, exec, $appLauncher"
       "$mainMod, F, exec, $fileManager"
+      "$mainMod SHIFT, V, exec, cliphist list | $picker | cliphist decode | wl-copy"
+      "$mainMod, Z, exec, woomer"
+
       "$mainMod, C, exec, hyprpicker -a"
       ", PRINT, exec, hyprshot -z -m region"
       "$mainMod, PRINT, exec, hyprshot -m window active"
