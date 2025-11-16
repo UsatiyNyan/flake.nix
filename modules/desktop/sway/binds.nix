@@ -68,7 +68,7 @@
 
         "$mod+q" = "kill";
         "$mod+Shift+Escape" = "exit";
-        "$mod+Escape" = "exec swaylock -f";
+        "$mod+Escape" = "exec loginctl lock-session";
 
         "$mod+h" = "focus left";
         "$mod+j" = "focus down";

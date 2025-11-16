@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: {
   options.swayidle.enableSuspend = lib.mkOption {
@@ -13,7 +12,6 @@
   config = {
     programs.swaylock = {
       enable = true;
-      package = pkgs.swaylock;
       settings = {
         indicator-idle-visible = true;
         show-failed-attempts = false;
@@ -29,9 +27,11 @@
       };
     };
 
-    services.swayidle = {
+    services.swayidle = let
+      lock = "${config.programs.swaylock.package}/bin/swaylock -f";
+      display = status: "swaymsg 'output * dpms ${status}'";
+    in {
       enable = true;
-      systemdTarget = "graphical-session.target";
 
       timeouts =
         [
@@ -42,12 +42,12 @@
           }
           {
             timeout = 300;
-            command = "swaylock -f";
+            command = lock;
           }
           {
             timeout = 600;
-            command = "swaymsg 'output * dpms off'";
-            resumeCommand = "swaymsg 'output * dpms on'";
+            command = display "off";
+            resumeCommand = display "on";
           }
         ]
         ++ lib.optional config.swayidle.enableSuspend {
@@ -58,11 +58,19 @@
       events = [
         {
           event = "before-sleep";
-          command = "swaylock -f";
+          command = "${display "off"}; ${lock}";
         }
         {
           event = "after-resume";
-          command = "swaymsg 'output * dpms on'";
+          command = display "on";
+        }
+        {
+          event = "lock";
+          command = "${display "off"}; ${lock}";
+        }
+        {
+          event = "unlock";
+          command = display "on";
         }
       ];
     };

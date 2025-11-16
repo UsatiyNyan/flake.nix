@@ -36,7 +36,6 @@
       terminal = "alacritty -e my-tmux-new";
 
       startup = [
-        {command = "systemctl --user start polkit-gnome-authentication-agent-1";}
         {command = "swaybg -i ${config.xdg.userDirs.pictures}/wallpaper.jpg --mode fill";}
         {command = "wl-paste --type text --watch cliphist store";}
       ];
