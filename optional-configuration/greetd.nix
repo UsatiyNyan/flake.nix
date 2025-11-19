@@ -1,7 +1,7 @@
-{cmd}: {pkgs, ...}: {
+{cmd, vt ? 2}: {pkgs, ...}: {
   services.greetd = {
     enable = true;
-    vt = 2;
+    vt = vt;
     settings = {
       default_session = {
         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd \"${cmd}\"";

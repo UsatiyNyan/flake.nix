@@ -13,6 +13,7 @@
   plasma6 = ./plasma6.nix;
   hyprland = ./hyprland.nix;
   sway = ./sway.nix;
+  i3 = ./i3.nix;
 
   # file managers
   thunar = ./thunar.nix;
