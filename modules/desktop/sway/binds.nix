@@ -25,8 +25,6 @@
   ];
 
   wayland.windowManager.sway = {
-    enable = true;
-
     extraSessionCommands = ''
       export GRIM_DEFAULT_DIR="${config.xdg.userDirs.pictures}/Screenshots"
     '';
