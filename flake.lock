@@ -601,11 +601,11 @@
     "private-hosts": {
       "flake": false,
       "locked": {
-        "lastModified": 1763317149,
-        "narHash": "sha256-T1qYn4H0o9d57atnULbxVH+7Q6VT3JdeAcA8Ryhi5eE=",
+        "lastModified": 1763598741,
+        "narHash": "sha256-kz+hFohKY6F3XV+1QCRM8PPNo/soc3pBxxAAa6+KlV4=",
         "ref": "main",
-        "rev": "7515f6bcba6dc0733b64d993dfd3bbae73b6fafc",
-        "revCount": 6,
+        "rev": "d26afa7416ab5072227868faac79183f4a9dcdfb",
+        "revCount": 8,
         "type": "git",
         "url": "ssh://git@github.com/UsatiyNyan/private-hosts.nix"
       },
