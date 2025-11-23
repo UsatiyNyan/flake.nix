@@ -36,6 +36,7 @@
     vlc
     obs-studio
     prismlauncher
+    davinci-resolve
 
     # unfree
     google-chrome
