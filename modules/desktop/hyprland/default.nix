@@ -29,7 +29,7 @@
       "$terminalTmux" = "alacritty -e my-tmux-attach";
 
       env = [
-        "HYPRSHOT_DIR,$XDG_PICTURES_DIR/Screenshots"
+        "HYPRSHOT_DIR,$HOME/Pictures/Screenshots"
       ];
 
       # TODO: auto-layout connected monitors
