@@ -9,20 +9,27 @@
       vscode-extensions.vadimcn.vscode-lldb
     ];
   nixvim = {...}: {
-    plugins.lsp.servers = {
-      clangd = {
-        enable = true;
-        onAttach.function = ''
-          nmap('<leader>sh', '<cmd>ClangdSwitchSourceHeader<CR>', 'Clangd: Switch [S]ource [H]eader')
-        '';
-        cmd = ["clangd" "--compile-commands-dir=./build"];
+    plugins = {
+      lsp.servers = {
+        clangd = {
+          enable = true;
+          onAttach.function = ''
+            nmap('<leader>sh', '<cmd>ClangdSwitchSourceHeader<CR>', 'Clangd: Switch [S]ource [H]eader')
+          '';
+          cmd = ["clangd" "--compile-commands-dir=./build"];
+        };
+        neocmake = {
+          enable = true;
+          filetypes = ["cmake"];
+          cmd = ["neocmakelsp" "--stdio"];
+        };
+        glsl_analyzer.enable = true;
       };
-      neocmake = {
-        enable = true;
-        filetypes = ["cmake"];
-        cmd = ["neocmakelsp" "--stdio"];
-      };
-      glsl_analyzer.enable = true;
+      treesitter.settings.ensure_installed = [
+        "c"
+        "cpp"
+        "glsl"
+      ];
     };
   };
   scripts = {

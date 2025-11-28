@@ -13,17 +13,8 @@ in {
       settings = {
         ensure_installed = [
           "bash"
-          "nix"
-          "c"
-          "cpp"
-          "glsl"
-          "lua"
-          "python"
-          "javascript"
           "html"
-          "haskell"
-          "ocaml"
-          "rust"
+          "python"
         ];
         sync_install = false;
         highlight.enable = true;

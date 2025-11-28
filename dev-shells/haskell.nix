@@ -6,9 +6,12 @@
       haskell-language-server
     ];
   nixvim = {...}: {
-    plugins.lsp.servers.hls = {
-      enable = true;
-      installGhc = false;
+    plugins = {
+      lsp.servers.hls = {
+        enable = true;
+        installGhc = false;
+      };
+      treesitter.settings.ensure_installed = ["haskell"];
     };
   };
 }

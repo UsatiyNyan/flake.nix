@@ -11,10 +11,13 @@
       rustfmt
     ];
   nixvim = {pkgs, ...}: {
-    plugins.lsp.servers.rust_analyzer = {
-      enable = true;
-      installCargo = false;
-      installRustc = false;
+    plugins = {
+      lsp.servers.rust_analyzer = {
+        enable = true;
+        installCargo = false;
+        installRustc = false;
+      };
+      treesitter.settings.ensure_installed = ["rust"];
     };
 
     extraPlugins = with pkgs.vimPlugins; [

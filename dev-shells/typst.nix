@@ -10,11 +10,7 @@
           formatterMode = "typstfmt";
         };
       };
-      treesitter = {
-        settings = {
-          ensure_installed = ["typst"];
-        };
-      };
+      treesitter.settings.ensure_installed = ["typst"];
     };
   };
 }

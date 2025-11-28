@@ -4,11 +4,14 @@
       alejandra
     ];
   nixvim = {...}: {
-    plugins.lsp.servers.nixd = {
-      enable = true;
-      onAttach.function = ''
-        nmap('<leader>cf', '<cmd>silent !alejandra %<CR>', 'Nixd: alejandra: format')
-      '';
+    plugins = {
+      lsp.servers.nixd = {
+        enable = true;
+        onAttach.function = ''
+          nmap('<leader>cf', '<cmd>silent !alejandra %<CR>', 'Nixd: alejandra: format')
+        '';
+      };
+      treesitter.settings.ensure_installed = ["nix"];
     };
   };
 }
