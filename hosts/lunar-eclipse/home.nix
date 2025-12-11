@@ -36,7 +36,9 @@
     vlc
     obs-studio
     prismlauncher
+
     davinci-resolve
+    (pkgs.writeScriptBin "my-davinci-resolve" "QT_QPA_PLATFORM=xcb davinci-resolve")
 
     # unfree
     google-chrome
