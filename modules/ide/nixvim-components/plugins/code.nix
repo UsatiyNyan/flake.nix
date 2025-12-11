@@ -1,4 +1,6 @@
 {
+  inputs,
+  system,
   pkgs,
   lib,
   my,
@@ -93,28 +95,17 @@ in {
     comment.enable = true;
     treesitter-textobjects.enable = true;
     nvim-surround.enable = true;
-
-    nvim-ufo = {
-      enable = true;
-      settings.provider_selector = ''
-        function(bufnr, filetype, buftype)
-          local clients = vim.lsp.get_clients({ bufnr = bufnr })
-          for _, client in ipairs(clients) do
-            if client.server_capabilities.foldingRangeProvider then
-              return { "lsp", "indent" }
-            end
-          end
-          return { "treesitter", "indent" }
-        end
-      '';
-    };
   };
 
-  extraPlugins = with pkgs.vimPlugins; [
-    nvim-dap-ui
-    nvim-dap-virtual-text
-    promise-async
-  ];
+  extraPlugins =
+    (with pkgs.vimPlugins; [
+      nvim-dap-ui
+      nvim-dap-virtual-text
+      promise-async
+    ])
+    ++ (with inputs.nixpkgs-unstable.legacyPackages.${system}.vimPlugins; [
+      nvim-ufo
+    ]);
 
   extraConfigLua = ''
     local dap = require("dap")
@@ -122,7 +113,53 @@ in {
     dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
     dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
     dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
+
+    require('ufo').setup({
+      provider_selector = function(bufnr, filetype, buftype)
+        local clients = vim.lsp.get_clients({ bufnr = bufnr })
+        for _, client in ipairs(clients) do
+          if client.server_capabilities.foldingRangeProvider then
+            return { "lsp", "indent" }
+          end
+        end
+        return { "treesitter", "indent" }
+      end,
+      fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
+        local newVirtText = {}
+        local suffix = (" 󰁂 %d lines "):format(endLnum - lnum)
+        local sufWidth = vim.fn.strdisplaywidth(suffix)
+        local targetWidth = width - sufWidth
+        local curWidth = 0
+
+        for _, chunk in ipairs(virtText) do
+          local chunkText = chunk[1]
+          local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+          if targetWidth > curWidth + chunkWidth then
+            table.insert(newVirtText, chunk)
+            curWidth = curWidth + chunkWidth
+          else
+            chunkText = truncate(chunkText, targetWidth - curWidth)
+            table.insert(newVirtText, {chunkText, chunk[2]})
+            curWidth = curWidth + vim.fn.strdisplaywidth(chunkText)
+            break
+          end
+        end
+
+        table.insert(newVirtText, {suffix, "MoreMsg"})
+        return newVirtText
+      end,
+    })
   '';
+
+  # fold
+  opts = {
+    foldcolumn = "0";
+    foldlevel = 99;
+    foldlevelstart = 99;
+    foldenable = true;
+    foldmethod = "expr";
+    foldexpr = "v:lua.vim.ufo.foldexpr()";
+  };
 
   keymaps = [
     # dap
