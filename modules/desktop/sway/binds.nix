@@ -104,6 +104,8 @@
         "$mod+Shift+9" = focusAndContainerToWorkspace "9";
         "$mod+Shift+0" = focusAndContainerToWorkspace "10";
 
+        "$mod+s" = "floating toggle";
+
         "$mod+Ctrl+h" = "workspace prev_on_output";
         "$mod+Ctrl+l" = "workspace next_on_output";
 

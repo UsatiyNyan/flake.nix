@@ -56,6 +56,8 @@
         "${modifier}+Shift+9" = "move container to workspace number 9";
         "${modifier}+Shift+0" = "move container to workspace number 10";
 
+        "${modifier}+s" = "floating toggle";
+
         "${modifier}+Ctrl+h" = "workspace prev_on_output";
         "${modifier}+Ctrl+l" = "workspace next_on_output";
 
