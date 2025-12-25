@@ -7,6 +7,8 @@
       extra-cmake-modules
       ninja
       vscode-extensions.vadimcn.vscode-lldb
+      lldb
+      valgrind
     ];
   nixvim = {...}: {
     plugins = {
