@@ -38,6 +38,7 @@ in {
       fzf
       tldr
       fd
+      jq
 
       # TUI
       bluetuith

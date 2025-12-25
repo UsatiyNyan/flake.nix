@@ -8,25 +8,14 @@
     brightnessctl
 
     # screen capture
-    grim
-    slurp
-    jq
     hyprpicker
+    hyprshot
     woomer
-
-    (pkgs.writeShellScriptBin "my-grim-window" ''
-      #!/bin/sh
-
-      jq_cmd=".. | select(.type?) | select(.focused).rect | \"\(.x),\(.y) \(.width)x\(.height)\""
-      rect="$(swaymsg -t get_tree | jq -j "$jq_cmd")"
-
-      grim -g "$rect" "$@"
-    '')
   ];
 
   wayland.windowManager.sway = {
     extraSessionCommands = ''
-      export GRIM_DEFAULT_DIR="${config.xdg.userDirs.pictures}/Screenshots"
+      export HYPRSHOT_DIR="${config.xdg.userDirs.pictures}/Screenshots"
     '';
 
     config = {
@@ -48,9 +37,6 @@
       keybindings = let
         wrap = x: "exec sh -c \"${x}\"";
         wrapClip = x: wrap "${x} | wl-copy";
-        screenshotArea = ''grim -g $(slurp)'';
-        screenshotWindow = "my-grim-window";
-        screenshotOutput = ''grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')'';
         focusToWorkspace = x: "workspace number ${x}";
         containerToWorkspace = x: "move container to workspace number ${x}";
         focusAndContainerToWorkspace = x: let
@@ -66,12 +52,9 @@
 
         "$mod+z" = wrap "woomer";
         "$mod+c" = wrapClip "hyprpicker";
-        "Print" = wrap screenshotArea;
-        "$mod+Print" = wrap screenshotWindow;
-        "Shift+Print" = wrap screenshotOutput;
-        "Ctrl+Print" = wrapClip "${screenshotArea} -";
-        "Ctrl+$mod+Print" = wrapClip "${screenshotWindow} -";
-        "Ctrl+Shift+Print" = wrapClip "${screenshotOutput} -";
+        "Print" = wrap "hyprshot -z -m region";
+        "$mod+Print" = wrap "hyprshot -m window active";
+        "$mod+Shift+Print" = wrap "hyprshot -m output";
 
         "$mod+q" = "kill";
         "$mod+Shift+Escape" = "exit";
