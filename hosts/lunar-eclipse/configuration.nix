@@ -47,6 +47,13 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
+
   boot.loader.timeout = 15;
   boot.loader.systemd-boot = {
     # The device handle of the EFI System Partition (ESP) where the Windows bootloader is
