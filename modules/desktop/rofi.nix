@@ -1,7 +1,7 @@
 # applauncher
 {pkgs, ...}: {
   home = {
-    packages = with pkgs; [rofi-wayland];
+    packages = with pkgs; [rofi];
     # theme based on "github:rose-pine/rofi"
     file.".config/rofi/config.rasi".text = ''
       @import "default"

@@ -13,11 +13,7 @@
       touchpad.natural_scroll = "true";
     };
 
-    gestures = {
-      workspace_swipe = true;
-      workspace_swipe_fingers = 3;
-      workspace_swipe_min_fingers = true;
-    };
+    gesture = "3, swipe, workspace";
 
     bind = [
       "$mainMod SHIFT, T, exec, $terminal"

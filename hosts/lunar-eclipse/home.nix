@@ -37,9 +37,6 @@
     obs-studio
     prismlauncher
 
-    davinci-resolve
-    (pkgs.writeScriptBin "my-davinci-resolve" "QT_QPA_PLATFORM=xcb davinci-resolve")
-
     # unfree
     google-chrome
 
@@ -54,7 +51,7 @@
   fonts.fontconfig.enable = true;
 
   wayland.windowManager.hyprland.settings = {
-    "$monitor0" = "DP-7";
+    "$monitor0" = "DP-8";
 
     "$appLauncher" = "rofi -show drun -show-icons";
     "$picker" = "rofi -dmenu";
