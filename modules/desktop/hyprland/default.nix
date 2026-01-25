@@ -49,11 +49,6 @@
       ];
 
       workspace = [
-        "1, monitor:$monitor0, persistent:true, default:true"
-        "2, monitor:$monitor0, persistent:true"
-        "3, monitor:$monitor0, persistent:true"
-        "4, monitor:$monitor0, persistent:true"
-        "5, monitor:$monitor0, persistent:true"
       ];
 
       windowrule = [

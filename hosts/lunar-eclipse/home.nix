@@ -51,7 +51,7 @@
   fonts.fontconfig.enable = true;
 
   wayland.windowManager.hyprland.settings = {
-    "$monitor0" = "DP-8";
+    "$monitor0" = "DP-6";
 
     "$appLauncher" = "rofi -show drun -show-icons";
     "$picker" = "rofi -dmenu";
