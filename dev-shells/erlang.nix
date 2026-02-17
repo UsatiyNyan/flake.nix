@@ -1,16 +1,23 @@
 {
-  buildInputs = {pkgs, ...}:
-    with pkgs; [
+  buildInputs = {
+    inputs,
+    system,
+    pkgs,
+    ...
+  }:
+    (with pkgs; [
       erlang
       elixir
-      gleam
       beamPackages.rebar3
       inotify-tools
-    ];
+    ])
+    ++ (with inputs.nixpkgs-unstable.legacyPackages.${system}; [
+      gleam
+    ]);
   nixvim = {...}: {
     plugins = {
       lsp.servers = {
-        erlangls.enable = true;
+        elp.enable = true;
         elixirls.enable = true;
         gleam.enable = true;
       };
