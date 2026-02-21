@@ -77,6 +77,7 @@
       // {
         config.xdg.cacheHome = "/home/${user}/.cache";
         pkgs = inputs.nixpkgs.legacyPackages.${system};
+        pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${system};
         inherit system;
       };
   in

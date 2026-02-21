@@ -1,12 +1,12 @@
 {
-  buildInputs = {inputs, system, ...}:
-    [
-      inputs.nixpkgs-unstable.legacyPackages.${system}.zig
+  buildInputs = {pkgs-unstable, ...}:
+    with pkgs-unstable; [
+      zig
     ];
-  nixvim = {inputs, system, ...}: {
+  nixvim = {pkgs-unstable, ...}: {
     plugins.lsp.servers.zls = {
       enable = true;
-      package = inputs.nixpkgs-unstable.legacyPackages.${system}.zls;
+      package = pkgs-unstable.zls;
     };
   };
 }

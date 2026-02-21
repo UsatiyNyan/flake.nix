@@ -1,8 +1,7 @@
 {
   buildInputs = {
-    inputs,
-    system,
     pkgs,
+    pkgs-unstable,
     ...
   }:
     (with pkgs; [
@@ -11,15 +10,18 @@
       beamPackages.rebar3
       inotify-tools
     ])
-    ++ (with inputs.nixpkgs-unstable.legacyPackages.${system}; [
+    ++ (with pkgs-unstable; [
       gleam
     ]);
-  nixvim = {...}: {
+  nixvim = {pkgs-unstable, ...}: {
     plugins = {
       lsp.servers = {
         elp.enable = true;
         elixirls.enable = true;
-        gleam.enable = true;
+        gleam = {
+          enable = true;
+          package = pkgs-unstable.gleam;
+        };
       };
 
       treesitter.settings.ensure_installed = [
