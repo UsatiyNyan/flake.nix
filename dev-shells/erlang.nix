@@ -9,6 +9,7 @@
       elixir
       beamPackages.rebar3
       inotify-tools
+      nodejs # for javascript target
     ])
     ++ (with pkgs-unstable; [
       gleam

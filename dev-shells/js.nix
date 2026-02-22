@@ -2,6 +2,7 @@
   buildInputs = {pkgs, ...}:
     with pkgs; [
       typescript-language-server
+      nodejs
     ];
   nixvim = {...}: {
     plugins = {
