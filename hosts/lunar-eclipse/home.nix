@@ -16,7 +16,7 @@
     desktop.mako
     desktop.gtk-theme
 
-    ide.aider
+    ide.ai
 
     utils.box
   ];

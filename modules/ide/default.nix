@@ -6,5 +6,5 @@
   nixvim-standalone = ./nixvim-standalone.nix;
 
   # AI
-  aider = ./aider.nix;
+  ai = ./ai.nix;
 }
