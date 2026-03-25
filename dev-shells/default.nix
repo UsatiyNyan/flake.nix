@@ -12,6 +12,7 @@
     "haskell" = import ./haskell.nix;
     "lua" = import ./lua.nix;
     "js" = import ./js.nix;
+    "go" = import ./go.nix;
     "erlang" = import ./erlang.nix;
     "nix" = import ./nix.nix;
     "rust" = import ./rust.nix;
