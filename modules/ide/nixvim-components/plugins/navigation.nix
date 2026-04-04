@@ -156,7 +156,12 @@ in {
         })'';
       options.desc = "Snacks.picker: clip hist";
     }
-
+    {
+      mode = "n";
+      key = "<leader>pq";
+      action = mkFun ''Snacks.picker.qflist()'';
+      options.desc = "Snacks.picker: quick fix list";
+    }
     {
       mode = "n";
       key = "<leader>pe";
