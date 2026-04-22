@@ -19,9 +19,8 @@
       };
       treesitter.settings.ensure_installed = ["rust"];
     };
-
-    extraPlugins = with pkgs.vimPlugins; [
-      rust-tools-nvim
-    ];
   };
+  shellHook = ''
+    export PATH="$PATH:$HOME/.cargo/bin/"
+  '';
 }
