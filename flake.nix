@@ -122,9 +122,20 @@
       {}
       hosts;
 
-    devShells = (import ./dev-shells) {
-      inherit inputs user my;
-      lib = nixpkgs.lib;
+    devShells = let
+      devShellsModule = (import ./dev-shells) {
+        inherit inputs user my;
+        lib = nixpkgs.lib;
+      };
+    in devShellsModule.shells;
+
+    lib = let
+      devShellsModule = (import ./dev-shells) {
+        inherit inputs user my;
+        lib = nixpkgs.lib;
+      };
+    in {
+      inherit (devShellsModule) mkComposedShell extendShell modules getArgs;
     };
   };
 }
