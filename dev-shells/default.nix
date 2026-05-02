@@ -110,6 +110,7 @@
     extraBuildInputs ? [],
     extraShellHook ? "",
     extraNixvimComponents ? [],
+    alias ? null,
   }: let
     _args = _mkArgs system;
     pkgs = _args.pkgs;
@@ -130,6 +131,12 @@
     # Merge shell hooks
     mergedShellHook = lib.concatStringsSep "\n" (map (a: a.shellHook) baseAttrs);
 
+    # Override alias if provided
+    aliasHook =
+      if alias != null
+      then ''export MY_NIX_VIA="${alias}";''
+      else "";
+
     # Collect all nixvim components
     nixvimComponents =
       (lib.filter (c: c != null) (map (a: a.nixvimComponent) baseAttrs))
@@ -143,7 +150,7 @@
 
   in pkgs.mkShell {
     buildInputs = mergedBuildInputs ++ combinedNixvim ++ extraBuildInputs;
-    shellHook = mergedShellHook + "\n" + extraShellHook;
+    shellHook = mergedShellHook + "\n" + aliasHook + "\n" + extraShellHook;
   };
 
   # Convenience: extend a single shell
@@ -153,8 +160,9 @@
     extraBuildInputs ? [],
     extraShellHook ? "",
     extraNixvimComponents ? [],
+    alias ? null,
   }: mkComposedShell {
-    inherit system extraBuildInputs extraShellHook extraNixvimComponents;
+    inherit system extraBuildInputs extraShellHook extraNixvimComponents alias;
     bases = [base];
   };
 
