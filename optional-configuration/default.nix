@@ -1,5 +1,6 @@
 {
   boot = ./boot.nix;
+  docker = ./docker.nix;
 
   # display managers
   sddm = ./sddm.nix;

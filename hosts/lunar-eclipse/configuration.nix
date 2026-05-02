@@ -12,6 +12,7 @@
     my.configuration
 
     my.optionalConfiguration.boot
+    my.optionalConfiguration.docker
     (import my.optionalConfiguration.greetd {cmd = "Hyprland";})
     my.optionalConfiguration.gnome-keyring
     my.optionalConfiguration.hyprland
