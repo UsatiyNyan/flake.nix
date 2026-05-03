@@ -10,6 +10,7 @@
 }: {
   imports = with my.modules; [
     dot.alacritty
+    dot.direnv
 
     desktop.sway
     desktop.rofi
