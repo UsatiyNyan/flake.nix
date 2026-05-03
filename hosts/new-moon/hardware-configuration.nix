@@ -48,16 +48,10 @@
     enableRedistributableFirmware = true;
     graphics = {
       enable = true;
-      extraPackages = with pkgs; [
-        mesa
-        amdvlk
-      ];
+      extraPackages = with pkgs; [mesa];
 
       enable32Bit = true;
-      extraPackages32 = with pkgs; [
-        driversi686Linux.mesa
-        driversi686Linux.amdvlk
-      ];
+      extraPackages32 = with pkgs; [driversi686Linux.mesa];
     };
   };
 }
