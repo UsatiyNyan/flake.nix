@@ -36,6 +36,7 @@
     gparted
     vlc
     obs-studio
+    sioyek
 
     # unfree
     google-chrome

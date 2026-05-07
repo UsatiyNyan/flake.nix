@@ -37,6 +37,7 @@
     vlc
     obs-studio
     prismlauncher
+    sioyek
 
     # unfree
     google-chrome
