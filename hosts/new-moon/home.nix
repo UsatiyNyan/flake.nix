@@ -40,6 +40,7 @@
 
     # unfree
     google-chrome
+    brave
 
     # STYLE
     nerd-fonts.iosevka
