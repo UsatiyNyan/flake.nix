@@ -5,12 +5,10 @@
       rust-analyzer
       rustc
       cargo
-      wasm-pack
-      lld # needed for wasm-pack dylib
       clippy
       rustfmt
     ];
-  nixvim = {pkgs, ...}: {
+  nixvim = {...}: {
     plugins = {
       lsp.servers.rust_analyzer = {
         enable = true;
