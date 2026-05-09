@@ -20,27 +20,12 @@
     ide.ai
 
     utils.box
+    utils.office
   ];
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
     # TERMINAL
     caligula
-
-    # DESKTOP
-    telegram-desktop
-    pavucontrol
-    seahorse
-    gparted
-    vlc
-    obs-studio
-    sioyek
-
-    # unfree
-    google-chrome
-    brave
 
     # STYLE
     nerd-fonts.iosevka

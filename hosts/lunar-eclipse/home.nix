@@ -20,6 +20,7 @@
     ide.ai
 
     utils.box
+    utils.office
   ];
 
   # Allow unfree packages
@@ -28,19 +29,6 @@
   home.packages = with pkgs; [
     # TERMINAL
     caligula
-
-    # DESKTOP
-    telegram-desktop
-    pavucontrol
-    seahorse
-    gparted
-    vlc
-    obs-studio
-    prismlauncher
-    sioyek
-
-    # unfree
-    google-chrome
 
     # STYLE
     nerd-fonts.iosevka
