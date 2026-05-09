@@ -17,7 +17,10 @@
       };
     };
 
-    # catpuccin.enable = true;
+    cyberdream = {
+      enable = true;
+      settings.transparent = false;
+    };
   };
 
   colorscheme = "rose-pine";
@@ -32,4 +35,20 @@
     StatusLine = {bg = "none";};
     StatusLineNC = {bg = "none";};
   };
+
+  keymaps = [
+    # Toggle light theme
+    {
+      mode = "n";
+      key = "<leader>tl";
+      action = "<cmd>colorscheme cyberdream-light<CR>";
+      options.desc = "[T]heme: [L]ight";
+    }
+    {
+      mode = "n";
+      key = "<leader>td";
+      action = "<cmd>colorscheme rose-pine-main<CR>";
+      options.desc = "[T]heme: [D]ark";
+    }
+  ];
 }
