@@ -15,10 +15,10 @@
     # unfree
     google-chrome
     brave
+    obsidian
   ];
 
   home.shellAliases = {
     pdf = "sioyek";
   };
 }
-
