@@ -22,7 +22,6 @@
       in {
         "${modifier}+t" = "exec ${terminal}";
         "${modifier}+slash" = "exec ${appLauncher}";
-        "${modifier}+f" = "exec ${fileManager}";
         "${modifier}+Shift+V" = wrapClip "cliphist list | ${picker} | cliphist decode";
 
         "${modifier}+q" = "kill";
@@ -57,6 +56,7 @@
         "${modifier}+Shift+0" = "move container to workspace number 10";
 
         "${modifier}+s" = "floating toggle";
+        "${modifier}+f" = "fullscreen toggle";
 
         "${modifier}+Ctrl+h" = "workspace prev_on_output";
         "${modifier}+Ctrl+l" = "workspace next_on_output";

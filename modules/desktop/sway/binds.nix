@@ -47,7 +47,6 @@
         "$mod+Shift+t" = "exec $terminal";
         "$mod+t" = "exec $terminalTmux";
         "$mod+slash" = "exec $appLauncher";
-        "$mod+f" = "exec $fileManager";
         "$mod+Shift+V" = wrap "cliphist list | $picker | cliphist decode | wl-copy";
 
         "$mod+z" = wrap "woomer";
@@ -88,6 +87,7 @@
         "$mod+Shift+0" = focusAndContainerToWorkspace "10";
 
         "$mod+s" = "floating toggle";
+        "$mod+f" = "fullscreen toggle";
 
         "$mod+Ctrl+h" = "workspace prev_on_output";
         "$mod+Ctrl+l" = "workspace next_on_output";

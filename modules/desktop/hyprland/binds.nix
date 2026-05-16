@@ -19,7 +19,6 @@
       "$mainMod SHIFT, T, exec, $terminal"
       "$mainMod, T, exec, $terminalTmux"
       "$mainMod, SLASH, exec, $appLauncher"
-      "$mainMod, F, exec, $fileManager"
       "$mainMod SHIFT, V, exec, cliphist list | $picker | cliphist decode | wl-copy"
       "$mainMod, Z, exec, woomer"
 
@@ -63,6 +62,7 @@
       "$mainMod SHIFT, 0, movetoworkspace, 10"
 
       "$mainMod, S, togglefloating"
+      "$mainMod, F, fullscreen, 0"
 
       # Scroll through existing workspaces
       "$mainMod CTRL, H, workspace, e-1"
