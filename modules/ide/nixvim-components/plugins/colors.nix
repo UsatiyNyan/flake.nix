@@ -12,14 +12,14 @@
     onedark = {
       enable = true;
       settings = {
-        style = "warm";
+        style = "darker";
         transparent = true;
       };
     };
 
     cyberdream = {
       enable = true;
-      settings.transparent = false;
+      settings.transparent = true;
     };
   };
 
