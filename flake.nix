@@ -44,6 +44,7 @@
 
   outputs = {
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     private-hosts,
     ...
@@ -101,7 +102,10 @@
     }:
       home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = {inherit system inputs user my;};
+        extraSpecialArgs = {
+          inherit system inputs user my;
+          pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+        };
         modules = [
           my.modules.dot.home
           "${configPath}/home.nix"
@@ -127,7 +131,8 @@
         inherit inputs user my;
         lib = nixpkgs.lib;
       };
-    in devShellsModule.shells;
+    in
+      devShellsModule.shells;
 
     lib = let
       devShellsModule = (import ./dev-shells) {
