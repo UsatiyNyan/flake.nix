@@ -16,7 +16,9 @@
       vlc
       mpv
       obs-studio
-      sioyek
+      pipewire
+      kdePackages.kdenlive
+      gimp
 
       # unfree
       google-chrome
@@ -26,6 +28,7 @@
     ++ (
       with pkgs-unstable; [
         yt-dlp
+        sioyek
       ]
     );
 
