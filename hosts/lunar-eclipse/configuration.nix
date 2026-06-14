@@ -13,7 +13,7 @@
 
     my.optionalConfiguration.boot
     my.optionalConfiguration.docker
-    (import my.optionalConfiguration.greetd {cmd = "Hyprland";})
+    (import my.optionalConfiguration.greetd {cmd = "start-hyprland";})
     my.optionalConfiguration.gnome-keyring
     my.optionalConfiguration.hyprland
     my.optionalConfiguration.nautilus

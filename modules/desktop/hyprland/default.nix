@@ -22,6 +22,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
 
     settings = {
       "$mainMod" = "SUPER";
@@ -52,10 +53,6 @@
       ];
 
       windowrule = [
-      ];
-
-      layerrule = [
-        "blur, rofi"
       ];
 
       misc = {
