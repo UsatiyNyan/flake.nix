@@ -12,6 +12,5 @@
         ];
       };
     };
-    cmp-vimwiki-tags.enable = true;
   };
 }

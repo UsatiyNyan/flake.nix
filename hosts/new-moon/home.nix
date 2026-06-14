@@ -33,6 +33,7 @@
 
     (import my.modules.ide.nixvim-standalone {inherit pkgs inputs my lib system user config;})
   ];
+
   home.sessionVariables.EDITOR = "nvim";
 
   fonts.fontconfig.enable = true;

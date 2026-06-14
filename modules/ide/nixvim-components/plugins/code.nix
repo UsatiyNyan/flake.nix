@@ -63,7 +63,6 @@ in {
             name = "path";
             trailing_slash = true;
           }
-          {name = "emoji";}
         ];
 
         mapping = {
@@ -88,7 +87,6 @@ in {
     luasnip.enable = true;
     cmp_luasnip.enable = true;
     cmp-path.enable = true;
-    cmp-emoji.enable = true;
 
     dap.enable = true;
 
