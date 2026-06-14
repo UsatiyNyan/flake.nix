@@ -1,17 +1,31 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  theme = {
+    name = "rose-pine";
+    package = pkgs.rose-pine-gtk-theme;
+  };
+  iconTheme = {
+    name = "rose-pine";
+    package = pkgs.rose-pine-icon-theme;
+  };
+  font = {
+    name = "Gothic A1";
+    size = 14;
+  };
+in {
   gtk = {
     enable = true;
-    theme = {
-      name = "rose-pine";
-      package = pkgs.rose-pine-gtk-theme;
+    inherit theme iconTheme font;
+    gtk2 = {
+      enable = true;
+      inherit theme iconTheme font;
     };
-    iconTheme = {
-      name = "rose-pine";
-      package = pkgs.rose-pine-icon-theme;
+    gtk3 = {
+      enable = true;
+      inherit theme iconTheme font;
     };
-    font = {
-      name = "Iosevka Nerd Font";
-      size = 16;
+    gtk4 = {
+      enable = true;
+      inherit theme iconTheme font;
     };
   };
 }
