@@ -3,7 +3,6 @@
   pkgs-unstable,
   ...
 }: {
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   home.packages =
@@ -19,10 +18,10 @@
       pipewire
       kdePackages.kdenlive
       gimp
+      (callPackage ./detail/helium.nix {})
 
-      # unfree
+      # unfree :(
       google-chrome
-      brave
       obsidian
     ])
     ++ (
