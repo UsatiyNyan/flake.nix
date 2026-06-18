@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   config,
   lib,
@@ -9,11 +8,12 @@
   callbackScript = ''
     case "$current" in
       ${lib.concatStringsSep "\n      " (
-        lib.mapAttrsToList (id: cmd: ''
-          ${id})
-            ${cmd}
-            ;;'') cfg
-      )}
+      lib.mapAttrsToList (id: cmd: ''
+        ${id})
+          ${cmd}
+          ;;'')
+      cfg
+    )}
     esac
   '';
 in {
@@ -29,7 +29,7 @@ in {
         "my-dev-shell"
         ''
           #!/bin/sh
-          nix develop ${inputs.self}#$1 --command $SHELL
+          nix develop ~/Projects/53ri41/14y3r/#$1 --command $SHELL
         '')
     ];
 

@@ -13,7 +13,7 @@
   ];
 
   home.packages = [
-    (import my.modules.ide.nixvim-standalone {inherit pkgs inputs my lib system user config;})
+    (inputs.l4y3r.lib.nixvim {inherit pkgs inputs my lib system user config;})
   ];
   home.sessionVariables.EDITOR = "nvim";
 

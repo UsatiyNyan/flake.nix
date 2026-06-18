@@ -48,6 +48,7 @@ in {
       ".local/.gitignore".text = ''
         /build
         __cmake_systeminformation/
+        .nixvim
       '';
     };
 

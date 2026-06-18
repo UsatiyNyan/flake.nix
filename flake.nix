@@ -10,10 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim/nixos-26.05";
-    };
-
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -30,14 +26,14 @@
       flake = false;
     };
 
-    init-lua = {
-      url = "github:UsatiyNyan/init.lua";
-      flake = false;
-    };
-
     private-hosts = {
       url = "git+ssh://git@github.com/UsatiyNyan/private-hosts.nix?ref=main";
       flake = false;
+    };
+
+    l4y3r = {
+      url = "git+https://codeberg.org/us4tiyny4n/14y3r.git";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -46,6 +42,7 @@
     nixpkgs-unstable,
     home-manager,
     private-hosts,
+    l4y3r,
     ...
   } @ inputs: let
     user = "us4tiyny4n";
@@ -125,21 +122,12 @@
       {}
       hosts;
 
-    devShells = let
-      devShellsModule = (import ./dev-shells) {
-        inherit inputs user my;
-        lib = nixpkgs.lib;
+    devShells = l4y3r.lib.forAllSystems (system: {
+      default = l4y3r.lib.extendShell {
+        inherit system;
+        alias = "14nd5c4p3";
+        base = "nix";
       };
-    in
-      devShellsModule.shells;
-
-    lib = let
-      devShellsModule = (import ./dev-shells) {
-        inherit inputs user my;
-        lib = nixpkgs.lib;
-      };
-    in {
-      inherit (devShellsModule) mkComposedShell extendShell modules getArgs;
-    };
+    });
   };
 }
