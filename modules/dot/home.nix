@@ -2,6 +2,7 @@
   pkgs,
   user,
   my,
+  system,
   ...
 }: let
   xdgBinPath = "$HOME/.local/bin";
@@ -27,22 +28,28 @@ in {
 
     # The home.packages option allows you to install Nix packages into your
     # environment.
-    packages = with pkgs; [
-      # TERMINAL
-      wget
-      git
-      vim
-      zoxide
-      btop
-      ripgrep
-      fzf
-      tldr
-      fd
-      jq
+    packages = with pkgs;
+      [
+        # TERMINAL
+        wget
+        git
+        vim
+        zoxide
+        btop
+        ripgrep
+        fzf
+        tldr
+        fd
+        jq
 
-      # TUI
-      bluetuith
-    ];
+        # TUI
+        bluetuith
+      ]
+      ++ (
+        lib.optionals
+        (system == "x86_64-linux")
+        [nnd]
+      );
 
     file = {
       ".local/.gitignore".text = ''
