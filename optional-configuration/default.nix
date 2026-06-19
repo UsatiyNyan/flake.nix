@@ -23,6 +23,7 @@
 
   # credential storage
   gnome-keyring = ./gnome-keyring.nix;
+  gpg = ./gpg.nix;
 
   # keyboard configuration
   vial = ./vial.nix;

@@ -15,6 +15,7 @@
     my.optionalConfiguration.docker
     (import my.optionalConfiguration.greetd {cmd = "start-hyprland";})
     my.optionalConfiguration.gnome-keyring
+    my.optionalConfiguration.gpg
     my.optionalConfiguration.hyprland
     my.optionalConfiguration.nautilus
     my.optionalConfiguration.vial

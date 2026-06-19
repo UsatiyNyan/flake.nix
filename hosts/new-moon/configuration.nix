@@ -14,6 +14,7 @@
     my.optionalConfiguration.boot
     (import my.optionalConfiguration.greetd {cmd = "sway";})
     my.optionalConfiguration.gnome-keyring
+    my.optionalConfiguration.gpg
     my.optionalConfiguration.sway
     my.optionalConfiguration.nautilus
     my.optionalConfiguration.vial
