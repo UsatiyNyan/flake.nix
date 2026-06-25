@@ -41,6 +41,7 @@ in {
         tldr
         fd
         jq
+        inotify-tools
 
         # TUI
         bluetuith
