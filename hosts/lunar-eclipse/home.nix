@@ -21,6 +21,7 @@
 
     utils.box
     utils.office
+    utils.games
   ];
 
   # Allow unfree packages
