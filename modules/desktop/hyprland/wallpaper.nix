@@ -9,25 +9,20 @@ in {
   options.hyprpaper = {
     myDefaultWallpaper = lib.mkOption {
       type = lib.types.str;
-      default = "$HOME/Pictures/wallpaper.jpg";
-      description = "Default wallpaper path";
-    };
-    myExtraPreload = lib.mkOption {
-      type = lib.types.listOf lib.types.str;
-      default = [];
-      description = "Additional wallpapers to preload";
+      default = "${config.home.homeDirectory}/Pictures/wallpaper.jpg";
+      description = "Default wallpaper path (applied to all monitors)";
     };
   };
 
   config = {
     home = {
       packages = with pkgs; [hyprpaper];
-      file.".config/hypr/hyprpaper.conf".text = let
-        allPreloads = [cfg.myDefaultWallpaper] ++ cfg.myExtraPreload;
-        preloadLines = lib.concatMapStringsSep "\n" (p: "preload = ${p}") allPreloads;
-      in ''
-        ${preloadLines}
-        wallpaper = , ${cfg.myDefaultWallpaper}
+      file.".config/hypr/hyprpaper.conf".text = ''
+        wallpaper {
+            monitor =
+            path = ${cfg.myDefaultWallpaper}
+            fit_mode = cover
+        }
       '';
     };
   };
