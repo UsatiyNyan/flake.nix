@@ -7,6 +7,7 @@
         user = "greeter";
       };
     };
+    useTextGreeter = true;
   };
 
   users.users.greeter = {

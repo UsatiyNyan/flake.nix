@@ -20,6 +20,9 @@
       gimp
       (callPackage ./detail/helium.nix {})
 
+      # TERMINAL
+      calc
+
       # unfree :(
       google-chrome
       obsidian
