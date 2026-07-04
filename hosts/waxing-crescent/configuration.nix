@@ -36,6 +36,10 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.tailscale = {
+    enable = true;
+    openFirewall = true;
+  };
 
   networking.firewall.allowedTCPPorts = [25565];
 }
