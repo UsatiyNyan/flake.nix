@@ -18,6 +18,8 @@ in {
     home = {
       packages = with pkgs; [hyprpaper];
       file.".config/hypr/hyprpaper.conf".text = ''
+        splash = false
+
         wallpaper {
             monitor =
             path = ${cfg.myDefaultWallpaper}
