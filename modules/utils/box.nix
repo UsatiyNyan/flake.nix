@@ -3,5 +3,6 @@
     openvpn
     inetutils
     mullvad-vpn
+    nmap
   ];
 }
