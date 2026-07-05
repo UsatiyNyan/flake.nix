@@ -80,5 +80,8 @@
     };
   };
 
+  # setup qemu for remote builds for waxing-crescent
+  boot.binfmt.emulatedSystems = ["aarch64-linux"];
+
   services.mullvad-vpn.enable = true;
 }
