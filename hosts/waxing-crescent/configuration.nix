@@ -2,12 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
+  inputs,
   pkgs,
   my,
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
+    inputs.nixos-hardware.nixosModules.raspberry-pi-4
     ./hardware-configuration.nix
     my.configuration
   ];
