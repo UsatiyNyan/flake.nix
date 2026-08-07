@@ -17,13 +17,22 @@
       claude "$@"
     '';
   };
+  my-opencode = pkgs.writeShellApplication {
+    name = "my-opencode";
+    runtimeInputs = [pkgs.nodejs pkgs-unstable.opencode];
+    text = ''
+      opencode "$@"
+    '';
+  };
 in {
   home = {
-    packages = (with pkgs; [aider-chat]) ++ (with pkgs-unstable; [claude-code]) ++ [my-claude];
+    packages =
+      (with pkgs-unstable; [claude-code opencode]) #
+      ++ [my-claude my-opencode];
     file = {
       ".local/.gitignore".text = ''
-        .aider*
       '';
+      ".config/opencode/skills/".source = ./skills;
     };
   };
 }
