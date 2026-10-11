@@ -13,10 +13,10 @@
 
     my.optionalConfiguration.boot
     my.optionalConfiguration.docker
-    (import my.optionalConfiguration.greetd {cmd = "start-hyprland";})
+    (import my.optionalConfiguration.greetd {cmd = "sway --unsupported-gpu";})
     my.optionalConfiguration.gnome-keyring
     my.optionalConfiguration.gpg
-    my.optionalConfiguration.hyprland
+    my.optionalConfiguration.sway
     my.optionalConfiguration.nautilus
     my.optionalConfiguration.vial
     my.optionalConfiguration.box

@@ -12,7 +12,7 @@
     dot.alacritty
     dot.direnv
 
-    desktop.hyprland
+    desktop.sway
     desktop.rofi
     desktop.mako
     desktop.gtk-theme
@@ -41,13 +41,22 @@
 
   fonts.fontconfig.enable = true;
 
-  wayland.windowManager.hyprland.settings = {
-    "$monitor0" = "DP-6";
+  swayidle.enableSuspend = false;
 
-    "$appLauncher" = "rofi -show drun -show-icons";
-    "$picker" = "rofi -dmenu";
-    "$fileManager" = "nautilus";
+  wayland.windowManager.sway = {
+    config.output = {
+      "$monitor0" = {
+        mode = "2560x1440@120Hz";
+        position = "0 0";
+      };
+    };
+
+    extraConfigEarly = ''
+      set $monitor0 DP-6
+
+      set $appLauncher rofi -show drun -show-icons
+      set $picker rofi -dmenu
+      set $fileManager nautilus
+    '';
   };
-
-  hypridle.enableSuspend = false;
 }
