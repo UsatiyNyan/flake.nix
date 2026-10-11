@@ -1,5 +1,4 @@
 {
-  hyprland = ./hyprland;
   sway = ./sway;
   i3 = ./i3;
   rofi = ./rofi.nix;
