@@ -19,6 +19,7 @@
       kdePackages.kdenlive
       gimp
       (callPackage ./detail/helium.nix {})
+      libreoffice
 
       # TERMINAL
       calc
