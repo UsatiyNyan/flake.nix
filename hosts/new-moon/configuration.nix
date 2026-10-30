@@ -61,4 +61,7 @@
     enable = true;
     package = pkgs.mullvad-vpn;
   };
+
+  services.udev.packages = [pkgs.probe-rs-tools];
+  users.groups.plugdev = {};
 }
