@@ -84,5 +84,8 @@
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
   services.tailscale.enable = true;
-  services.mullvad-vpn.enable = true;
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn;
+  };
 }

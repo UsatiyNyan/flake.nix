@@ -57,5 +57,8 @@
   # services.openssh.enable = true;
 
   services.tailscale.enable = true;
-  services.mullvad-vpn.enable = true;
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn;
+  };
 }
