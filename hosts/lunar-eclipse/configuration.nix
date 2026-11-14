@@ -88,4 +88,5 @@
     enable = true;
     package = pkgs.mullvad-vpn;
   };
+  programs.amnezia-vpn.enable = true;
 }

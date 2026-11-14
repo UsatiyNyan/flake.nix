@@ -61,6 +61,7 @@
     enable = true;
     package = pkgs.mullvad-vpn;
   };
+  programs.amnezia-vpn.enable = true;
 
   services.udev.packages = [pkgs.probe-rs-tools];
   users.groups.plugdev = {};
